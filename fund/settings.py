@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # lab com test
+# branch test
 # Application definition
 
 INSTALLED_APPS = [
