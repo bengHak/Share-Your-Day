@@ -1,3 +1,29 @@
-{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login</title>
+  </head>
+  <body>
+    {% extends 'base.html' %} {% block contents %}
+    <div class="container" style="padding-top:100px; ">
+      <h1>Login</h1>
+      <form>
+        Username:
+        <br />
+        <input name="username" type="text" value="" />
+        <br />
+        Password:
+        <br />
+        <input name="password" type="password" value="" />
+        <br />
+        <br />
+        <input class="btn btn-primary" type="submit" value="Login" />
+      </form>
+    </div>
 
-{% endblock contents %}
+    {% endblock contents %}
+  </body>
+</html>
