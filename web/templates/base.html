@@ -7,8 +7,25 @@
     <title>Share</title>
 </head>
 <body>
+    <div class="nav-top">
+        <nav>
+            <a href="">인기 기부</a>
+            <a href="">최신 기부</a>
+            <a href="">About</a>
+            <a href="">Q&A</a>
+            {% comment %} 로그인 전 {% endcomment %}
+            <a href="">Login</a>
+            <a href="">Sign Up</a>
+            {% comment %} 로그인 후 {% endcomment %}
+            <a href="">Logout</a>
+        </nav>
+    </div>
     {% block contents %}
     
     {% endblock contents %}
+
+    <footer>
+        footer입니다.
+    </footer>
 </body>
 </html>
