@@ -4,60 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    <style type="text/css">
-      a:link { color: black; text-decoration: none;}
-      a:visited { color: black; text-decoration: none;}
-      a:hover { color: black; text-decoration: none;}
-      a:active { color: black; text-decoration: none;}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
-      li{
+    <style type="text/css">
+      a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:visited {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: black;
+        text-decoration: none;
+      }
+      a:active {
+        color: black;
+        text-decoration: none;
+      }
+
+      li {
         font-weight: bold;
       }
-      
     </style>
-     
-     
 
     <title>Share Your Day</title>
   </head>
   <body>
-      <header class="container blog-header py-3">
-          <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-              <a href="">기부 등록하기</a>
-            </div>
-            <div class="col-4 text-center" style="font-size: 30px; font-weight: bold;">
-              <a class="blog-header-logo text-dark" href="#">SHARE YOUR DAY</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-              
-              
-                  {% comment %} 로그인 전 {% endcomment %}
-                  <a href="">Login &nbsp</a>
-                  <a href="">Sign Up &nbsp</a>
-                  {% comment %} 로그인 후 {% endcomment %}
-                  <a href="">My Page &nbsp</a>
-                  <a href="">Logout &nbsp</a>
-      
-                  <a href="#">About</a>
-             
-            </div>
-          </div>
-        </header>
-        <div class="container nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-center">
-              <a class="p-2 text-muted" href="#">인기 기부</a>
-              <a class="p-2 text-muted" href="#">최신 기부</a>
-              <a class="p-2 text-muted" href="#">Q&A</a>
-              
-            </nav>
-          </div>
-    
+    <header class="container blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a href="">기부 등록하기</a>
+        </div>
+        <div
+          class="col-4 text-center"
+          style="font-size: 30px; font-weight: bold;"
+        >
+          <a class="blog-header-logo text-dark" href="">SHARE YOUR DAY</a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          {% comment %} 로그인 전 {% endcomment %}
+          <a href="{% url 'login' %}">Login &nbsp</a>
+          <a href="{% url 'signup' %}">Sign Up &nbsp</a>
+          {% comment %} 로그인 후 {% endcomment %}
+          <a href="">My Page &nbsp</a>
+          <a href="">Logout &nbsp</a>
+
+          <a href="{% url 'about' %}">About</a>
+        </div>
+      </div>
+    </header>
+    <div class="container nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-center">
+        <a class="p-2 text-muted" href="#">인기 기부</a>
+        <a class="p-2 text-muted" href="#">최신 기부</a>
+        <a class="p-2 text-muted" href="#">Q&A</a>
+      </nav>
+    </div>
 
     {% block contents %} {% endblock contents %}
 
