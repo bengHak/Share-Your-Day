@@ -23,4 +23,5 @@ urlpatterns = [
     path('', web.views.index, name='index'),
     path('accounts/', include('accounts.urls')),
     path('about/', web.views.about, name='about'),
+    path('mypage/', web.views.mypage, name='mypage'),
 ]
