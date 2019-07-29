@@ -9,9 +9,12 @@
   <body>
     {% extends 'base.html' %} {% block contents %}
     <div class="container" style="padding-top:100px; ">
+      {% if error %}
+      {{ error }}
+      {% endif %}
       <h1>Login</h1>
-      <form>
-        Username:
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %} Username:
         <br />
         <input name="username" type="text" value="" />
         <br />
