@@ -1,3 +1,6 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block contents %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
   </head>
 
   <body>
-    {% extends 'base.html' %} {% block contents %}
     <div class="container form-panel one">
       <div class="form-header">
         <h1>Sign Up</h1>
@@ -66,16 +69,13 @@
       </div>
     </div>
 
-    {% endblock contents %}
-  </body>
-</html>
-
-<style>
+    <style>
+    
 .form {
   z-index: 15;
   position: relative;
   background: #FFFFFF;
-  width: 600px;
+  width: 300px;
   border-radius: 4px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -176,9 +176,11 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-
-
 </style>
+    {% endblock contents %}
+  </body>
+</html>
+
 
 <!--
 <div class="container">
