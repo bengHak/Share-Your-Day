@@ -1,4 +1,3 @@
-<!-- {% comment %} -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,37 +6,224 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sign Up</title>
   </head>
+
   <body>
     {% extends 'base.html' %} {% block contents %}
-    <div class="container" style="padding-top:100px; ">
-      <h1>Sign Up!</h1>
-      <form>
-        Username :
-        <br />
-        <input name="username" type="text" value="" />
-        <br />
-        Password :
-        <br />
-        <input name="password1" type="password" value="" />
-        <br />
-        Confirm Password :
-        <br />
-        <input name="password2" type="password" value="" />
-        <br />
-        Nickname :
-        <input name="nickname" type="text" value="" />
-        <br />
-        Birthday :
-        <input name="birthday" type="date" value="" />
-        <br />
-        Phone Number :
-        <input name="phoneNumber" type="number" value="" />
-        <br />
-        <br />
-        <input class="btn btn-primary" type="submit" value="Sign Up!" />
-      </form>
+    <div class="container form-panel one">
+      <div class="form-header">
+        <h1>Sign Up</h1>
+      </div>
+      <div class="form-content">
+        <form  method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required="required">
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" required="required">
+            <!--중복확인-->
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password1" required="required">
+          </div>
+          <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" id="password" name="password2" required="required">
+          </div>
+          <div class="form-group">
+            <label for="nickname">Nickname</label>
+            <input type="text" id="nickname" name="nickname" required="required">
+            <!--중복확인-->
+          </div>
+          <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" name="birthday" required="required">
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="number" id="phoneNumber" name="phoneNumber" required="required">
+          </div>
+          <div class="form-group">
+            <label for="profileImage">Profile Image</label>
+            <input  type="file"  name="profileImage" id="profileImage">
+          </div>
+          <div class="form-group">
+            <label for="fundNumber">Fund number</label>
+            <input type="number" id="fundNumber" name="fundNumber">
+          </div>
+          <div class="form-group">
+            <label for="keword">Keyword</label>
+            <input type="text" id="Keyword" name="Keyword">
+          </div>
+
+          <div class="form-group">
+            <button type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
     </div>
+
     {% endblock contents %}
   </body>
 </html>
-<!-- {% endcomment %} -->
+
+<style>
+.form {
+  z-index: 15;
+  position: relative;
+  background: #FFFFFF;
+  width: 600px;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 100px auto 10px;
+  overflow: hidden;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 0 20px;
+}
+.form-group:last-child {
+  margin: 0;
+}
+.form-group label {
+  display: block;
+  margin: 0 0 10px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+
+.form-group input {
+  outline: none;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  -webkit-transition: 0.3s ease;
+          transition: 0.3s ease;
+}
+.form-group input:focus {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.form-group button {
+  outline: none;
+  background: rgb(241, 220, 25);
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 20px;
+  color: rgb(0, 0, 0);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.form-panel {
+  padding: 60px calc(5% + 60px) 60px 60px;
+  box-sizing: border-box;
+}
+.form-panel.one:before {
+  content: '';
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.3s ease;
+          transition: 0.3s ease;
+}
+.form-panel.one.hidden:before {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.form-header {
+  margin: 0 0 40px;
+}
+.form-header h1 {
+  padding: 4px 0;
+  color: rgb(221, 199, 0);
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
+</style>
+
+<!--
+<div class="container">
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>Account Login</h1>
+      </div>
+      <div class="form-content">
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required="required">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required="required">
+          </div>
+          <div class="form-group">
+            <label class="form-remember">
+              <input type="checkbox">Remember Me
+            </label><a href="#" class="form-recovery">Forgot Password?</a>
+          </div>
+          <div class="form-group">
+            <button type="submit">Log In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+.form-group .form-remember {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.form-group .form-remember input[type='checkbox'] {
+  display: inline-block;
+  width: auto;
+  margin: 0 10px 0 0;
+}
+.form-group .form-recovery {
+  color: rgb(241, 220, 25);
+  font-size: 12px;
+  text-decoration: none;
+}
+-->
