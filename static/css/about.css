@@ -5,3 +5,7 @@
 .word {
     font-weight: bold;
 }
+
+div + h2{
+    margin-top: 40px;
+}
