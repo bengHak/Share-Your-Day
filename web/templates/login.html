@@ -1,32 +1,38 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% block contents %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
   </head>
   <body>
-    {% extends 'base.html' %} {% block contents %}
-    <div class="container" style="padding-top:100px; ">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="Container">
       {% if error %}
       {{ error }}
       {% endif %}
-      <h1>Login</h1>
-      <form method="POST" action="{% url 'login' %}">
-        {% csrf_token %} Username:
-        <br />
-        <input name="username" type="text" value="" />
-        <br />
-        Password:
-        <br />
-        <input name="password" type="password" value="" />
-        <br />
-        <br />
-        <input class="btn btn-primary" type="submit" value="Login" />
+      <form method="POST" action="{% url 'login' %}"class="login" style="max-width: 380px; padding: 15px 35px 45px; margin: 0 auto; background-color: #fff; border: 1px solid rgba(0, 0, 0, 0.1);">
+      {% csrf_token %}
+        <h2 class="login_heading" style="text-align: center;">Login</h2>
+        <br>
+        <input type="text" class="form-control" name="username" placeholder="ID" required="" autofocus="" />
+        <input type="password" class="form-control" name="password" placeholder="Password" required="" style="margin-top: 10px;"/>
+        <div style="text-align: right;">
+          <label class="checkbox" style="margin-top: 10px;">
+            <input type="checkbox" value="remember" id="rememberMe" name="rememberMe"> 아이디 기억
+          </label>
+        </div>  
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
     </div>
-
-    {% endblock contents %}
   </body>
 </html>
+{% endblock contents %}
