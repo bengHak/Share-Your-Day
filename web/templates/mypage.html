@@ -1,7 +1,23 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mypage</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block contents %}
+    <div class="container nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-center">
+        <a class="p-2 text-muted" href="#">인기 기부</a>
+        <a class="p-2 text-muted" href="#">최신 기부</a>
+        <a class="p-2 text-muted" href="#">Q&A</a>
+        </nav>
+    </div>
 
-{% block contents %}
-<h2>My Page</h2>
 
-
-{% endblock contents %}
+    {% endblock contents %}
+</body>
+</html>
