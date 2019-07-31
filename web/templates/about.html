@@ -1,1 +1,35 @@
-{% block contents %} {% endblock contents %}
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="container_title">
+            <h1>Share Your Day 란?</h1>
+        </div>
+        <h2>기부 너무 복잡하지 않으신가요?</h2>
+        <p> 
+            저희 <span class="word">Share Your Day</span> 는 기부 플랫폼으로 개인이 진행하기 힘든 복잡한 기부활동을 보다 쉽게 하기 위해 만든 서비스입니다.
+        </p>
+        <p> 
+            <span class="word">Share Your Day</span> 는 개인의 특별한 날(생일, 결혼기념일 등등)에 소규모로 기부하고자 하는 기부인들을 위한 서비스입니다.
+        </p>
+        <h2> SYD 기능!</h2>
+        <p> 
+            <h3>1. 기부 현황 관리</h3>
+            웹 페이지에서 현재 기부 현황, 달성율, 기부 참가 인원, 모금액 등을 SYD 기부 차트를 통해서 쉽고 간편하게 확인할 수 있습니다.
+            <h3>2. 기부 계좌 관리</h3>
+            소규모 기부에 직접 주최자의 계좌를 이용해야 하는 불편함을 SYD에서 직접 관리해 줍니다.
+        </p>
+    </div>    
+</body>
+</html>
+{% endblock contents %}
