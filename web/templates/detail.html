@@ -1,11 +1,27 @@
 {% extends "base.html" %}
 {% block contents %}
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">{{title}}</h1>
-    <p class="lead">{{content}}</p>
-  </div>
+<br>
+<br>
+
+<div class="container">
+<div class="row">
+<div class="container col-md-6">
+    <img src="{{image_url}}" alt="{{title}}" width="100%">
 </div>
+<div class="container col-md-6">
+    <div class="media-body">
+        <h2 class="mt-0">{{title}}</h2>
+        <h5 href='#'>기부자명(기관명, 링크로 연결)</h5>
+        <p>{{content}}</p>
+    </div>
+</div>
+</div>
+
+
+</div>
+
+
+
 
 {% endblock contents %}
