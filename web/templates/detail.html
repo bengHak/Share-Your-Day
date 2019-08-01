@@ -5,31 +5,33 @@
 <br>
 
 <div class="container">
-<div class="row">
-<div class="container col-md-6">
-    <img src="{{image_url}}" alt="{{title}}" width="100%">
-</div>
-<div class="container col-md-6">
-    <div class="media-body">
-        <h2 class="mt-0">{{title}}</h2>
-        <h5 href='#'>기부자명(기관명, 링크로 연결)</h5>
+    <div class="row">
+        <div class="container col-md-6">
+            <img src="{{image_url}}" alt="{{title}}" width="100%">
+        </div>
+        <div class="container col-md-6">
+            <div class="media-body">
+                <h2 class="mt-0">{{title}}</h2>
+                <h5 href='#'>기부자명(기관명, 링크로 연결)</h5>
 
-        <div class="row">
-        <div class="col-md-9 mb-1">
-        <div class="progress" style="height: 30px; width: 100%">
-  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">달성량</div>
-    </div>
+                <div class="row">
+                    <div class="col-md-9 mb-1">
+                        <div class="progress" style="height: 30px; width: 100%">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100">달성량</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-success btn-sm">기부하기</button>
+                    </div>
+                </div>
+                <br><br>
+                <p>{{content}}</p>
+            </div>
         </div>
-    <div class="col-md-3">
-    <button type="button" class="btn btn-success btn-sm">기부하기</button>
     </div>
-        </div>
+
+
+</div>
 <br><br>
-        <p>{{content}}</p>
-    </div>
-</div>
-</div>
-
-
-</div>
 {% endblock contents %}
