@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'fund',
     'web',
-    'phonenumber_field',
+    # 'phonenumber_field'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +127,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# MEDIA_URL = '/media/'
+
+# PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'

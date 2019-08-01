@@ -9,14 +9,15 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(
                 username=request.POST['username'],
-                password=request.POST['password1']
+                password=request.POST['password1'],
+                email=request.POST['email']
             )
             email = request.POST['email']
             nickname = request.POST['nickname']
             birthday = request.POST['birthday']
             phoneNumber = request.POST['phoneNumber']
 
-            profile = Profile(user=user, nickname=nickname,
+            profile = Profile(user=user, nickname=nickname, email=email,
                               birthday=birthday, phoneNumber=phoneNumber)
             profile.save()
             auth.login(request, user)
