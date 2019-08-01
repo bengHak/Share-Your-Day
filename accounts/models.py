@@ -11,4 +11,4 @@ class Profile(models.Model):
     phoneNumber = models.IntegerField(null=False, blank=False)
 
     def __str__(self):
-        return self.nickname
+        return self.user.username
