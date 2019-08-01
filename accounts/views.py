@@ -16,7 +16,7 @@ def signup(request):
             birthday = request.POST['birthday']
             phoneNumber = request.POST['phoneNumber']
 
-            profile = Profile(user=user, nickname=nickname,
+            profile = Profile(user=user, nickname=nickname, email=email,
                               birthday=birthday, phoneNumber=phoneNumber)
             profile.save()
             auth.login(request, user)
