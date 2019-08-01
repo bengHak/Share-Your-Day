@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+# from .models import Profile
+# from django.contrib.auth import get_user_model
+
+# User = get_user_model
 
 
 def signup(request):
@@ -8,9 +12,14 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(
                 request.POST['username'], password=request.POST['password1'])
+            # profile = Profile(user=user)
+            # profile.save()
             auth.login(request, user)
             return redirect('index')
-    return render(request, 'signup.html')
+        else:
+            return render(request, 'signup.html', {'error': 'Passwords must match'})
+    else:
+        return render(request, 'signup.html')
 
 
 def login(request):
