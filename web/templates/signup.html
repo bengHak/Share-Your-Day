@@ -11,113 +11,65 @@
     <title>Sing Up</title>
   </head>
   <body>
-    <!-- Form-->
-    <div class="form">
-      <div class="form-panel one">
-        <div class="form-header">
-          <h1>Sign Up</h1>
-        </div>
-        <div class="form-content">
-          <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                required="required"
-              />
-            </div>
-            <div class="form-group">
-              <label for="email" style="width:100%;">E-mail</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                required="required"
-                style="width:70%;"
-              />
-              <input
-                type="button"
-                id="checkemail"
-                value="중복확인"
-                style="float:left; width:28%;"
-              />
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password1"
-                required="required"
-              />
-            </div>
-            <div class="form-group">
-              <label for="password">Confirm Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password2"
-                required="required"
-              />
-            </div>
-            <div class="form-group">
-              <label for="nickname" style="width:100%;">Nickname</label>
-              <input
-                type="text"
-                id="nickname"
-                name="nickname"
-                required="required"
-                style="width:70%;"
-              />
-              <input
-                type="button"
-                id="checknickname"
-                value="중복확인"
-                style="float:left; width:28%;"
-              />
-            </div>
-            <div class="form-group">
-              <label for="birthday">Birthday</label>
-              <input
-                type="date"
-                id="birthday"
-                name="birthday"
-                required="required"
-              />
-            </div>
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
-              <input
-                type="number"
-                id="phoneNumber"
-                name="phoneNumber"
-                required="required"
-              />
-            </div>
-            <!-- <form action="" method="POST" enctype="multipart/form-data"> -->
-            <div class="form-group">
-              <!-- {% csrf_token %} -->
-              <label for="profileImage">Profile Image</label>
-              <input type="file" name="profileImage" id="profileImage" />
-            </div>
-            <!-- </form> -->
-            <div class="form-group">
-              <label for="fundNumber">Fund number</label>
-              <input type="number" id="fundNumber" name="fundNumber" />
-            </div>
-            <div class="form-group">
-              <label for="keword">Keyword</label>
-              <input type="text" id="Keyword" name="Keyword" />
-            </div>
-            <br />
-            <div class="form-group" style="font-size:1.3em;">
-              <button type="submit">Submit</button>
-            </div>
-          </form>
-        </div>
+<<<<<<< HEAD
+  <!-- Form-->
+  <br>
+  <br>
+  <div class="form">
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>Sign Up</h1>
+      </div>
+      <div class="form-content">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required="required"/>
+          </div>
+          <div class="form-group">
+            <label for="email" style="width:100%;">E-mail</label>
+            <input type="text" id="email" name="email" required="required" style="width:70%;"/>
+            <input type="button" id="checkemail" value="중복확인" style="float:left; width:28%;">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password1" required="required"/>
+          </div>
+          <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" id="password" name="password2" required="required">
+          </div>
+          <div class="form-group">
+            <label for="nickname" style="width:100%;">Nickname</label>
+            <input type="text" id="nickname" name="nickname" required="required" style="width:70%;">
+            <input type="button" id="checknickname" value="중복확인" style="float:left; width:28%;">
+          </div>
+          <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" name="birthday" required="required">
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="number" id="phoneNumber" name="phoneNumber" required="required">
+          </div>
+          <div class="form-group">
+            <label for="profileImage">Profile Image</label>
+            <input  type="file"  name="profileImage" id="profileImage">
+          </div>
+          <div class="form-group">
+            <label for="fundNumber">Fund number</label>
+            <input type="number" id="fundNumber" name="fundNumber">
+          </div>
+          <div class="form-group">
+            <label for="keword">Keyword</label>
+            <input type="text" id="Keyword" name="Keyword">
+          </div>
+          <br>
+          <div class="form-group" style="font-size:1.3em;">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
     <br /><br />
