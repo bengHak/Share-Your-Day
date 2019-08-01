@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'accounts',
     'fund',
     'web',
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
