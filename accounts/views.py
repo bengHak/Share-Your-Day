@@ -1,19 +1,24 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
-# from .models import Profile
-# from django.contrib.auth import get_user_model
-
-# User = get_user_model
+from .models import Profile
 
 
 def signup(request):
     if request.method == 'POST':
         if request.POST['password1'] == request.POST['password2']:
             user = User.objects.create_user(
-                request.POST['username'], password=request.POST['password1'])
-            # profile = Profile(user=user)
-            # profile.save()
+                username=request.POST['username'],
+                password=request.POST['password1']
+            )
+            email = request.POST['email']
+            nickname = request.POST['nickname']
+            birthday = request.POST['birthday']
+            phoneNumber = request.POST['phoneNumber']
+
+            profile = Profile(user=user, nickname=nickname,
+                              birthday=birthday, phoneNumber=phoneNumber)
+            profile.save()
             auth.login(request, user)
             return redirect('index')
         else:
