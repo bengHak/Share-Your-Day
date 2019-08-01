@@ -26,27 +26,32 @@
       crossorigin="anonymous"
     ></script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"> 
+
     <style type="text/css">
-      a:link {
-        color: black;
-        text-decoration: none;
-      }
-      a:visited {
-        color: black;
-        text-decoration: none;
-      }
-      a:hover {
-        color: black;
-        text-decoration: none;
-      }
-      a:active {
-        color: black;
-        text-decoration: none;
-      }
+      a:link {color: black;text-decoration: none;}
+      a:visited {color: black;text-decoration: none;}
+      a:hover {color: black;text-decoration: none;}
+      a:active {color: black;text-decoration: none;}
 
       li {
         font-weight: bold;
       }
+
+      .page-footer{
+        background-color: rgb(211, 211, 211);
+        font-family: 'NanumSquare';
+        width: 100%;
+        color:gray;
+      }
+      .footer-copyright, .footer-copyright a{
+        color:rgb(85, 85, 85);
+      }
+      .list-unstyled a{
+        font-weight: 500;
+        color:gray;
+      }
+
     </style>
 
     <title>Share Your Day</title>
@@ -98,7 +103,56 @@
     {% block contents %} {% endblock contents %}
 
     <footer>
-      
+        <footer class="page-footer font-small blue pt-4">
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+              
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-11">
+          
+                  <!-- Content -->
+                  <h1 class="text-uppercase" style="font-weight: bold;">Share Your Day</h1>
+                  <p>기쁜날 기쁜 마음으로 기부합니다.</p>
+                </div>      
+
+                <!-- Grid column -->
+                <div class="col-md-1">
+          
+                  <!-- Links -->
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!">인기 기부</a>
+                    </li>
+                    <li>
+                      <a href="#!">최근 기부</a>
+                    </li>
+                    <li>
+                      <a href="#!">Q&A</a>
+                    </li>
+                  </ul>
+          
+                </div>
+                <!-- Grid column -->
+          
+              </div>
+              <!-- Grid row -->
+              <hr class="clearfix w-100 d-md-none pb-3">
+                
+            </div>
+            <!-- Footer Links -->
+            <br>
+            <!-- Copyright -->
+            <div class="container footer-copyright text-right py-3">
+              Made by 
+              <a href="{% url 'about' %}"> 1등기부팀 </a>
+            </div>
+            <!-- Copyright -->
+          
+          </footer>
     </footer>
   </body>
 </html>
