@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 
 def about(request):
@@ -30,4 +32,7 @@ def detail(request):
 
 
 def register(request):
-    return render(request, 'register-fund.html')
+    if request.user.is_authenticated:
+        return render(request, 'register-fund.html')
+    else:
+        return render(request, 'login.html')
