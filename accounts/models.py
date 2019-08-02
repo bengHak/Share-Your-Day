@@ -10,7 +10,8 @@ class Profile(models.Model):
     birthday = models.DateField(null=True, blank=True)
     phoneNumber = models.CharField(max_length=128, null=False, blank=False)
     # phoneNumber = PhoneNumberField(blank=True)
-    profileImage = models.ImageField(upload_to='images/', blank=True)
+    profileImage = models.ImageField(
+        upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         return self.user.username
