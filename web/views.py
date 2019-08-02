@@ -16,6 +16,8 @@ def index(request):
 def mypage(request):
     return render(request, 'mypage.html')
 
+def faq(request):
+    return render(request, 'FAQ.html')
 
 def detail(request):
     # fund_detail = get_object_or_404(Register, pk=register_id)
