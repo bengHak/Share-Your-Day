@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.utils import timezone
+from .models import Register
 
 
 def about(request):
@@ -36,3 +38,18 @@ def register(request):
         return render(request, 'register-fund.html')
     else:
         return render(request, 'login.html')
+
+
+# 기부 등록
+def create(request):
+    register = Register()
+    register.title = request.POST['title']
+    register.expireDate = request.POST['expireDate']
+    register.organization = request.POST['organization']
+    register.minValue = request.POST['minValue']
+    register.maxValue = request.POST['maxValue']
+    register.targetAmount = request.POST['targetAmount']
+    register.content = request.POST['content']
+
+    register.save()
+    return redirect('index')
