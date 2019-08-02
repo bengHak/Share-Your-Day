@@ -52,8 +52,8 @@
   letter-spacing: .2em;
 }
 
-.form-group input123 {
-  /* outline: none; */
+.form-group input {
+  outline: none;
   display: block;
   width: 100%;
   
@@ -61,7 +61,7 @@
   box-sizing: border-box;
   padding: 12px 20px;
   color: rgba(0, 0, 0, 0.6);
-  /* box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   font-family: inherit;
   font-size: inherit;
   font-weight: 500;
