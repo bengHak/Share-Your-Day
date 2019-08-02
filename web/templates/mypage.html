@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block contents %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
     <title>Mypage</title>
 </head>
 <body>
@@ -13,13 +16,24 @@
     <br>
     <div class="container">   
         <input type="button" value="개인정보 수정" name="btn1">
+        <br>
+        <br>
+        <br>
         <!-- 주최 기부 목록 -->
         <div class="container">        
             <h2>주최한 기부</h2>
             <br>
-            <br>
-            <br>
-        <hr width="100%">    
+            <a href="" style="margin-right: 5px;">
+                <div class="card" style="width: 18rem; margin-right: 5px;">
+                    <img src="{% static 'img/SYD_test.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </a>  
+        <hr width="100%">
+        <br>
+        <br>    
         </div> 
         
         
@@ -27,9 +41,17 @@
         <div class="container">        
             <h2>참가한 기부</h2>
             <br>
-            <br>
-            <br>
-        <hr width="100%">    
+            <a href="" style="margin-right: 5px;">
+                <div class="card" style="width: 18rem; margin-right: 5px;">
+                    <img src="{% static 'img/SYD_test.png' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </a>    
+        <hr width="100%">
+        <br>
+        <br>    
         </div>
 
         <!-- 누적 기부 금액 들어가는 곳 -->
@@ -37,14 +59,10 @@
             <h2>누적 기부 금액</h2>
             <br>
             <br>
-            <br>
-        <hr width="100%">    
+            <br>   
         </div>
     </div>
-    
 
-
-    
 </body>
 </html>
 {% endblock contents %}
