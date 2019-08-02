@@ -16,9 +16,10 @@ def signup(request):
             nickname = request.POST['nickname']
             birthday = request.POST['birthday']
             phoneNumber = request.POST['phoneNumber']
+            profileImage = request.FILES['profileImage']
 
             profile = Profile(user=user, nickname=nickname, email=email,
-                              birthday=birthday, phoneNumber=phoneNumber)
+                              birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
             profile.save()
             auth.login(request, user)
             return redirect('index')
