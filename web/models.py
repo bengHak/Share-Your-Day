@@ -10,7 +10,7 @@ class Register(models.Model):
     maxValue = models.IntegerField()
     targetAmount = models.IntegerField()
     content = models.TextField()
-    # contentImage = models.ImageField()
+    # contentImage = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.title
