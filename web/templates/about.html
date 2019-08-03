@@ -1,3 +1,136 @@
-{% block contents %}
-
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container">
+        <!-- SYD 설명 -->
+        <div class="container_title">
+            <h2>기부 너무 복잡하지 않으신가요?</h2>
+            <hr width="80%" align="left">
+        </div>
+        <p style="width: 80%; margin-top:40px; margin-left: 10px;"> 
+            <span class="word">  Share Your Day</span> 는 기부 플랫폼으로 개인이 진행하기 힘든 복잡한 기부활동을 보다 쉽게 진행할 수 있도록 도와주는 서비스 입니다.
+        </p>
+        <p style="width: 80%; margin-left: 10px;"> 
+            <span class="word">  Share Your Day</span> 는 개인의 특별한 날(생일, 결혼기념일 등등)에 소규모로 기부하고자 하는 기부인들을 위한 서비스입니다.
+        </p>
+        <br>
+        <!-- SYD 기능 -->
+        <div class="container_title">
+            <h2>ShareYourDay 기능</h2>
+            <hr width="80%" align="left">    
+        </div>
+        <div class=word style="margin-top:40px;">  
+            1. 기부 현황 관리
+        </div>
+        <p style="width: 80%; margin-left: 10px;">     
+            페이지에서 현재 기부 현황, 달성율, 기부 참가 인원, 모금액 등을 SYD 기부 차트를 통해서 쉽고 간편하게 확인할 수 있습니다.
+        </p>     
+        <div class=word style="margin-top:40px;"> 
+            2. 기부 계좌 관리
+        </div>
+        <p style="width: 80%; margin-left: 10px;">     
+            소규모 기부에 직접 주최자의 계좌를 이용해야 하는 불편함을 SYD에서 직접 관리해 줍니다.
+        </p>
+        <div class=word style="margin-top:40px;"> 
+            3. 단체 추천 및 연결
+        </div>
+        <p style="width: 80%; margin-left: 10px;">     
+            소규모 기부자분들 중에서 원하는 기부자분들에 한해 기부할 단체를 추천해주고 연결해줍니다.
+        </p>
+        <br>
+        <!-- SYD Flowchart -->
+        <div class="container_title">
+            <h2>Flowchart of SYD</h2>
+            <hr width="80%" align="left">
+        </div>
+        <p style="width: 80%; margin-top:40px; margin-left: 10px;">
+            아래의 흐름도를 통해 보다 쉽게 시작하세요!
+        </p>
+        <!-- 흐름도 들어갈 부분 -->
+        <img src="{% static 'img/flowchart.jpg' %}" width="500" height="300" alt="이미지 안나옴">
+        <br>
+        <br>
+        <br>
+        <!-- Founder 설명 -->
+        <div class="container_title">
+            <h2>Founder</h2>
+            <hr width="80%" align="left">
+        </div>
+        <p style="width: 80%; margin-top:40px; margin-left: 10px;"> 
+            저희는 한국외국어대학교 글로벌캠퍼스 멋쟁이 사자처럼 7기 출신 학생들이 만든 서비스입니다.
+        </p>
+        <br>
+        <br>   
+    <div class="row">    
+        <!-- 각자 프로필 + 설명 들어갈 부분 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- 1번 -->
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); width: 300px; float:left; text-align: center; margin: 0px 10px 10px 10px;">
+                <img src="{% static 'img/hankyul1.jpg' %}" alt="img" style="width:100%">
+                <h1 style="margin-top: 10px;">김한결</h1>
+                <p class="title" style="color: grey; font-size: 18px; margin-bottom: 8px;">Co Founder, HUFS</p>
+                <div style="margin-bottom: 8px; font-size: 24px;">
+                    <a href="https://github.com/rlagksruf16" target="_blank" ><i class="fa fa-github"></i></a> 
+                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>  -->
+                    <a href="https://www.linkedin.com/in/hankyul-kim-7b8399180/" target="_blank"><i class="fa fa-linkedin"></i></a> 
+                    <a href="https://www.facebook.com/profile.php?id=100003196318259" target="_blank"><i class="fa fa-facebook"></i></a> 
+                </div>
+                <p style="margin: 0px;"> <input type="submit" class="button" value="연락하기" onclick="window.location.href='mailto:rlagksruf16@gamil.com'" style="  border: none; outline: 0; display: inline-block; padding: 8px; color: white; background-color: #000; text-align: center; cursor: pointer; width: 100%; font-size: 18px;"> </p>
+            </div>
+        <!-- 2번 -->
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); width: 300px; float: left; text-align: center; margin: 0px 10px 10px 10px;">
+                <img src="{% static 'img/jihyun.jpg' %}" alt="img" style="width:100%">
+                <h1 style="margin-top: 10px;">이지현</h1>
+                <p class="title" style="color: grey; font-size: 18px;">Co Founder, HUFS</p>
+                <div style="margin-bottom: 8px; font-size: 24px;">
+                    <a href="https://github.com/jihyunle2" target="_blank"><i class="fa fa-github"></i></a> 
+                    <a href="https://www.instagram.com/paige2_96/" target="_blank"><i class="fa fa-instagram"></i></a> 
+                    <a href="https://www.facebook.com/ljh3795" target="_blank"><i class="fa fa-facebook"></i></a>
+                </div>     
+                <p style="margin: 0px;"> <input type="submit" class="button" value="연락하기" onclick="window.location.href='mailto:estrelinhale2@gmail.com'" style="  border: none; outline: 0; display: inline-block; padding: 8px; color: white; background-color: #000; text-align: center; cursor: pointer; width: 100%; font-size: 18px;"> </p>
+            </div>
+            <!-- 3번 -->
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); width: 300px; float:left; text-align: center; margin: 0px 10px 10px 10px;">
+                <img src="{% static 'img/benghak.jpg' %}" alt="img" style="width:100%">
+                <h1>고병학</h1>
+                <p class="title" style="color: grey; font-size: 18px;">Co Founder, HUFS</p>
+                <div style="margin-bottom: 8px; font-size: 24px;">
+                    <a href="#" target="_blank"><i class="fa fa-github"></i></a> 
+                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>  -->
+                    <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a> 
+                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                </div>     
+                <p style="margin: 0px;"> <input type="submit" class="button" value="연락하기" onclick="window.location.href='mailto:qkwl4678@naver.com'" style="  border: none; outline: 0; display: inline-block; padding: 8px; color: white; background-color: #000; text-align: center; cursor: pointer; width: 100%; font-size: 18px;"> </p>
+            </div>
+            <!-- 4번 -->
+            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); width: 300px; float:left; text-align: center; margin: 0px 10px 10px 10px;">
+                <img src="{% static 'img/jason.jpg' %}" alt="img" style="width:100%">
+                <h1>전판근</h1>
+                <p class="title" style="color: grey; font-size: 18px;">Co Founder, HUFS</p>
+                <div style="margin-bottom: 8px; font-size: 24px;">  
+                    <a href="https://github.com/Jason9789" target="_blank"><i class="fa fa-github"></i></a> 
+                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>  -->
+                    <a href="https://www.instagram.com/cest_pangeun/" target="_blank"><i class="fa fa-instagram"></i></a> 
+                    <a href="https://www.facebook.com/lifebook0809" target="_blank"><i class="fa fa-facebook"></i></a>
+                </div>     
+                <p style="margin: 0px;"> <input type="submit" class="button" value="연락하기" onclick="window.location.href='mailto:lifebook0809@gmail.com'" style="  border: none; outline: 0; display: inline-block; padding: 8px; color: white; background-color: #000; text-align: center; cursor: pointer; width: 100%; font-size: 18px;"> </p>
+            </div>
+        </div>        
+    </div>
+    <br>
+    <br>    
+</body>
+</html>
 {% endblock contents %}

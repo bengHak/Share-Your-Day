@@ -4,66 +4,125 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    <style type="text/css">
-      a:link { color: black; text-decoration: none;}
-      a:visited { color: black; text-decoration: none;}
-      a:hover { color: black; text-decoration: none;}
-      a:active { color: black; text-decoration: none;}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
 
-      li{
-        font-weight: bold;
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"> 
+
+    <style type="text/css">
+      a:link {color: black;text-decoration: none;}
+      a:visited {color: black;text-decoration: none;}
+      a:hover {color: black;text-decoration: none;}
+      a:active {color: black;text-decoration: none;}
+
+      .page-footer{
+        /* background-color: rgb(236, 236, 236); */
+        font-family: 'NanumSquare';
+        width: 100%;
+        color:gray;
+        border-top:1px solid rgb(206, 206, 206);
       }
-      
+      .footer-link a{
+        color:rgb(85, 85, 85);
+      }
+      .footer-link{
+        color:rgb(85, 85, 85);
+        /* border-top:1px solid rgb(223, 223, 223); */
+      }
+
     </style>
-     
-     
 
     <title>Share Your Day</title>
   </head>
-  <body>
-      <header class="container blog-header py-3">
-          <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-              
-            </div>
-            <div class="col-4 text-center" style="font-size: 30px; font-weight: bold;">
-              <a class="blog-header-logo text-dark" href="#">SHARE YOUR DAY</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-              
-              
-                  {% comment %} 로그인 전 {% endcomment %}
-                  <a href="">Login &nbsp</a>
-                  <a href="">Sign Up &nbsp</a>
-                  {% comment %} 로그인 후 {% endcomment %}
-                  <a href="">My Page &nbsp</a>
-                  <a href="">Logout &nbsp</a>
-      
-                  <a href="#">About</a>
-             
-            </div>
-          </div>
-        </header>
-        <div class="container nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-center">
-              <a class="p-2 text-muted" href="#">인기 기부</a>
-              <a class="p-2 text-muted" href="#">최신 기부</a>
-              <a class="p-2 text-muted" href="#">Q&A</a>
-              
-            </nav>
-          </div>
-    
+  <body style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;">
+
+    <header class="container blog-header py-3">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a class="p-2" href="#">인기 기부</a>
+          <a class="p-2" href="#">최신 기부</a>
+          <a class="p-2" href="{% url 'faq' %}">FAQ</a>
+        </div>
+        <div
+          class="col-4 text-center"
+          style="font-size: 30px; font-weight: bold;"
+        >
+          <a class="blog-header-logo text-dark" href="{% url 'index' %}">
+            SHARE YOUR DAY
+          </a>
+        </div>
+        <div class="col-4 pt-1 d-flex justify-content-end align-items-center">
+          <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
+          {% if user.is_authenticated %}
+          <a href="{% url 'mypage' %}" class="p-2">My Page</a>
+          <a href="{% url 'logout' %}" class="p-2">Logout</a>
+
+          <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
+          {% else %}
+          <a href="{% url 'login' %}" class="p-2">Login</a>
+          <a href="{% url 'signup' %}" class="p-2">Sign Up</a>
+
+          <!-- {% comment %} 로그인 후 {% endcomment %}
+          <a href="">My Page &nbsp</a>
+          <a href="">Logout &nbsp</a> -->
+          {% endif %}
+          <a href="{% url 'about' %}" class="p-2">About</a>
+        </div>
+      </div>
+    </header>
+    <div class="container nav-scroller mb-4" style="font-size:1.2em;">
+      <nav class="nav d-flex justify-content-center">
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+        <a href="{% url 'register' %}">기부 등록하기</a>
+        {% comment %} {% endif %} {% endcomment %}
+      </nav>
+    </div>
 
     {% block contents %} {% endblock contents %}
-
-    <footer>
-      footer입니다.
-    </footer>
+    <div class="container">
+      <footer class="page-footer font-small " style="padding-top:12px;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="text-uppercase" style="font-weight: bold;">Share Your Day</h2>
+              <p>기쁜날 기쁜 마음으로 기부합니다.</p>
+            </div>
+          </div>
+          <div class="row footer-link">
+            <div class="col-md-9" style="padding-bottom: 15px;">
+              <a href="#!" style="font-size:12px;">인기 기부</a>&nbsp;&nbsp;
+              <a href="#!" style="font-size:12px;">최근 기부</a>&nbsp;&nbsp;
+              <a href="{% url 'faq' %}" style="font-size:12px;">FAQ</a>&nbsp;&nbsp;
+              <a href="{% url 'about' %}" style="font-size:12px;">About</a>&nbsp;&nbsp;
+              <a href="#!" style="font-size:12px;">약관</a>&nbsp;&nbsp;
+              <a href="#!" style="font-size:12px;">개인정보처리방침</a>&nbsp;&nbsp;
+            </div>
+            <div class="col-md-3 text-right" style="text-align: center; padding-bottom: 15px;">
+                Made by <a href="{% url 'about' %}"> 1등기부팀 </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>  
   </body>
 </html>
 <!-- test -->

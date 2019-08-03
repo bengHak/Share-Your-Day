@@ -1,3 +1,66 @@
+{% extends 'base.html' %} 
+{% load static %}
 {% block contents %}
 
-{% endblock contents %}
+<!doctype html>
+<html lang="kr">
+  <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+  <title>Register Fund</title>
+  </head>
+  <body>
+  <!-- Form-->
+  <div class="form">
+    <div class="form-panel one">
+      <div class="form-header">
+        <h1>기부 등록하기</h1>
+      </div>
+      <div class="form-content">
+        <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="title">기부명</label>
+            <input type="text" id="title" name="title" required="required"/>
+          </div>
+          <div class="form-group">
+            <label for="expireDate">만료 기한</label>
+            <input type="date" id="expireDate" name="expireDate" required="required">
+          </div>
+          <div class="form-group">
+            <label for="organization">기부할 기관명</label>
+            <input type="number" id="organization" name="organization" required="required">
+          </div>
+          <div class="form-group">
+            <label for="minValue">최소 기부 금액</label>
+            <input type="number" id="minValue" name="minValue" required="required">
+          </div>
+          <div class="form-group">
+            <label for="maxValue">최대 기부 금액</label>
+            <input type="number" id="maxValue" name="maxValue" required="required">
+          </div>
+          <div class="form-group">
+            <label for="targetAmount">목표 금액</label>
+            <input type="number" id="targetAmount" name="targetAmount">
+          </div>
+          <div class="form-group">
+            <label for="content">스토리</label>
+            <textarea cols=100 rows=13 id="content" name="content" required="required"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="contentImage">사진 or 포스터 첨부</label>
+            <input  type="file"  name="contentImage" id="contentImage">
+          </div>
+          <span style="color:red; text-align: center; font-size: 1.3em; font-weight: bold;"><p>기부 등록 후에는 수정이 불가능합니다! <br>다시 한 번 확인 후 제출해주세요!</p></span>
+          <div class="form-group" style="font-size:1.3em;">
+            <button type="submit">기부 시작하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  {% endblock contents %}
+  </body>
+</html>
