@@ -1,259 +1,355 @@
-
 {% extends "base.html" %}
 {% block contents %}
 
 {% comment %} 슬라이드 메뉴 {% endcomment %}
 <div class="container">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <a href="{% url 'detail' %}">
-        <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="First slide">
-      </a>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="{% url 'detail' %}">
+          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="First slide">
+          <div style="position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(248, 131, 121, 0.7);
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;">
+            기부 타이틀 1
+            </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'detail' %}">
+          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Second slide">
+          <div style="position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(248, 131, 121, 0.7);
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;">
+            기부 타이틀 2
+            </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="{% url 'detail' %}">
+          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Third slide">
+          <div style="position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(248, 131, 121, 0.7);
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;">
+            기부 타이틀 3
+            </div>
+        </a>
+      </div>
     </div>
-    <div class="carousel-item">
-      <a href="{% url 'detail' %}">
-        <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Second slide">
-      </a>
-    </div>
-    <div class="carousel-item">
-      <a href="{% url 'detail' %}">
-        <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Third slide">
-      </a>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 </div>
 <br>
 
 {% comment %} 기부 리스트 {% endcomment %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+  <div class="row">
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
               </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+      </a>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
               </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+      </a>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
               </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+      </a>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
               </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-          <a href="{% url 'detail' %}">
-            <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
-          </a>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'detail' %}'">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
+      </a>
     </div>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="col-md-4">
+      <a href="{% url 'detail' %}">
+        <div class="card mb-4 shadow-sm">
+          <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
+          <div class="card-body">
+            <h4 class="card-title">기부 타이틀 <button type="button" class="btn btn-sm btn-light">D-4</button></h4>
+            <div class="progress" style="height: 3px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: 25%; color: black;"
+                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              </div>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">128 views</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+  </div>
 </div>
 
 {% endblock contents %}
