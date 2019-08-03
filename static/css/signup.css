@@ -44,7 +44,7 @@
 .form-group label {
   display: block;
   margin: 0 0 10px;
-  color: rgba(0, 0, 0, 0.6);
+  /* color: rgba(0, 0, 0, 0.6); */
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
@@ -60,8 +60,8 @@
   border-radius: 4px;
   box-sizing: border-box;
   padding: 12px 20px;
-  color: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  /* color: rgba(0, 0, 0, 0.6); */
+  /* box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); */
   font-family: inherit;
   font-size: inherit;
   font-weight: 500;
@@ -119,3 +119,6 @@
   text-align: center;
 }
 
+a:hover {
+  background-color: #FF6F61;
+}
