@@ -23,9 +23,11 @@
         <div class="row justify-content-start">
           
           <div class="col-md-12">
-            <button type="button" class="btn btn-warning btn-sm">
-              Like
-            </button>
+            <form action="" method="POST">
+              <button type="submit" value="like" class="btn btn-primary btn-sm">
+                {{fund_detail.like}} 좋아요
+              </button>
+            </form>
             <button type="button" class="btn btn-primary btn-sm">
               공유하기
             </button>
@@ -49,8 +51,8 @@
               <div
                 class="progress-bar bg-warning"
                 role="progressbar"
-                style="width: {% widthratio fund_detail.current_fund goal 100 %}%; color: black;"
-                aria-valuenow="{% widthratio fund_detail.current_fund goal 100 %}"
+                style="width: {% widthratio fund_detail.current_fund fund_detail.goal 100 %}%; color: black;"
+                aria-valuenow="{% widthratio fund_detail.current_fund fund_detail.goal 100 %}"
                 aria-valuemin="0"
                 aria-valuemax="100"
               >
