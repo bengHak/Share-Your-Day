@@ -10,11 +10,11 @@
   
   .form {
     font-family: "Roboto", sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     z-index: 15;
     position: relative;
     background: #FFFFFF;
-    width: 800px;
+    width: 484px;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -43,7 +43,7 @@
   .form-group label {
     display: block;
     margin: 0 0 10px;
-    color: rgba(0, 0, 0, 0.6);
+    /* color: rgba(0, 0, 0, 0.6); */
     font-size: 12px;
     font-weight: 500;
     line-height: 1;
@@ -52,13 +52,12 @@
   }
   
   .form-group input {
+    width: 244px;
     outline: none;
     display: block;
     width: 100%;
-    border-radius: 4px;
     box-sizing: border-box;
-    padding: 12px 20px;
-    color: rgba(0, 0, 0, 0.6);
+    padding: 5px 20px;
     font-family: inherit;
     font-size: inherit;
     font-weight: 500;
@@ -66,7 +65,7 @@
     -webkit-transition: 0.3s ease;
             transition: 0.3s ease;
   }
-  .form-group textarea{
+  /* .form-group textarea{
     background-color: rgba(104, 104, 104, 0.1);
     border: 0;
     border-radius: 4px;
@@ -77,7 +76,7 @@
   }
   .form-group textarea:focus {
     color: rgba(0, 0, 0, 0.8);
-  }
+  } */
   .form-group input:focus {
     color: rgba(0, 0, 0, 0.8);
   }
@@ -99,7 +98,7 @@
   }
   
   .form-panel {
-    padding: 45px 60px 60px 60px;
+    padding: 45px calc(5% + 60px) 60px 60px;
     box-sizing: border-box;
   }
   .form-panel.one:before {
@@ -121,9 +120,15 @@
   }
   .form-header h1 {
     padding: 4px 0;
-    color: #4285F4;
-    font-size: 24px;
+    color: black;
+    font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
+    text-align: center;
+  }
+
+  .form-group.required label:after {
+    content:"*";
+    color:red;
   }
   
