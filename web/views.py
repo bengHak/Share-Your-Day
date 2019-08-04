@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 from datetime import date
 from .models import Register
+from accounts.models import Profile
+
 
 
 def about(request):
@@ -65,7 +67,9 @@ def detail(request, fund_id):
 
 @login_required
 def post_like(request, fund_id):
-
+    fund = get_object_or_404(Register, pk=fund_id)
+    profile = get_object_or_404(Profile, user=request.user)
+    fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
 
 << << << < HEAD
    post = get_object_or_404(Register, pk=fund_id)
