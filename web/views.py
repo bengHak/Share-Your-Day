@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+
 from datetime import date
 from .models import Register
 
@@ -19,7 +21,7 @@ def index(request):
         fund_objects = {
             'title': fund.title,
             'content': fund.content,
-            'current_fund': 5,
+            'current_fund': 56,
             'goal': fund.targetAmount,
             'max_fund': fund.maxValue,
             'min_fund': fund.minValue,
@@ -60,6 +62,15 @@ def detail(request, fund_id):
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
+@login_required
+def post_like(request, fund_id):
+    post = get_object_or_404(Register, pk=fund_id)
+
+    post_like, post_like_created = post.like_set.get_or_create(user=request.user)
+
+    if not post_like_created:
+        post_like.delete()
+    return redirect('detail', fund_id=fund_id)
 
 def register(request):
     if request.user.is_authenticated:
