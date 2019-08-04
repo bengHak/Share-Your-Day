@@ -18,54 +18,65 @@
       <div class="form-content">
         <form action="" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
-          <div class="form-group">
+          
+          <div class="form-group required">
             <label for="username">Username(성명)</label>
-            <input type="text" id="username" name="username" required="required"/>
+            <input type="text" id="username" name="username" required="required" style="width:244px;"/>
           </div>
-          <div class="form-group">
+
+          <div class="form-group required">
             <label for="email" style="width:100%;">E-mail(이메일)</label>
-            <input type="text" id="email" name="email" required="required" style="width:70%;"/>
-            <input type="button" id="checkemail" value="중복확인" style="float:left; width:28%;">
+            <input type="text" id="email" name="email" required="required" style="width:244px; height:35px;"/>
+            <input type="button" id="checkemail" value="중복확인" style="float:left; width:28%; border: 2px solid #FF6F61; background-color:white;">
           </div>
-          <div class="form-group">
+
+          <div class="form-group required">
             <label for="password">Password(비밀번호)</label>
-            <input type="password" id="password" name="password1" required="required"/>
+            <input type="password" id="password" name="password1" required="required" style="width:244px; height:35px;"/>
           </div>
-          <div class="form-group">
+
+          <div class="form-group required">
             <label for="password">Confirm Password(비밀번호 확인)</label>
-            <input type="password" id="password" name="password2" required="required">
+            <input type="password" id="password" name="password2" required="required" style="width:244px; height:35px;">
           </div>
-          <div class="form-group">
-            <label for="nickname" style="width:100%;">Nickname(닉네임)</label>
-            <input type="text" id="nickname" name="nickname" required="required" style="width:70%;">
-            <input type="button" id="checknickname" value="중복확인" style="float:left; width:28%;">
+
+          <div class="form-group required">
+            <label for="nickname" style="width:100%;">Nickname(닉네임)</label>  
+            <input type="text" id="nickname" name="nickname" required="required" style="width:244px; height:35px;">
+            <input type="button" id="checknickname" value="중복확인" style="float:left; width:28%; border: 2px solid #FF6F61; background-color:white;">
           </div>
-          <div class="form-group">
-            <label for="birthday">Birthday(생년월일)</label>
-            <input type="date" id="birthday" name="birthday" required="required">
+
+          <div class="form-group required">
+            <label for="birthday">Birthday(생년월일)</label>  
+            <input type="date" id="birthday" name="birthday" required="required" style="width:244px; height:35px;">
           </div>
-          <div class="form-group">
+
+          <div class="form-group required">
             <label for="phoneNumber">Phone Number(휴대폰 번호)</label>
-            <input type="number" id="phoneNumber" name="phoneNumber" required="required" placeholder="010XXXXXXXX">
+            <input type="number" id="phoneNumber" name="phoneNumber" required="required" placeholder="010XXXXXXXX" style="width:244px; height:35px;">
           </div>
+
           <div class="form-group">
-            <label for="profileImage">Profile Image(프로필 사진)</label>
-            <input  type="file"  name="profileImage" id="profileImage">
+            <label for="profileImage">Profile Image(프로필 사진)</label>  
+            <input  type="file"  name="profileImage" id="profileImage" style="width:244px; height:35px;">
           </div>
+
           <div class="form-group">
             <label for="fundNumber">Fund number(기부 번호)</label>
-            <input type="number" id="fundNumber" name="fundNumber">
+            <input type="number" id="fundNumber" name="fundNumber" style="width:244px; height:35px;">
           </div>
+
           <div class="form-group">
             <label for="keword">Keyword(관심 키워드)</label>
-            <input type="text" id="Keyword" name="Keyword">
+            <input type="text" id="Keyword" name="Keyword" style="width:244px; height:35px;">
           </div>
           <br>
-          <div class="form-group" style="font-size:1.3em;">
+          <div class="form-group" style="font-size:1.3em;" style="width:244px; height:35px;">
             <button type="submit">가입하기</button>
           </div>
         </form>
-        <div class="text-center">Already have an account? <a href="#">Login here</a></div>
+        <br>
+        <div class="text-center">이미 회원이신가요? <a class="login_button"href="{% url 'login' %}">로그인 하기</a></div>
       </div>
     </div>
   </div>
