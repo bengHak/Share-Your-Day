@@ -9,7 +9,6 @@ from .models import Register
 from accounts.models import Profile
 
 
-
 def about(request):
     return render(request, 'about.html')
 
@@ -71,8 +70,8 @@ def post_like(request, fund_id):
     profile = get_object_or_404(Profile, user=request.user)
     fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
 
-    if not post_like_created:
-        post_like.delete()
+    if not fund_like_created:
+        fund_like.delete()
     return redirect('detail', fund_id=fund_id)
 
 
