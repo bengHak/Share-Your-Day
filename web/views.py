@@ -35,7 +35,7 @@ def detail(request):
         'goal': 100000,
         'max_fund': -1,
         'min_fund': 10,
-        'image_url': 'https://picsum.photos/400/400',
+        'image_url': 'https://picsum.photos/900/500',
         'fund_id': 1,
         'hit': 96,
         'like': 2019,
