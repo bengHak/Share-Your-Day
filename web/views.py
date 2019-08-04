@@ -11,54 +11,53 @@ def about(request):
 
 
 def index(request):
+    register_objects = Register.objects.all()
     fund_list = []
-    end_at = date(2019, 8, 10) #date 객체1
+    end_at = date(2019, 8, 10)  # date 객체1
     today = date.today()
-    test_fund = {
-       'title' : '테스트 기부',
-       'content'  : '테스트 기부 내용입니다.',
-       'current_fund': 56000,
-        'goal': 100000,
-        'max_fund': -1,
-        'min_fund': 10,
-        'image_url': 'https://picsum.photos/400/225',
-        'fund_id': 1,
-        'hit': 96,
-        'like': 2019,
-        'd_day' : (end_at - today).days + 1,
-    }
-    fund_list.append(test_fund)
-    return render(request, 'index.html', {'fund_list':fund_list})
+    for fund in register_objects:
+        fund_objects = {
+            'title': fund.title,
+            'content': fund.content,
+            'current_fund': 5,
+            'goal': fund.targetAmount,
+            'max_fund': fund.maxValue,
+            'min_fund': fund.minValue,
+            'image_url': fund.contentImage,
+            'fund_id': fund.id,
+            'hit': 96,
+            'like': 2019,
+            'd_day': (end_at - today).days + 1,
+        }
+        fund_list.append(fund_objects)
+    fund_list.reverse()
+    return render(request, 'index.html', {'fund_list': fund_list})
 
 
 def mypage(request):
     return render(request, 'mypage.html')
 
+
 def faq(request):
     return render(request, 'FAQ.html')
 
-def detail(request):
-    # fund_detail = get_object_or_404(Register, pk=register_id)
+
+def detail(request, fund_id):
+    fund_details = get_object_or_404(Register, pk=fund_id)
     fund_detail = {
-        'title': '기부 제목',
-        'content': '''기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내
-        
-        
-        
-        
-        
-        
-        용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용기부 내용 기부내용''',
-        'current_fund': 56000,
-        'goal': 100000,
-        'max_fund': -1,
-        'min_fund': 10,
+        'title': fund_details.title,
+        'content': fund_details.content,
+        # 'current_date': fund_details.pub_date,
+        'current_fund': 5,
+        'goal': fund_details.targetAmount,
+        'max_fund': fund_details.maxValue,
+        'min_fund': fund_details.minValue,
         'image_url': 'https://picsum.photos/900/500',
-        'fund_id': 1,
+        'fund_id': fund_id,
         'hit': 96,
         'like': 2019,
     }
-    return render(request, 'detail.html', fund_detail)
+    return render(request, 'detail.html', {'fund_detail': fund_detail})
 
 
 def register(request):
@@ -78,6 +77,7 @@ def create(request):
     register.maxValue = request.POST['maxValue']
     register.targetAmount = request.POST['targetAmount']
     register.content = request.POST['content']
+    register.contentImage = request.FILES['contentImage']
 
     register.save()
-    return redirect('index')
+    return redirect('/detail/'+str(fund.id))
