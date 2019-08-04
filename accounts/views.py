@@ -12,17 +12,21 @@ def signup(request):
                 password=request.POST['password1'],
                 email=request.POST['email']
             )
-            email = request.POST['email']
-            nickname = request.POST['nickname']
-            birthday = request.POST['birthday']
-            phoneNumber = request.POST['phoneNumber']
-            profileImage = request.FILES['profileImage']
+            try:
+                email = request.POST['email']
+                nickname = request.POST['nickname']
+                birthday = request.POST['birthday']
+                phoneNumber = request.POST['phoneNumber']
+                profileImage = request.FILES['profileImage']
 
-            profile = Profile(user=user, nickname=nickname, email=email,
-                              birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
-            profile.save()
-            auth.login(request, user)
-            return redirect('index')
+                profile = Profile(user=user, nickname=nickname, email=email,
+                                birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
+                profile.save()
+                auth.login(request, user)
+                return redirect('index')
+            except:
+                user.delete()
+                return redirect('signup')
         else:
             return render(request, 'signup.html', {'error': 'Passwords must match'})
     else:
