@@ -48,7 +48,7 @@ def detail(request, fund_id):
         'title': fund_details.title,
         'content': fund_details.content,
         # 'current_date': fund_details.pub_date,
-        'current_fund': 5,
+        # 'current_fund': fund_details.currentAmount,
         'goal': fund_details.targetAmount,
         'max_fund': fund_details.maxValue,
         'min_fund': fund_details.minValue,
@@ -80,4 +80,4 @@ def create(request):
     register.contentImage = request.FILES['contentImage']
 
     register.save()
-    return redirect('/detail/'+str(fund.id))
+    return redirect('detail', fund_id=(register.id))

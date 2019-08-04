@@ -8,6 +8,7 @@ class Register(models.Model):
     organization = models.CharField(max_length=100)
     minValue = models.IntegerField()
     maxValue = models.IntegerField()
+    # currentAmount = models.IntegerField(default=0)
     targetAmount = models.IntegerField()
     content = models.TextField()
     contentImage = models.ImageField(upload_to='images/')
