@@ -65,12 +65,20 @@ def detail(request, fund_id):
 
 @login_required
 def post_like(request, fund_id):
-    post = get_object_or_404(Register, pk=fund_id)
+
+
+<< << << < HEAD
+   post = get_object_or_404(Register, pk=fund_id)
 
     post_like, post_like_created = post.like_set.get_or_create(
         user=request.user)
+== == == =
+   fund = get_object_or_404(Register, pk=fund_id)
+    profile = get_object_or_404(Profile, user=request.user)
+    fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
+>>>>>> > ba7c917fbfd59f36ba284b099d49c55c617a6401
 
-    if not post_like_created:
+   if not post_like_created:
         post_like.delete()
     return redirect('detail', fund_id=fund_id)
 
