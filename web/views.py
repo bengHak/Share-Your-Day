@@ -53,7 +53,7 @@ def detail(request, fund_id):
         'content': fund_details.content,
         # 'current_date': fund_details.pub_date,
         # 'current_fund': fund_details.currentAmount,
-        'current_fund' : 56,
+        'current_fund': 56,
         'goal': fund_details.targetAmount,
         'max_fund': fund_details.maxValue,
         'min_fund': fund_details.minValue,
@@ -64,15 +64,28 @@ def detail(request, fund_id):
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
+
 @login_required
 def post_like(request, fund_id):
     fund = get_object_or_404(Register, pk=fund_id)
     profile = get_object_or_404(Profile, user=request.user)
     fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
 
-    if not post_like_created:
+<< << << < HEAD
+   post = get_object_or_404(Register, pk=fund_id)
+
+    post_like, post_like_created = post.like_set.get_or_create(
+        user=request.user)
+== == == =
+   fund = get_object_or_404(Register, pk=fund_id)
+    profile = get_object_or_404(Profile, user=request.user)
+    fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
+>>>>>> > ba7c917fbfd59f36ba284b099d49c55c617a6401
+
+   if not post_like_created:
         post_like.delete()
     return redirect('detail', fund_id=fund_id)
+
 
 def register(request):
     if request.user.is_authenticated:
