@@ -11,7 +11,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="{% url 'detail' %}">
+        <a href="{% url 'detail' 1 %}">
           <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="First slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
@@ -25,7 +25,7 @@
         </a>
       </div>
       <div class="carousel-item">
-        <a href="{% url 'detail' %}">
+        <a href="{% url 'detail' 1 %}">
           <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Second slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
@@ -39,7 +39,7 @@
         </a>
       </div>
       <div class="carousel-item">
-        <a href="{% url 'detail' %}">
+        <a href="{% url 'detail' 1 %}">
           <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Third slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
@@ -72,7 +72,7 @@
   <div class="row mt-3">
   {% for fund in fund_list %}
     <div class="col-md-4">
-      <a href="{% url 'detail' %}">
+      <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
           <img src="{{fund.image_url}}" alt="" width="100%" height="225" style="border-radius: 15px; padding:5px;">
           <div class="card-body">
@@ -87,7 +87,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary"
-                  onclick="location.href='{% url 'detail' %}'">View</button>
+                  onclick="location.href='{% url 'detail' fund.fund_id %}'">View</button>
                 {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 {% endcomment %}
               </div>
@@ -105,32 +105,8 @@
   <br>
   <div class="row mt-3">
   {% for fund in fund_list %}
-    {% comment %} <div class="col-md-4">
-      <a href="{% url 'detail' %}">
-        <div class="card mb-4 shadow-sm">
-          <img src="{{fund.image_url}}" alt="" width="100%" height="225">
-          <div class="card-body">
-            <h4 class="card-title"> {{fund.title}} <button type="button" class="btn btn-sm btn-light">D-{{fund.d_day}}</button></h4>
-            <div class="progress" style="height: 20px; width: 95%">
-              <div class="progress-bar bg-warning" role="progressbar" style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
-                aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
-                {% widthratio fund.current_fund fund.goal 100 %}%
-              </div>
-            </div>
-            <p class="card-text">{{fund.content}}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"
-                  onclick="location.href='{% url 'detail' %}'">View</button>
-              </div>
-              <small class="text-muted">{{fund.hit}} Views &nbsp;&nbsp;&nbsp; {{fund.like}} Likes</small>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div> {% endcomment %}
     <div class="col-md-4">
-      <a href="{% url 'detail' %}">
+      <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
           <img src="{{fund.image_url}}" alt="" width="100%" height="225" style="border-radius: 15px; padding:5px;">
           <div class="card-body">
@@ -145,7 +121,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary"
-                  onclick="location.href='{% url 'detail' %}'">View</button>
+                  onclick="location.href='{% url 'detail' fund.fund_id %}'">View</button>
               </div>
               <small class="text-muted">{{fund.hit}} Views &nbsp;&nbsp;&nbsp; {{fund.like}} Likes</small>
             </div>
@@ -156,7 +132,7 @@
   {% endfor %}
 
     <div class="col-md-4">
-      <a href="{% url 'detail' %}">
+      <a href="{% url 'detail' 1 %}">
         <div class="card mb-4 shadow-sm">
           <img src="https://picsum.photos/400/225" alt="" width="100%" height="225">
           <div class="card-body">
@@ -171,7 +147,7 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary"
-                  onclick="location.href='{% url 'detail' %}'">View</button>
+                  onclick="location.href='{% url 'detail' 1 %}'">View</button>
                 {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 {% endcomment %}
               </div>
