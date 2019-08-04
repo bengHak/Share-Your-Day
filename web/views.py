@@ -80,4 +80,4 @@ def create(request):
     register.contentImage = request.FILES['contentImage']
 
     register.save()
-    return redirect('/detail/'+str(fund.id))
+    return redirect('detail', fund_id=(register.id))
