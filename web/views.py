@@ -59,7 +59,7 @@ def detail(request, fund_id):
         'image_url': 'https://picsum.photos/900/500',
         'fund_id': fund_id,
         'hit': 96,
-        'like': 2019,
+        'like': fund_details.like_count,
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
