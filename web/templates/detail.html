@@ -23,7 +23,8 @@
         <div class="row justify-content-start">
           
           <div class="col-md-12">
-            <form action="" method="POST">
+            <form action="{% url 'post_like' fund_detail.fund_id%}" method="POST" style="display:inline;">
+              {% csrf_token %}
               <button type="submit" value="like" class="btn btn-primary btn-sm">
                 {{fund_detail.like}} 좋아요
               </button>
