@@ -7,11 +7,11 @@
  {% comment %} style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;">  {% endcomment %}
 <div class="container">
   <div class="row">
-    <div class="container col-md-6">
+    <div class="container col-md-8">
       <img src="{{ image_url }}" alt="{{ title }}" width="100%" style="border-radius: 20px !important;"/>
       <br>
     </div>
-    <div class="container col-md-6 align-self-center">
+    <div class="container col-md-4 align-self-center">
       <div class="media-body">
         <h2 class="mt-0">{{ title }}</h2>
         <h5 href="#">기부자명(기관명, 링크로 연결)</h5>
@@ -21,7 +21,30 @@
         <p>현재 모금액 : {{current_fund}}원</p>
         </div>
         <div class="row justify-content-start">
-          <div class="col-md-12 mb-1">
+          
+          <div class="col-md-12">
+            <button type="button" class="btn btn-warning btn-sm">
+              Like
+            </button>
+            <button type="button" class="btn btn-primary btn-sm">
+              공유하기
+            </button>
+          </div>
+        </div>
+
+        <div class="row justify-content-start mt-2">
+        <div class="col-md-12">
+           <button type="button" class="btn btn-warning" style="width:100% !important;">
+              기부하기
+            </button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-12 mt-3 mb-1">
             <div class="progress" style="height: 30px; width: 100%">
               <div
                 class="progress-bar bg-warning"
@@ -35,20 +58,6 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <button type="button" class="btn btn-warning btn-sm">
-              기부하기
-            </button>
-            <button type="button" class="btn btn-primary btn-sm">
-              Like
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
     <div class="col-md-12 mt-4">
       {{ content }}
     </div>
