@@ -29,7 +29,7 @@ def index(request):
             'image_url': fund.contentImage,
             'fund_id': fund.id,
             'hit': 96,
-            'like': 2019,
+            'like': fund.like_count,
             'd_day': (end_at - today).days + 1,
         }
         fund_list.append(fund_objects)
