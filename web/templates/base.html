@@ -67,7 +67,7 @@
       #nav li{display: inline;}
 
       #toggle1,#toggle-label1{display: none;}
-      #toggle1:checked + #nav4{display: inline;}
+      
       #nav1 li{display: inline;}
 
       #nav3,#nav4{display: none; list-style: none;}
@@ -125,7 +125,6 @@
           {% endif %}
           <li><a href="{% url 'about' %}" class="p-2">About</a></li>
           </ul>
-          <label for="toggle1" id="toggle-label1" onclick>&#8801;</label>
         </div>
       </div>
 
@@ -133,14 +132,9 @@
         <div class="col-6">
           <input type="checkbox" id="toggle"/>
           <ul id="nav3">
-            <li><a class="p-2" href="#">&nbsp;&nbsp;&nbsp;인기 기부</a></li>
-            <li><a class="p-2" href="#">&nbsp;&nbsp;&nbsp;최신 기부</a></li>
-            <li><a class="p-2" href="{% url 'faq' %}">&nbsp;&nbsp;&nbsp;FAQ</a></li>
-          </ul>
-        </div>
-        <div class="col-6" style="text-align:right; padding-right: 0;">
-          <input type="checkbox" id="toggle1"/>
-          <ul id="nav4">
+            <li><a class="p-2" href="#">인기 기부</a></li>
+            <li><a class="p-2" href="#">최신 기부</a></li>
+            <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
             <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
             {% if user.is_authenticated %}
             <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
