@@ -52,13 +52,13 @@ def detail(request, fund_id):
         'content': fund_details.content,
         # 'current_date': fund_details.pub_date,
         # 'current_fund': fund_details.currentAmount,
-        'current_fund': 56,
+        'current_fund': 57,
         'goal': fund_details.targetAmount,
         'max_fund': fund_details.maxValue,
         'min_fund': fund_details.minValue,
         'image_url': 'https://picsum.photos/900/500',
         'fund_id': fund_id,
-        'hit': 96,
+        'hit': fund_details.update_counter,
         'like': fund_details.like_count,
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .models import Profile
@@ -20,7 +20,7 @@ def signup(request):
                 profileImage = request.FILES['profileImage']
 
                 profile = Profile(user=user, nickname=nickname, email=email,
-                                birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
+                                  birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
                 profile.save()
                 auth.login(request, user)
                 return redirect('index')
@@ -40,7 +40,8 @@ def login(request):
         profile = get_object_or_404(Profile, email=email)
 
         if profile is not None:
-            user = auth.authenticate(request, username=profile.user.username, password=password)
+            user = auth.authenticate(
+                request, username=profile.user.username, password=password)
 
             if user is not None:
                 auth.login(request, user)

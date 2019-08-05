@@ -17,10 +17,17 @@ class Register(models.Model):
     contentImage = models.ImageField(upload_to='images/')
     like_user_set = models.ManyToManyField(
         Profile, blank=True, related_name='like_user_set', through='Like')
+    hit = models.PositiveIntegerField(default=0)
 
     @property
     def like_count(self):
         return self.like_user_set.count()
+
+    @property
+    def update_counter(self):
+        self.hit = self.hit + 1
+        self.save()
+        return self.hit
 
     def __str__(self):
         return self.title
