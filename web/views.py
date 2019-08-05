@@ -2,8 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+
 from datetime import date
 from .models import Register
+from accounts.models import Profile
 
 
 def about(request):
@@ -19,14 +22,14 @@ def index(request):
         fund_objects = {
             'title': fund.title,
             'content': fund.content,
-            'current_fund': 5,
+            'current_fund': 56,
             'goal': fund.targetAmount,
             'max_fund': fund.maxValue,
             'min_fund': fund.minValue,
             'image_url': fund.contentImage,
             'fund_id': fund.id,
             'hit': 96,
-            'like': 2019,
+            'like': fund.like_count,
             'd_day': (end_at - today).days + 1,
         }
         fund_list.append(fund_objects)
@@ -49,15 +52,27 @@ def detail(request, fund_id):
         'content': fund_details.content,
         # 'current_date': fund_details.pub_date,
         # 'current_fund': fund_details.currentAmount,
+        'current_fund': 56,
         'goal': fund_details.targetAmount,
         'max_fund': fund_details.maxValue,
         'min_fund': fund_details.minValue,
         'image_url': 'https://picsum.photos/900/500',
         'fund_id': fund_id,
         'hit': 96,
-        'like': 2019,
+        'like': fund_details.like_count,
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})
+
+
+@login_required
+def post_like(request, fund_id):
+    fund = get_object_or_404(Register, pk=fund_id)
+    profile = get_object_or_404(Profile, user=request.user)
+    fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
+
+    if not fund_like_created:
+        fund_like.delete()
+    return redirect('detail', fund_id=fund_id)
 
 
 def register(request):

@@ -3,3 +3,4 @@ fund/__pycache__/
 *.pyc
 media
 web/migrations/*
+accounts/migrations/*
