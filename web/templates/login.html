@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contents %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,8 +157,8 @@
           {% csrf_token %}
           
           <div class="form-group required">
-            <div style="font-size:20px;">    ID</div>
-            <input type="email" id="email" name="email" required="required" style="width:244px;"/>
+            <div style="font-size:20px;">E-mail</div>
+            <input type="email" id="email" name="email" required="required" style="width:244px;" placeholder="XXX@XXX.com"/>
           </div>
 
           <div class="form-group required">
@@ -175,6 +176,8 @@
       </div>
     </div>
   </div>
+
+  <a href="{% provider_login_url 'google' %}">구글 로그인</a>
   <!-- form end  -->
   <br>
   <br>
