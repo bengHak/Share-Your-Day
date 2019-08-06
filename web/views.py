@@ -28,7 +28,7 @@ def index(request):
             'min_fund': fund.minValue,
             'image_url': fund.contentImage,
             'fund_id': fund.id,
-            'hit': 96,
+            'hit': fund.hit,
             'like': fund.like_count,
             'd_day': (end_at - today).days + 1,
         }
@@ -46,20 +46,26 @@ def faq(request):
 
 
 def detail(request, fund_id):
-    fund_details = get_object_or_404(Register, pk=fund_id)
+    fund = get_object_or_404(Register, pk=fund_id)
+
+    giver_list = []
+    for giver in fund.like_user_set.all():
+        giver_list.append(giver)
+
     fund_detail = {
-        'title': fund_details.title,
-        'content': fund_details.content,
-        # 'current_date': fund_details.pub_date,
-        # 'current_fund': fund_details.currentAmount,
+        'title': fund.title,
+        'content': fund.content,
+        # 'current_date': fund.pub_date,
+        # 'current_fund': fund.currentAmount,
         'current_fund': 57,
-        'goal': fund_details.targetAmount,
-        'max_fund': fund_details.maxValue,
-        'min_fund': fund_details.minValue,
+        'goal': fund.targetAmount,
+        'max_fund': fund.maxValue,
+        'min_fund': fund.minValue,
         'image_url': 'https://picsum.photos/900/500',
         'fund_id': fund_id,
-        'hit': fund_details.update_counter,
-        'like': fund_details.like_count,
+        'hit': fund.update_counter,
+        'like': fund.like_count,
+        'givers' : giver_list,
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
