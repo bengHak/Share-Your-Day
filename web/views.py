@@ -28,7 +28,7 @@ def index(request):
             'min_fund': fund.minValue,
             'image_url': fund.contentImage,
             'fund_id': fund.id,
-            'hit': 96,
+            'hit': fund.hit,
             'like': fund.like_count,
             'd_day': (end_at - today).days + 1,
         }
@@ -51,7 +51,7 @@ def detail(request, fund_id):
     giver_list = []
     for giver in fund.like_user_set.all():
         giver_list.append(giver)
-        
+
     fund_detail = {
         'title': fund.title,
         'content': fund.content,
