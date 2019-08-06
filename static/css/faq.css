@@ -1,8 +1,18 @@
-.word {
+.container .word {
     font-size: 20px;
     font-weight: bold;
+    margin-top:40px;
+    margin-bottom: 10px;
 }
 
 .syd {
-    font-weight: bold;
+    font-size: 13px;
+}
+
+div .ebutton {
+    width:100px;
+    background-color: peachpuff;
+    border: none;
+    padding: 15px;
+    display: inline-block;
 }
