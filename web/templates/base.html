@@ -35,9 +35,17 @@
       a:hover {color: black;text-decoration: none;}
       a:active {color: black;text-decoration: none;}
 
+      @font-face { 
+        font-family: 'NIXGONM-Vb'; 
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); 
+        font-weight: normal; font-style: normal; 
+      }
+
+      h1,h2,h3,h4,h5,h6,a,p{
+        font-family: 'NIXGONM-Vb';
+      }
+
       .page-footer{
-        /* background-color: rgb(236, 236, 236); */
-        font-family: 'NanumSquare';
         width: 100%;
         color:gray;
         border-top:1px solid rgb(206, 206, 206);
@@ -47,7 +55,6 @@
       }
       .footer-link{
         color:rgb(85, 85, 85);
-        /* border-top:1px solid rgb(223, 223, 223); */
       }
 
       #nav{
@@ -62,6 +69,9 @@
         padding: 0; 
         margin: 0;
       }
+      .syd{
+        font-size: 30px; 
+      }
 
       #toggle,#toggle-label{display: none;}
       #toggle:checked + #nav3{display: inline;}
@@ -71,10 +81,7 @@
 
       #nav3{display: none; list-style: none; width:100%; text-align: right;}
 
-      .syd{
-        font-size: 30px; 
-      }
-      @media screen and (max-width:1000px){
+      @media screen and (max-width:990px){
         #toggle-label{display: inline;}
         #nav{display: none; font-size: 12px;}
         #nav1{display: none; font-size: 12px;}
@@ -93,7 +100,7 @@
   <body style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;">
     <header class="container blog-header py-3">
       <div class="row justify-content-between align-items-center">
-        <div class="col-3 pt-1">
+        <div class="col-4 pt-1">
             <label for="toggle" id="toggle-label" onclick>&#8801;</label>
           <ul id="nav">
           <li><a class="p-2" href="#">인기 기부</a></li>
@@ -102,7 +109,7 @@
           </ul>
         </div>
         <div
-          class="col-6 text-center syd"
+          class="col-4 text-center syd"
           style="font-weight: bold;"
         >
         <!-- SYD 로고 들어가는 곳 -->
@@ -111,7 +118,7 @@
           </a>
 
         </div>
-        <div class="col-3 pt-1 d-flex justify-content-end align-items-center">
+        <div class="col-4 pt-1 d-flex justify-content-end align-items-center">
           <ul id="nav1">
           <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
           {% if user.is_authenticated %}
@@ -195,29 +202,3 @@
   </body>
 </html>
 <!-- test -->
-
-<!--
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Carousel</a>
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
--->
