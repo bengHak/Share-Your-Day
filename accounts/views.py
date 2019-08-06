@@ -22,10 +22,11 @@ def signup(request):
                 profile = Profile(user=user, nickname=nickname, email=email,
                                   birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
                 profile.save()
-                auth.login(request, user)
+                auth.login(request, user, backend="django.contrib.auth.backends.ModelBackend")
                 return redirect('index')
-            except:
+            except Exception as error:
                 user.delete()
+                print(error)
                 return redirect('signup')
         else:
             return render(request, 'signup.html', {'error': 'Passwords must match'})
