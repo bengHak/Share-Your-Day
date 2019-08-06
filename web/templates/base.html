@@ -67,23 +67,20 @@
       #toggle:checked + #nav3{display: inline;}
       #nav li{display: inline;}
 
-      #toggle1,#toggle-label1{display: none;}
-      
       #nav1 li{display: inline;}
 
-      #nav3,#nav4{display: none; list-style: none;}
+      #nav3{display: none; list-style: none; width:100%; text-align: right;}
 
       .syd{
         font-size: 30px; 
       }
-      @media screen and (max-width:480px){
+      @media screen and (max-width:1000px){
         #toggle-label{display: inline;}
         #nav{display: none; font-size: 12px;}
-        #toggle-label1{display: inline;}
         #nav1{display: none; font-size: 12px;}
         #nav3 li{display: block;}
-        #nav4 li{display: block;}
         .syd{font-size: 18px;}
+        .footer-link{font-size: 0.8em;}
       }
     </style>
 
@@ -110,7 +107,7 @@
         >
         <!-- SYD 로고 들어가는 곳 -->
           <a class="blog-header-logo text-dark" href="{% url 'index' %}">
-            <img src="{% static 'img/ShareYourDay_line.png' %}" style="width:300px;">
+            <img src="{% static 'img/ShareYourDay_line.png' %}" style="width:10em;">
           </a>
 
         </div>
@@ -135,30 +132,28 @@
         </div>
       </div>
 
-      <div class="row justify-content-between align-items-center" style="width:100%; padding-top: 0;">
-        <div class="col-6">
-          <input type="checkbox" id="toggle"/>
-          <ul id="nav3">
-            <li><a class="p-2" href="#">인기 기부</a></li>
-            <li><a class="p-2" href="#">최신 기부</a></li>
-            <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
-            <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
-            <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
-      
-            <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
-            {% else %}
-            <li><a href="{% url 'login' %}" class="p-2">Login</a></li>
-            <li><a href="{% url 'signup' %}" class="p-2">Sign Up</a></li>
-      
-            <!-- {% comment %} 로그인 후 {% endcomment %}
-            <a href="">My Page &nbsp</a>
-            <a href="">Logout &nbsp</a> -->
-            {% endif %}
-            <li><a href="{% url 'about' %}" class="p-2">About&nbsp;</a></li>
-          </ul>
-        </div>
+      <div style="width:100%; padding-top: 0; box-sizing: border-box;">
+        <input type="checkbox" id="toggle"/>
+        <ul id="nav3" style="width:100%;">
+          <li><a class="p-2" href="#">인기 기부</a></li>
+          <li><a class="p-2" href="#">최신 기부</a></li>
+          <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
+          <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
+          <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
+    
+          <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
+          {% else %}
+          <li><a href="{% url 'login' %}" class="p-2">Login</a></li>
+          <li><a href="{% url 'signup' %}" class="p-2">Sign Up</a></li>
+    
+          <!-- {% comment %} 로그인 후 {% endcomment %}
+          <a href="">My Page &nbsp</a>
+          <a href="">Logout &nbsp</a> -->
+          {% endif %}
+          <li><a href="{% url 'about' %}" class="p-2">About&nbsp;</a></li>
+        </ul>
       </div>
     </header>
 
@@ -201,3 +196,28 @@
 </html>
 <!-- test -->
 
+<!--
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Carousel</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+-->
