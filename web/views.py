@@ -34,7 +34,7 @@ def index(request):
             'fund_id': fund.id,
             'hit': fund.hit,
             'like': fund.like_count,
-            'd_day': (end_at - today).days + 1,
+            'd_day': (today - end_at).days,
         }
         fund_list.append(fund_objects)
     fund_list.reverse()
@@ -90,6 +90,7 @@ def post_like(request, fund_id):
         fund_like.delete()
     return redirect('detail', fund_id=fund_id)
 
+
 @login_required
 @require_POST
 def like(request):
@@ -97,19 +98,21 @@ def like(request):
         # user = request.user # 로그인한 유저를 가져온다.
         profile = get_object_or_404(Profile, user=request.user)
         fund_id = request.POST.get('pk', None)
-        fund = get_object_or_404(Register, pk=fund_id)#해당 메모 오브젝트를 가져온다.
+        fund = get_object_or_404(Register, pk=fund_id)  # 해당 메모 오브젝트를 가져온다.
 
-        fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
+        fund_like, fund_like_created = fund.like_set.get_or_create(
+            user=profile)
 
         if not fund_like_created:
             fund_like.delete()
-            message = 'You disliked this'   
+            message = 'You disliked this'
         else:
             message = 'You liked this'
 
-    context = {'likes_count' : fund.like_count, 'message' : message}
+    context = {'likes_count': fund.like_count, 'message': message}
     return HttpResponse(json.dumps(context), content_type='application/json')
     # dic 형식을 json 형식으로 바꾸어 전달한다.
+
 
 def register(request):
     if request.user.is_authenticated:
