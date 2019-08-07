@@ -59,6 +59,7 @@ def detail(request, fund_id):
     fund_detail = {
         'title': fund.title,
         'content': fund.content,
+        'organizer': fund.organizer,
         # 'current_date': fund.pub_date,
         # 'current_fund': fund.currentAmount,
         'current_fund': 57,
@@ -122,10 +123,13 @@ def register(request):
 
 
 # 기부 등록
+@login_required
 def create(request):
     register = Register()
+    profile = get_object_or_404(Profile, user=request.user)
     register.title = request.POST['title']
     register.expireDate = request.POST['expireDate']
+    register.organizer = profile
     register.organization = request.POST['organization']
     register.minValue = request.POST['minValue']
     register.maxValue = request.POST['maxValue']
