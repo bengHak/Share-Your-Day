@@ -95,6 +95,7 @@ def pay(request):
         print(fund)
         print(fund.currentAmount)
         fund.save()
+        fund_pay.save()
 
     context = {'fund_amount': fund.currentAmount}
     return HttpResponse(json.dumps(context), content_type='application/json')
