@@ -195,7 +195,27 @@ document.body.removeChild(dummy);
                 msg += '상점 거래ID : ' + rsp.merchant_uid;
                 msg += '결제 금액 : ' + rsp.paid_amount;
                 msg += '카드 승인번호 : ' + rsp.apply_num;
+                var pk = {{fund_detail.fund_id}}
+                $.ajax({
+                  type: "POST", // 데이터를 전송하는 방법을 지정한다.
+                  url: "{% url 'pay' %}", // 통신할 url을 지정한다.
+                  data: {
+                    pk: pk,
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                    amount: rsp.paid_amount,
+                  }, // 서버로 데이터를 전송할 때 이 옵션을 사용한다.
+                  dataType: "json", // 서버측에서 전송한 데이터를 어떤 형식의 데이터로서 해석할 것인가를 지정한다. 없으면 알아서 판단한다.
+                  // 서버측에서 전송한 데이터 views.py like 메소드
+                  // context = {'likes_count' : memo.total_likes, 'message' : message}
+                  // json.dump(context)를 통해서 json 형식으로 전달된다.
 
+                  success: function (response) {
+                    window.open($(location).attr('href'));
+                  },
+                  error: function (request, status, error) {
+                    //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                  }
+                });
             } else {
                 var msg = '결제에 실패하였습니다.\n' + rsp.error_msg
             }
