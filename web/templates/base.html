@@ -83,6 +83,16 @@
 
       #nav3{display: none; list-style: none; width:100%; text-align: right;}
 
+      .band{
+        display:grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+
+      }
+      .band img{
+        width:80%;
+      }
+
       @media screen and (max-width:990px){
         #toggle-label{display: inline;}
         #nav{display: none; font-size: 12px;}
@@ -90,6 +100,12 @@
         #nav3 li{display: block;}
         .syd{font-size: 18px;}
         .footer-link{font-size: 0.8em;}
+        .band{grid-template-columns: 1fr 2fr 1fr;}
+        .band img{width:100%;}
+      }
+
+      @media screen and (max-width:800px){
+        .band{grid-template-columns: 1fr 3fr 1fr;}
       }
     </style>
 
@@ -101,9 +117,8 @@
   </head>
   <body style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;">
     <header class="container blog-header py-3">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-4 pt-1">
-            <label for="toggle" id="toggle-label" onclick>&#8801;</label>
+      <div class="band align-items-center">
+        <div class="pt-1">
           <ul id="nav">
           <li><a class="p-2" href="#">인기 기부</a></li>
           <li><a class="p-2" href="#">최신 기부</a></li>
@@ -111,16 +126,15 @@
           </ul>
         </div>
         <div
-          class="col-4 text-center syd"
-          style="font-weight: bold;"
-        >
+          class="text-center syd">
         <!-- SYD 로고 들어가는 곳 -->
-          <a class="blog-header-logo text-dark" href="{% url 'index' %}">
-            <img src="{% static 'img/ShareYourDay_line.png' %}" style="width:10em;">
+          <a class="blog-header-logo justify-content-center" href="{% url 'index' %}">
+            <img src="{% static 'img/ShareYourDay_line.png' %}">
           </a>
 
         </div>
-        <div class="col-4 pt-1 d-flex justify-content-end align-items-center">
+        <div class="pt-1 d-flex justify-content-end align-items-center">
+          <label for="toggle" id="toggle-label" style="font-size:1.7rem;" onclick>&#8801;</label>
           <ul id="nav1">
           <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
           {% if user.is_authenticated %}
