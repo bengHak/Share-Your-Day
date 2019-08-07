@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-import time
+from django.views.decorators.http import require_POST
+from django.http import HttpResponse
+
+import json
 
 from datetime import date
 from .models import Register
@@ -87,6 +90,26 @@ def post_like(request, fund_id):
         fund_like.delete()
     return redirect('detail', fund_id=fund_id)
 
+@login_required
+@require_POST
+def like(request):
+    if request.method == 'POST':
+        # user = request.user # 로그인한 유저를 가져온다.
+        profile = get_object_or_404(Profile, user=request.user)
+        fund_id = request.POST.get('pk', None)
+        fund = get_object_or_404(Register, pk=fund_id)#해당 메모 오브젝트를 가져온다.
+
+        fund_like, fund_like_created = fund.like_set.get_or_create(user=profile)
+
+        if not fund_like_created:
+            fund_like.delete()
+            message = 'You disliked this'   
+        else:
+            message = 'You liked this'
+
+    context = {'likes_count' : fund.like_count, 'message' : message}
+    return HttpResponse(json.dumps(context), content_type='application/json')
+    # dic 형식을 json 형식으로 바꾸어 전달한다.
 
 def register(request):
     if request.user.is_authenticated:
