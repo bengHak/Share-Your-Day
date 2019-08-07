@@ -71,7 +71,7 @@
 
 .form-group button {
   outline: none;
-  background: #4285F4;
+  background: #FF6F61;
   width: 100%;
   border: 0;
   border-radius: 4px;
@@ -122,4 +122,8 @@
 .form-group.required label:after {
   content:"*";
   color:red;
+}
+
+button {
+  background-color: #FF6F61;
 }
