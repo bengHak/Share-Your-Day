@@ -81,7 +81,23 @@ def detail(request, fund_id):
 def payment(request):
     return render(request, 'payment.html')
 
+@login_required
+@require_POST
+def pay(request):
+    if request.method == 'POST':
+        profile = get_object_or_404(Profile, user=request.user)
+        fund_id = request.POST.get('pk', None)
+        fund = get_object_or_404(Register, pk=fund_id)
+        fund.currentAmount += int(request.POST.get('amount'))
 
+        print(profile)
+        print(fund)
+        print(fund.currentAmount)
+        fund.save()
+        
+    context = {'fund_amount': fund.currentAmount}
+    return HttpResponse(json.dumps(context), content_type='application/json')
+    
 @login_required
 def post_like(request, fund_id):
     fund = get_object_or_404(Register, pk=fund_id)
@@ -100,7 +116,7 @@ def like(request):
         # user = request.user # 로그인한 유저를 가져온다.
         profile = get_object_or_404(Profile, user=request.user)
         fund_id = request.POST.get('pk', None)
-        fund = get_object_or_404(Register, pk=fund_id)  # 해당 메모 오브젝트를 가져온다.
+        fund = get_object_or_404(Register, pk=fund_id) 
 
         fund_like, fund_like_created = fund.like_set.get_or_create(
             user=profile)
