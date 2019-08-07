@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
   <title>Login</title>
   <style>
@@ -171,14 +172,23 @@
             <button type="submit">Login</button>
           </div>
         </form>
+        <!-- form end  -->
+
+        <!-- 구글 로그인 버튼 -->
+        <a href="{% provider_login_url 'google' %}" style="float: right; margin-top: 10px; margin-bottom: 10px;"><div id="my-signin2"></div></a>
         <br>
+        <br>
+        <br>
+
         <div class="text-center">회원이 아니신가요? <a class="signup_button"href="{% url 'signup' %}">회원가입 하기</a></div>
       </div>
     </div>
   </div>
 
-  <a href="{% provider_login_url 'google' %}">구글 로그인</a>
-  <!-- form end  -->
+  <a href="{% provider_login_url 'google' %}"><div id="my-signin2"></div></a>
+
+  <script src="{% static 'js/login.js' %}"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <br>
   <br>
   <br>
