@@ -61,7 +61,7 @@ def detail(request, fund_id):
         'content': fund.content,
         'current_date': fund.pub_date,
         'current_fund': fund.currentAmount,
-        'organizer' : fund.organizer,
+        'organizer': fund.organizer,
         # 'current_fund': 57,
         'start_day': fund.pub_date,
         'end_day': fund.expireDate,
@@ -81,6 +81,7 @@ def detail(request, fund_id):
 def payment(request):
     return render(request, 'payment.html')
 
+
 @login_required
 @require_POST
 def pay(request):
@@ -94,10 +95,11 @@ def pay(request):
         print(fund)
         print(fund.currentAmount)
         fund.save()
-        
+
     context = {'fund_amount': fund.currentAmount}
     return HttpResponse(json.dumps(context), content_type='application/json')
-    
+
+
 @login_required
 def post_like(request, fund_id):
     fund = get_object_or_404(Register, pk=fund_id)
@@ -116,7 +118,7 @@ def like(request):
         # user = request.user # 로그인한 유저를 가져온다.
         profile = get_object_or_404(Profile, user=request.user)
         fund_id = request.POST.get('pk', None)
-        fund = get_object_or_404(Register, pk=fund_id) 
+        fund = get_object_or_404(Register, pk=fund_id)
 
         fund_like, fund_like_created = fund.like_set.get_or_create(
             user=profile)
