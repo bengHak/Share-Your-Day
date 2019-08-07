@@ -1,20 +1,22 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 # from django.contrib.auth.models import User
 from accounts.models import Profile
 
 
 class Register(models.Model):
     title = models.CharField(max_length=100)
-    # pub_date = models.DateTimeField('date published')
+    pub_date = models.DateField(auto_now_add=True, null=True)
     expireDate = models.DateField()
+    organizer = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
     organization = models.CharField(max_length=100)
     minValue = models.IntegerField()
     maxValue = models.IntegerField()
-    # currentAmount = models.IntegerField(default=0)
+    currentAmount = models.IntegerField(default=0)
     targetAmount = models.IntegerField()
     content = models.TextField()
-    contentImage = models.ImageField(upload_to='images/')
+    contentImage = models.ImageField(upload_to='images/%Y/%m/%d')
     like_user_set = models.ManyToManyField(
         Profile, blank=True, related_name='like_user_set', through='Like')
     hit = models.PositiveIntegerField(default=0)
