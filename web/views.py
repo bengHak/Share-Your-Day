@@ -44,6 +44,7 @@ def mypage(request):
 def faq(request):
     return render(request, 'FAQ.html')
 
+
 def detail(request, fund_id):
     fund = get_object_or_404(Register, pk=fund_id)
 
@@ -60,16 +61,18 @@ def detail(request, fund_id):
         'goal': fund.targetAmount,
         'max_fund': fund.maxValue,
         'min_fund': fund.minValue,
-        'image_url': 'https://picsum.photos/900/500',
+        'image_url': fund.contentImage,
         'fund_id': fund_id,
         'hit': fund.update_counter,
         'like': fund.like_count,
-        'givers' : giver_list,
+        'givers': giver_list,
     }
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
+
 def payment(request):
     return render(request, 'payment.html')
+
 
 @login_required
 def post_like(request, fund_id):

@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block contents %}
+{% extends "base.html" %} {% load static %}{% block contents %}
 
 <br />
 <br />
@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row">
       <div class="container col-md-8">
-        <img src="{{ image_url }}" alt="{{ title }}" width="100%" style="border-radius: 20px !important;" />
+        <img src="{{ fund_detail.image_url.url }}" alt="{{ title }}" width="100%" style="border-radius: 20px !important;" />
         <br>
       </div>
       <div class="container col-md-4 align-self-center">
