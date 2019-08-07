@@ -9,6 +9,7 @@ class Register(models.Model):
     title = models.CharField(max_length=100)
     pub_date = models.DateField(auto_now_add=True, null=True)
     expireDate = models.DateField()
+    organizer = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True)
     organization = models.CharField(max_length=100)
     minValue = models.IntegerField()
     maxValue = models.IntegerField()
