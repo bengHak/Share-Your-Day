@@ -51,10 +51,10 @@ def faq(request):
 
 def detail(request, fund_id):
     fund = get_object_or_404(Register, pk=fund_id)
-
-    giver_list = []
-    for giver in fund.like_user_set.all():
-        giver_list.append(giver)
+    donation_list = []
+    for donation in fund.donation_set.all():
+        donation_list.append(donation)
+    donation_list.sort(key=lambda x: x.amount, reverse=True)
 
     fund_detail = {
         'title': fund.title,
@@ -72,7 +72,7 @@ def detail(request, fund_id):
         'fund_id': fund_id,
         'hit': fund.update_counter,
         'like': fund.like_count,
-        'givers': giver_list,
+        'donations': donation_list,
     }
     print(fund_detail)
     return render(request, 'detail.html', {'fund_detail': fund_detail})
