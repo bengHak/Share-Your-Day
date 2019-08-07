@@ -55,7 +55,8 @@ def detail(request, fund_id):
     donation_list = []
     for donation in fund.donation_set.all():
         donation_list.append(donation)
-
+    donation_list.sort(key=lambda x: x.amount, reverse=True)
+    
     fund_detail = {
         'title': fund.title,
         'content': fund.content,
