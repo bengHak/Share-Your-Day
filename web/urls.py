@@ -4,7 +4,6 @@ from django.conf.urls.static import static
 
 from . import views
 
-
 urlpatterns = [
     path('about/', views.about, name='about'),
     path('detail/<int:fund_id>/', views.detail, name='detail'),
@@ -16,3 +15,5 @@ urlpatterns = [
     path('payment/', views.payment, name='payment'),
     path('test-like', views.like, name='like'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
