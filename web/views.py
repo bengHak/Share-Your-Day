@@ -61,6 +61,7 @@ def detail(request, fund_id):
         'content': fund.content,
         'current_date': fund.pub_date,
         'current_fund': fund.currentAmount,
+        'organizer' : fund.organizer,
         # 'current_fund': 57,
         'start_day': fund.pub_date,
         'end_day': fund.expireDate,
@@ -73,6 +74,7 @@ def detail(request, fund_id):
         'like': fund.like_count,
         'givers': giver_list,
     }
+    print(fund_detail)
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
 
