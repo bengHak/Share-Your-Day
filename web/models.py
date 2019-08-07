@@ -14,7 +14,7 @@ class Register(models.Model):
     # currentAmount = models.IntegerField(default=0)
     targetAmount = models.IntegerField()
     content = models.TextField()
-    contentImage = models.ImageField(upload_to='images/')
+    contentImage = models.ImageField(upload_to='images/%Y/%m/%d')
     like_user_set = models.ManyToManyField(
         Profile, blank=True, related_name='like_user_set', through='Like')
     hit = models.PositiveIntegerField(default=0)
