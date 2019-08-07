@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+import time
 
 from datetime import date
 from .models import Register
@@ -16,9 +17,9 @@ def about(request):
 def index(request):
     register_objects = Register.objects.all()
     fund_list = []
-    end_at = date(2019, 8, 10)  # date 객체1
-    today = date.today()
     for fund in register_objects:
+        end_at = fund.expireDate  # date 객체1
+        today = date.today()
         fund_objects = {
             'title': fund.title,
             'content': fund.content,
@@ -58,6 +59,8 @@ def detail(request, fund_id):
         # 'current_date': fund.pub_date,
         # 'current_fund': fund.currentAmount,
         'current_fund': 57,
+        'start_day': fund.pub_date,
+        'end_day': fund.expireDate,
         'goal': fund.targetAmount,
         'max_fund': fund.maxValue,
         'min_fund': fund.minValue,

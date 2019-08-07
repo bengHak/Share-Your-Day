@@ -1,12 +1,13 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 # from django.contrib.auth.models import User
 from accounts.models import Profile
 
 
 class Register(models.Model):
     title = models.CharField(max_length=100)
-    # pub_date = models.DateTimeField('date published')
+    pub_date = models.DateField(auto_now_add=True, null=True)
     expireDate = models.DateField()
     organization = models.CharField(max_length=100)
     minValue = models.IntegerField()
