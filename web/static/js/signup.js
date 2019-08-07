@@ -2,7 +2,7 @@
 function maxLengthCheck(object){
     if (object.value.length > object.maxLength){
         object.value = object.value.slice(0, object.maxLength);
-    }    
+    }
 }
 
 // 생년월일을 오늘로 설정하기 위한 함수
