@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row">
       <div class="container col-md-8">
-        <img src="{{ fund_detail.image_url.url }}" alt="{{ title }}" width="100%"
+        <img id="main_image" src="{{ fund_detail.image_url.url }}" alt="{{ title }}" width="100%"
           style="border-radius: 20px !important;" />
         <br />
       </div>
@@ -47,7 +47,7 @@
           </div>
           <div class="row justify-content-start mt-2">
             <div class="col-md-12">
-              <input id="fund_amount" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="height:30px;" placeholder="기부하고 싶은 만큼~"/>
+              <input id="fund_amount" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="height:30px;" placeholder="기부하고 싶은 만큼 입력하세요~"/>
             </div>
           </div>
           <div class="row justify-content-start mt-1">
@@ -109,6 +109,8 @@
 
   <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   <script type="text/javascript">
+    var img_url = "http://"+window.location.host+"{{fund_detail.image_url.url}}";
+    alert(img_url)
     //<![CDATA[
     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
     Kakao.init("c2eac2e45e9b4539eab1b1ecbeaf492a");
@@ -119,7 +121,7 @@
       content: {
         title: "{{fund_detail.title}}",
         description: "{{fund_detail.content}}",
-        imageUrl: "https://picsum.photos/300/300",
+        imageUrl: img_url,
         link: {
           mobileWebUrl: $(location).attr('href'),
           webUrl: $(location).attr('href')
@@ -131,12 +133,12 @@
         {% comment %} sharedCount: 845 {% endcomment %}
       },
       buttons: [{
-          title: "웹으로 보기",
+          title: "지금 기부하기",
           link: {
             mobileWebUrl: $(location).attr('href'),
             webUrl: $(location).attr('href')
           }
-        },
+        },]/*
         {
           title: "지금 기부하기",
           link: {
@@ -144,7 +146,7 @@
             webUrl: $(location).attr('href')
           }
         }
-      ]
+      ]*/
     });
     //]]>
   </script>
@@ -170,7 +172,7 @@
             buyer_tel: '010-1234-5678',
             buyer_addr: '서울특별시 강남구 삼성동',
             buyer_postcode: '123-456',
-            m_redirect_url: 'https://www.yourdomain.com/payments/complete'
+            m_redirect_url: "$(location).attr('href')"
         }, function (rsp) {
             if (rsp.success) {
                 var msg = '결제가 완료되었습니다.';
@@ -178,6 +180,7 @@
                 msg += '상점 거래ID : ' + rsp.merchant_uid;
                 msg += '결제 금액 : ' + rsp.paid_amount;
                 msg += '카드 승인번호 : ' + rsp.apply_num;
+
             } else {
                 var msg = '결제에 실패하였습니다. 에러내용 : ' + rsp.error_msg
             }
