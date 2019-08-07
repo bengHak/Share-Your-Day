@@ -31,15 +31,19 @@
                   {{fund_detail.like}} 좋아요
                 </button>
               </form>
+              <button type="button" id="kakao-link-btn" class="btn btn-primary btn-sm" href="javascript:;">
+                카톡 공유
+              </button>
               <button type="button" class="btn btn-primary btn-sm">
-                공유하기
+                URL 복사
               </button>
             </div>
           </div>
 
           <div class="row justify-content-start mt-2">
             <div class="col-md-12">
-              <button type="button" class="btn btn-warning" style="width:100% !important;" onclick="location.href='{% url 'payment' %}'">
+              <button type="button" class="btn btn-warning" style="width:100% !important;"
+                onclick="location.href='{% url 'payment' %}'">
                 기부하기
               </button>
             </div>
@@ -89,4 +93,48 @@
   </div>
 
   <br /><br />
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type='text/javascript'>
+  //<![CDATA[
+    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('86319d1b15534d82bace107d56b5bb43');
+    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+    Kakao.Link.createDefaultButton({
+      container: '#kakao-link-btn',
+      objectType: 'feed',
+      content: {
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        imageUrl: 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com'
+        }
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com'
+          }
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com'
+          }
+        }
+      ]
+    });
+  //]]>
+</script>
+
   {% endblock contents %}
