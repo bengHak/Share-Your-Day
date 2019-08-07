@@ -89,12 +89,16 @@ def pay(request):
         profile = get_object_or_404(Profile, user=request.user)
         fund_id = request.POST.get('pk', None)
         fund = get_object_or_404(Register, pk=fund_id)
+        fund_pay, fund_pay_created = fund.donation_set.get_or_create(user=profile)
+
         fund.currentAmount += int(request.POST.get('amount'))
+        fund_pay.amount += int(request.POST.get('amount'))
 
         print(profile)
         print(fund)
         print(fund.currentAmount)
         fund.save()
+        fund_pay.save()
 
     context = {'fund_amount': fund.currentAmount}
     return HttpResponse(json.dumps(context), content_type='application/json')
