@@ -19,6 +19,9 @@ class Register(models.Model):
     contentImage = models.ImageField(upload_to='images/%Y/%m/%d')
     like_user_set = models.ManyToManyField(
         Profile, blank=True, related_name='like_user_set', through='Like')
+    pay_user_set = models.ManyToManyField(
+        Profile, blank=True, related_name='pay_user_set', through='Donation'
+    )
     hit = models.PositiveIntegerField(default=0)
 
     @property
@@ -40,6 +43,15 @@ class Like(models.Model):
     register = models.ForeignKey(Register, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        unique_together = (('user', 'register'))
+
+class Donation(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    amount = models.IntegerField(default=0)
+    register = models.ForeignKey(Register, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = (('user', 'register'))
