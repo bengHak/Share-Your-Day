@@ -168,6 +168,7 @@ document.body.removeChild(dummy);
 
 }
 
+{% if user.is_authenticated %}
     function pay () {
         var IMP = window.IMP;
         var code = "imp83090447"; // FIXME: 가맹점 식별코드
@@ -196,11 +197,17 @@ document.body.removeChild(dummy);
                 msg += '카드 승인번호 : ' + rsp.apply_num;
 
             } else {
-                var msg = '결제에 실패하였습니다. 에러내용 : ' + rsp.error_msg
+                var msg = '결제에 실패하였습니다.\n' + rsp.error_msg
             }
             alert(msg);
         });
     }
+    {% else %}
+    function pay () {
+      window.open("http://127.0.0.1:8000/accounts/login/","_self")
+    }
+    {% endif %}
+
 </script>
 
   <script type="text/javascript">
