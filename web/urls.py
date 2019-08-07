@@ -13,6 +13,7 @@ urlpatterns = [
     path('FAQ/', views.faq, name='faq'),
     path('like/<int:fund_id>/', views.post_like, name='post_like'),
     path('payment/', views.payment, name='payment'),
+    path('pay/', views.pay, name='pay'),
     path('test-like', views.like, name='like'),
 ]
 
