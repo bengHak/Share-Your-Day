@@ -40,8 +40,8 @@
               <button type="button" id="kakao-link-btn" class="btn btn-primary btn-sm" href="javascript:;">
                 카톡 공유
               </button>
-              <button type="button" class="btn btn-primary btn-sm">
-                URL 복사
+              <button id="copy-link"type="button" class="btn btn-primary btn-sm" onclick="copyLink()">
+                링크 복사
               </button>
             </div>
           </div>
@@ -154,6 +154,20 @@
 
 <script src="http://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
+    function copyLink() {
+ var dummy = document.createElement('input'),
+    text = window.location.href;
+
+document.body.appendChild(dummy);
+dummy.value = text;
+dummy.select();
+document.execCommand('copy');
+  alert("링크 복사되었습니다.");
+document.body.removeChild(dummy);
+
+
+}
+
     function pay () {
         var IMP = window.IMP;
         var code = "imp83090447"; // FIXME: 가맹점 식별코드
