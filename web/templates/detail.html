@@ -177,13 +177,13 @@ document.body.removeChild(dummy);
         // 결제요청
         IMP.request_pay({
             // name과 amount만 있어도 결제 진행가능
-            pg: 'html5_inicis', // pg 사 선택 //kakao
+            pg: 'kakao', // pg 사 선택 //kakao
             pay_method: 'card',
             merchant_uid: 'merchant_' + new Date().getTime(),
-            name: '주문명:결제테스트',
+            name: '당신은 기부천사',
             amount: $("#fund_amount").val(),
             buyer_email: 'iamport@siot.do',
-            buyer_name: '구매자이름',
+            buyer_name: '기부천사',
             buyer_tel: '010-1234-5678',
             buyer_addr: '서울특별시 강남구 삼성동',
             buyer_postcode: '123-456',
