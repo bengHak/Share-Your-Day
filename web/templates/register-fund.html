@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
   <title>Register Fund</title>
+  <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
   </head>
   <body>
   <!-- Form-->
@@ -26,7 +27,7 @@
               <input type="text" id="title" name="title" required="required" style="width:244px;"/>
             </div>
 
-            <div class="form-group required" style="width:110px;">
+            <div class="form-group required" style="width:110px; border: 0px 0px 0px 0px;">
               <label for="expireDate" style="margin-right: 30px;">만료 기한</label>
               <input type="date" id="expireDate" name="expireDate" required="required" style="width:244px; height:35px;">
             </div>
@@ -51,10 +52,11 @@
               <input type="number" id="targetAmount" name="targetAmount" style="width:244px; height:35px;">
             </div>
           </div> 
-          <div style="float:right;">
-            <div class="form-group required" style="width:110px;">
+          <div style="float:right; width:600px;">
+            <div class="form-group required" style="width:570px;">
               <label for="content">스토리</label>
-              <textarea cols=100 rows=13 id="content" name="content" required="required"></textarea>
+              <textarea name="content" id="editor">sdfsdf</textarea>
+              <!-- <textarea cols=100 rows=13 id="content" name="content" required="required"></textarea> -->
             </div>
           </div><div style="clear:both;"></div>
           <div class="form-group required" style="margin-top: 20px;">
@@ -72,6 +74,13 @@
     </div>
   </div>
   <br><br>
+  <script>
+    ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+          console.error( error );
+      } );
+  </script>
   {% endblock contents %}
   </body>
 </html>
