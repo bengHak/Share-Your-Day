@@ -27,6 +27,7 @@ def index(request):
             'title': fund.title,
             'content': fund.content,
             'current_fund': fund.currentAmount,
+            'organizer' : fund.organizer,
             'goal': fund.targetAmount,
             'max_fund': fund.maxValue,
             'min_fund': fund.minValue,
