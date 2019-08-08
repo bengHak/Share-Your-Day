@@ -71,7 +71,8 @@
       h5,
       h6,
       a,
-      p {
+      p,
+      span {
         font-family: "NIXGONM-Vb";
       }
 
@@ -85,6 +86,10 @@
       }
       .footer-link {
         color: rgb(85, 85, 85);
+      }
+      .registerFund{
+        font-weight: bold;
+        font-size:1.3rem;
       }
 
       #nav {
@@ -131,7 +136,25 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
       .band img {
-        width: 80%;
+        width: 90%;
+      }
+
+      .registerFund{
+          text-decoration: none;
+          border: 2px solid #FF6F61;
+          border-radius: 20px;
+          color: white;
+          background-color: #FF6F61;
+          width: 180px;
+          height: 45px;
+          transition: all 0.2s;
+          font-size: 1.3rem;
+          padding: 3px 5px;
+      }
+      .registerFund:hover{
+          background-color: rgba(255, 110, 97, 0.26);
+          color: #FF6F61;
+          border-color: rgba(255, 110, 97, 0.26);
       }
 
       @media screen and (max-width: 990px) {
@@ -165,7 +188,10 @@
 
       @media screen and (max-width: 800px) {
         .band {
-          grid-template-columns: 1fr 3fr 1fr;
+          grid-template-columns: 1fr 4fr 1fr;
+        }
+        .band img {
+          width: 100%;
         }
       }
     </style>
@@ -180,7 +206,7 @@
     style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;"
   >
     <header class="container blog-header py-3">
-      <div class="band align-items-center">
+      <div class="band align-items-center mt-2">
         <div class="pt-1">
           <ul id="nav">
             <li><a href="{% url 'about' %}" class="p-2">About</a></li>
@@ -229,12 +255,15 @@
       <div style="width:100%; padding-top: 0; box-sizing: border-box;">
         <input type="checkbox" id="toggle" />
         <ul id="nav3" style="width:100%;">
+          <!--
           <li><a class="p-2" href="#">인기 기부</a></li>
           <li><a class="p-2" href="#">최신 기부</a></li>
+          -->
+          <li><a href="{% url 'about' %}" class="p-2">About&nbsp;</a></li>
           <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
           <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
           {% if user.is_authenticated %}
-          <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
+          <li><a href="{% url 'profile' user.id %}" class="p-2">My Page</a></li>
           <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
 
           <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
@@ -246,15 +275,15 @@
           <a href="">My Page &nbsp</a>
           <a href="">Logout &nbsp</a> -->
           {% endif %}
-          <li><a href="{% url 'about' %}" class="p-2">About&nbsp;</a></li>
+          
         </ul>
       </div>
     </header>
 
-    <div class="container nav-scroller mb-4" style="font-size:1.2em;">
-      <nav class="nav d-flex justify-content-center">
+    <div class="container nav-scroller mb-4">
+      <nav class="nav d-flex justify-content-center mt-1">
         {% comment %} {% if user.is_authenticated %} {% endcomment %}
-        <a href="{% url 'register' %}">기부 등록하기</a>
+        <button type="button" class="registerFund" onclick="location.href='{% url 'register' %}' ">기부 등록하기</button>
         {% comment %} {% endif %} {% endcomment %}
       </nav>
     </div>
