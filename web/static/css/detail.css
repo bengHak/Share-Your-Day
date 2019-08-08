@@ -101,3 +101,8 @@ a:link {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
 }
+
+.wrapper-price{
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+}
