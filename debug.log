@@ -1,9 +1,0 @@
-"GET / HTTP/1.1" 200 18473
-"GET /static/img/ShareYourDay_line.png HTTP/1.1" 304 0
-"GET /static/img/SYD_fabi.ico HTTP/1.1" 200 108767
-"GET /index/detail/2/ HTTP/1.1" 200 16076
-"GET / HTTP/1.1" 200 18473
-"GET /index/detail/2/ HTTP/1.1" 200 16076
-"GET / HTTP/1.1" 200 18473
-"GET / HTTP/1.1" 200 18473
-"GET /static/img/SYD_fabi.ico HTTP/1.1" 200 108767

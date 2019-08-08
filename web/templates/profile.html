@@ -8,19 +8,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/mypage.css' %}">
-    <title>Mypage</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>Profile</title>
 </head>
 <body>
-    <br>
-    <br>
-    <div class="container">   
-        <input type="button" value="개인정보 수정" name="btn1">
+    <div class="container grid">   
+        <div class="grid1 px-5 mb-3">
+        
+        <img src="{{profileInfo.profileImage.url}}" alt="profile_img" width="100%" height="225" style="border-radius:15px;">
+        
+        </div>
+        <div class="grid2 px-3 my-3">
+            <p><span style="font-size: 2rem; font-weight:bold;">{{ profileInfo.nickname }} </span>님의 프로필</p>
+            <h4>총 기부금 : </h4>
+            <h4>기부횟수 : </h4>
+            <a href="">개인 정보 수정</a>
+        </div>
+    </div>
         <br>
         <br>
         <br>
         <!-- 주최 기부 목록 -->
-        <div class="container">        
+        <div class="container grid3">        
             <h2>주최한 기부</h2>
             <br>
             <a href="{% url 'detail' 1%}" style="margin-right: 5px;">
@@ -35,7 +44,6 @@
         <br>
         <br>    
         </div> 
-        
         
         <!-- 참가 기부 목록 -->
         <div class="container">        
@@ -61,7 +69,7 @@
             <br>
             <br>   
         </div>
-    </div>
+    
 
 </body>
 </html>

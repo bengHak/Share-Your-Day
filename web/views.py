@@ -7,6 +7,7 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponse
 
 import json
+import copy
 
 from datetime import date
 from .models import Register
@@ -27,6 +28,7 @@ def index(request):
             'title': fund.title,
             'content': fund.content,
             'current_fund': fund.currentAmount,
+            'organizer' : fund.organizer,
             'goal': fund.targetAmount,
             'max_fund': fund.maxValue,
             'min_fund': fund.minValue,
@@ -35,10 +37,21 @@ def index(request):
             'hit': fund.hit,
             'like': fund.like_count,
             'd_day': (today - end_at).days,
+            'pub_date' : fund.pub_date,
         }
         fund_list.append(fund_objects)
+
     fund_list.reverse()
-    return render(request, 'index.html', {'fund_list': fund_list, 'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]})
+    fund_list.sort(key=lambda x: x['like'], reverse=True)
+    popular_list = fund_list[:]
+    fund_list.sort(key=lambda x: x['pub_date'], reverse=True)
+    recent_list = fund_list[:]
+
+    if len(fund_list) == 0:
+        return render(request, 'index.html', {})
+    
+    return render(request, 'index.html', {'popular_list': popular_list, 'recent_list':recent_list})
+#'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]
 
 
 def mypage(request):

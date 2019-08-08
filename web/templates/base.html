@@ -21,7 +21,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
@@ -29,134 +32,202 @@
     ></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"> 
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"
+    />
 
     <style type="text/css">
-      a:link {color: black;text-decoration: none;}
-      a:visited {color: black;text-decoration: none;}
-      a:hover {color: black;text-decoration: none;}
-      a:active {color: black;text-decoration: none;}
-
-      @font-face { 
-        font-family: 'NIXGONM-Vb'; 
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); 
-        font-weight: normal; font-style: normal; 
+      a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:visited {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: black;
+        text-decoration: none;
+      }
+      a:active {
+        color: black;
+        text-decoration: none;
       }
 
-      h1,h2,h3,h4,h5,h6,a,p{
-        font-family: 'NIXGONM-Vb';
+      @font-face {
+        font-family: "NIXGONM-Vb";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
       }
 
-      .page-footer{
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      a,
+      p {
+        font-family: "NIXGONM-Vb";
+      }
+
+      .page-footer {
         width: 100%;
-        color:gray;
-        border-top:1px solid rgb(206, 206, 206);
+        color: gray;
+        border-top: 1px solid rgb(206, 206, 206);
       }
-      .footer-link a{
-        color:rgb(85, 85, 85);
+      .footer-link a {
+        color: rgb(85, 85, 85);
       }
-      .footer-link{
-        color:rgb(85, 85, 85);
+      .footer-link {
+        color: rgb(85, 85, 85);
       }
 
-      #nav{
-        display:inline;
+      #nav {
+        display: inline;
         list-style: none;
-        padding: 0; 
+        padding: 0;
         margin: 0;
       }
-      #nav1{
-        display:inline;
+      #nav1 {
+        display: inline;
         list-style: none;
-        padding: 0; 
+        padding: 0;
         margin: 0;
       }
-      .syd{
-        font-size: 30px; 
+      .syd {
+        font-size: 30px;
       }
 
-      #toggle,#toggle-label{display: none;}
-      #toggle:checked + #nav3{display: inline;}
-      #nav li{display: inline;}
+      #toggle,
+      #toggle-label {
+        display: none;
+      }
+      #toggle:checked + #nav3 {
+        display: inline;
+      }
+      #nav li {
+        display: inline;
+      }
 
-      #nav1 li{display: inline;}
+      #nav1 li {
+        display: inline;
+      }
 
-      #nav3{display: none; list-style: none; width:100%; text-align: right;}
+      #nav3 {
+        display: none;
+        list-style: none;
+        width: 100%;
+        text-align: right;
+      }
 
-      .band{
-        display:grid;
+      .band {
+        display: grid;
         width: 100%;
         grid-template-columns: 1fr 1fr 1fr;
-
       }
-      .band img{
-        width:80%;
-      }
-
-      @media screen and (max-width:990px){
-        #toggle-label{display: inline;}
-        #nav{display: none; font-size: 12px;}
-        #nav1{display: none; font-size: 12px;}
-        #nav3 li{display: block;}
-        .syd{font-size: 18px;}
-        .footer-link{font-size: 0.8em;}
-        .band{grid-template-columns: 1fr 2fr 1fr;}
-        .band img{width:100%;}
+      .band img {
+        width: 80%;
       }
 
-      @media screen and (max-width:800px){
-        .band{grid-template-columns: 1fr 3fr 1fr;}
+      @media screen and (max-width: 990px) {
+        #toggle-label {
+          display: inline;
+        }
+        #nav {
+          display: none;
+          font-size: 12px;
+        }
+        #nav1 {
+          display: none;
+          font-size: 12px;
+        }
+        #nav3 li {
+          display: block;
+        }
+        .syd {
+          font-size: 18px;
+        }
+        .footer-link {
+          font-size: 0.8em;
+        }
+        .band {
+          grid-template-columns: 1fr 2fr 1fr;
+        }
+        .band img {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 800px) {
+        .band {
+          grid-template-columns: 1fr 3fr 1fr;
+        }
       }
     </style>
 
     <!-- Favicon 위치 -->
-    <link rel=" shortcut icon" href="{% static 'img/SYD_fabi.ico' %}">
-    <link rel="icon" href="{% static 'img/SYD_fabi.ico' %}">
+    <link rel=" shortcut icon" href="{% static 'img/SYD_fabi.ico' %}" />
+    <link rel="icon" href="{% static 'img/SYD_fabi.ico' %}" />
 
     <title>Share Your Day</title>
   </head>
-  <body style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;">
+  <body
+    style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;"
+  >
     <header class="container blog-header py-3">
       <div class="band align-items-center">
         <div class="pt-1">
           <ul id="nav">
-          <li><a class="p-2" href="#">인기 기부</a></li>
-          <li><a class="p-2" href="#">최신 기부</a></li>
-          <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
+            <li><a href="{% url 'about' %}" class="p-2">About</a></li>
+            <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
           </ul>
         </div>
-        <div
-          class="text-center syd">
-        <!-- SYD 로고 들어가는 곳 -->
-          <a class="blog-header-logo justify-content-center" href="{% url 'index' %}">
-            <img src="{% static 'img/ShareYourDay_line.png' %}">
+        <div class="text-center syd">
+          <!-- SYD 로고 들어가는 곳 -->
+          <a
+            class="blog-header-logo justify-content-center"
+            href="{% url 'index' %}"
+          >
+            <img src="{% static 'img/ShareYourDay_line.png' %}" />
           </a>
-
         </div>
         <div class="pt-1 d-flex justify-content-end align-items-center">
-          <label for="toggle" id="toggle-label" style="font-size:1.7rem;" onclick>&#8801;</label>
+          <label
+            for="toggle"
+            id="toggle-label"
+            style="font-size:1.7rem;"
+            onclick
+            >&#8801;</label
+          >
           <ul id="nav1">
-          <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
-          <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
+            <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
+            {% if user.is_authenticated %}
+            <li>
+              <a href="#">{{ user.username }}</a>
+            </li>
+            <li><a href="{% url 'profile' user.id %}" class="p-2">My Page</a></li>
+            <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
 
-          <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
-          {% else %}
-          <li><a href="{% url 'login' %}" class="p-2">Login</a></li>
-          <li><a href="{% url 'signup' %}" class="p-2">Sign Up</a></li>
+            <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
+            {% else %}
+            <li><a href="{% url 'login' %}" class="p-2">Login</a></li>
+            <li><a href="{% url 'signup' %}" class="p-2">Sign Up</a></li>
 
-          <!-- {% comment %} 로그인 후 {% endcomment %}
+            <!-- {% comment %} 로그인 후 {% endcomment %}
           <a href="">My Page &nbsp</a>
           <a href="">Logout &nbsp</a> -->
-          {% endif %}
-          <li><a href="{% url 'about' %}" class="p-2">About</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
 
       <div style="width:100%; padding-top: 0; box-sizing: border-box;">
-        <input type="checkbox" id="toggle"/>
+        <input type="checkbox" id="toggle" />
         <ul id="nav3" style="width:100%;">
           <li><a class="p-2" href="#">인기 기부</a></li>
           <li><a class="p-2" href="#">최신 기부</a></li>
@@ -165,12 +236,12 @@
           {% if user.is_authenticated %}
           <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
           <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
-    
+
           <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
           {% else %}
           <li><a href="{% url 'login' %}" class="p-2">Login</a></li>
           <li><a href="{% url 'signup' %}" class="p-2">Sign Up</a></li>
-    
+
           <!-- {% comment %} 로그인 후 {% endcomment %}
           <a href="">My Page &nbsp</a>
           <a href="">Logout &nbsp</a> -->
@@ -188,14 +259,15 @@
       </nav>
     </div>
 
-
     {% block contents %} {% endblock contents %}
     <div class="container">
       <footer class="page-footer font-small " style="padding-top:12px;">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="text-uppercase" style="font-weight: bold;">Share Your Day</h2>
+              <h2 class="text-uppercase" style="font-weight: bold;">
+                Share Your Day
+              </h2>
               <p>기쁜날 기쁜 마음으로 기부합니다.</p>
             </div>
           </div>
@@ -203,18 +275,24 @@
             <div class="col-md-9" style="padding-bottom: 15px;">
               <a href="#!" style="font-size:12px;">인기 기부</a>&nbsp;&nbsp;
               <a href="#!" style="font-size:12px;">최근 기부</a>&nbsp;&nbsp;
-              <a href="{% url 'faq' %}" style="font-size:12px;">FAQ</a>&nbsp;&nbsp;
-              <a href="{% url 'about' %}" style="font-size:12px;">About</a>&nbsp;&nbsp;
+              <a href="{% url 'faq' %}" style="font-size:12px;">FAQ</a
+              >&nbsp;&nbsp;
+              <a href="{% url 'about' %}" style="font-size:12px;">About</a
+              >&nbsp;&nbsp;
               <a href="#!" style="font-size:12px;">약관</a>&nbsp;&nbsp;
-              <a href="#!" style="font-size:12px;">개인정보처리방침</a>&nbsp;&nbsp;
+              <a href="#!" style="font-size:12px;">개인정보처리방침</a
+              >&nbsp;&nbsp;
             </div>
-            <div class="col-md-3 text-right" style="text-align: center; padding-bottom: 15px;">
-                Made by <a href="{% url 'about' %}"> 1등기부팀 </a>
+            <div
+              class="col-md-3 text-right"
+              style="text-align: center; padding-bottom: 15px;"
+            >
+              Made by <a href="{% url 'about' %}"> 1등기부팀 </a>
             </div>
           </div>
         </div>
       </footer>
-    </div>  
+    </div>
   </body>
 </html>
 <!-- test -->

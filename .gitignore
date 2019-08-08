@@ -1,6 +1,8 @@
 *.sqlite3
-**/__pycache__/
 *.pyc
+*.log
+
+**/__pycache__/
 media
 web/migrations/*
 accounts/migrations/*
