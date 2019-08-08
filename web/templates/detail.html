@@ -18,7 +18,7 @@
         <div class="media-body grid-box align-items-center">
           <div class="item1 mt-0 mb-2 text-center" style="font-weight:bold; font-size:3em;">{{ fund_detail.title }}</div>
           <div class="box">기부 주최자 </div>
-          <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}"> {{ fund_detail.organizer.nickname }}</a></div>
+          <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}" style="font-family: 'NIXGONB-Vb';"> {{ fund_detail.organizer.nickname }}</a></div>
           <div class="box">목표 금액</div> <div>{{ fund_detail.goal }}원 </div> 
           <div class="box">현재 모금액</div> <div>{{ fund_detail.current_fund }}원</div>
           <div class="box">조회수</div> <div>{{ fund_detail.hit }}</div>
@@ -96,7 +96,8 @@
           {% for donation in fund_detail.donations %}
           <div class="row">
             <div class="col-md-3 col-sm-12 pl-3">
-              {{ donation.user.nickname }}
+              <a href="{% url 'profile' donation.user.user.id %}"> 
+              {{ donation.user.nickname }}</a>
             </div>
             <div class="col-md-9 col-sm-12">
               <div class="progress" style="height: 20px; width: 100%;">
