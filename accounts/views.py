@@ -96,7 +96,31 @@ def profile(request, profile_id):
             'pub_date': fund.pub_date,
         }
         fund_list.append(fund_detail)
-    return render(request, 'profile.html', {'fund_list': fund_list, 'profileInfo': profileInfo})
+
+    donation_list = []
+
+    for fund1 in fund.donation_set.all().filter(user=profileInfo):
+        fund_detail = {
+            'title': fund.title,
+            'content': fund.content,
+            'current_date': fund.pub_date,
+            'current_fund': fund.currentAmount,
+            'organizer': fund.organizer,
+            # 'current_fund': 57,
+            'start_day': fund.pub_date,
+            'end_day': fund.expireDate,
+            'goal': fund.targetAmount,
+            'max_fund': fund.maxValue,
+            'min_fund': fund.minValue,
+            'image_url': fund.contentImage,
+            'fund_id': fund.id,
+            'hit': fund.update_counter,
+            'like': fund.like_count,
+            'd_day': (today - end_at).days,
+            'pub_date': fund.pub_date,
+        }
+        donation_list.append(fund_detail)
+    return render(request, 'profile.html', {'fund_list': fund_list, 'donation_list': donation_list, 'profileInfo': profileInfo})
 
 
 def updateProfile(request, profile_id):
