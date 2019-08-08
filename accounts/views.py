@@ -22,7 +22,8 @@ def signup(request):
                 profile = Profile(user=user, nickname=nickname, email=email,
                                   birthday=birthday, phoneNumber=phoneNumber, profileImage=profileImage)
                 profile.save()
-                auth.login(request, user, backend="django.contrib.auth.backends.ModelBackend")
+                auth.login(request, user,
+                           backend="django.contrib.auth.backends.ModelBackend")
                 return redirect('index')
             except Exception as error:
                 user.delete()
@@ -60,6 +61,26 @@ def logout(request):
     return redirect('index')
 
 
+# user_id = profile_id
 def profile(request, profile_id):
-    profileInfo = get_object_or_404(Profile, pk=profile_id)
-    return render(request, 'profile.html',{'profileInfo':profileInfo})
+    profileInfo = get_object_or_404(
+        Profile, user=get_object_or_404(User, pk=profile_id))
+    return render(request, 'profile.html', {'profileInfo': profileInfo})
+
+
+def updateProfile(request, profile_id):
+    updateProfile = get_object_or_404(
+        Profile, user=get_object_or_404(User, pk=profile_id))
+    return render(request, 'userupdate.html', {'updateProfile': updateProfile})
+
+
+def editProfile(request, profile_id):
+    edit = Profile.objects.get(user=get_object_or_404(User, pk=profile_id))
+
+    # edit.user = request.POST['user']
+    edit.nickname = request.POST['nickname']
+    edit.phoneNumber = request.POST['phoneNumber']
+    # edit.profileImage = request.POST['profileImage']
+    edit.save()
+
+    return redirect('index')

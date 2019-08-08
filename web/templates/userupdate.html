@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% load static %} {% block contents %}
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- css파일 -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/signup.css' %}"
+    />
+    <title>User Update</title>
+    <!-- js파일 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{% static 'js/signup.js' %}"></script>
+  </head>
+
+  <body>
+    <br />
+    <br />
+    <!-- form 시작-->
+    <div class="form">
+      <div class="form-panel one">
+        <div class="form-header">
+          <h1>개인정보 수정</h1>
+        </div>
+        <br />
+        <div class="form-content">
+          <form
+            action="{% url 'editProfile' user.id %}"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <div class="form-group required">
+              <label for="nickname" style="width:100%;">Nickname(닉네임)</label>
+              <input
+                type="text"
+                id="nickname"
+                name="nickname"
+                value="{{ updateProfile.nickname }}"
+                required="required"
+                style="width:244px; height:35px;"
+              />
+              <input
+                type="button"
+                id="checknickname"
+                value="중복확인"
+                style="float:left; width:28%; border: 2px solid #FF6F61; background-color:white;"
+              />
+            </div>
+
+            <div class="form-group required">
+              <label for="phoneNumber">Phone Number(휴대폰 번호)</label>
+              <input
+                type="number"
+                id="phoneNumber"
+                name="phoneNumber"
+                value="{{ updateProfile.phoneNumber }}"
+                required="required"
+                placeholder="010XXXXXXXX"
+                maxlength="11"
+                oninput="maxLengthCheck(this)"
+                style="width:244px; height:35px;"
+              />
+            </div>
+
+            <div class="form-group required">
+              <label for="profileImage">Profile Image(프로필 사진)</label>
+              <input
+                type="image"
+                name="profileImage"
+                value="{{ updateProfile.profileImage }}"
+                id="profileImage"
+                style="width:244px; height:35px;"
+              />
+              <input
+                type="file"
+                name="profileImage"
+                id="profileImage"
+                style="width:244px; height:35px;"
+              />
+            </div>
+            <br />
+            <div
+              class="form-group"
+              style="font-size:1.3em;"
+              style="width:244px; height:35px;"
+            >
+              <button type="submit">수정하기</button>
+            </div>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+    <!-- form end  -->
+    <br />
+    <br />
+  </body>
+</html>
+{% endblock contents %}
