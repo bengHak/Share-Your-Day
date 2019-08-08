@@ -48,6 +48,7 @@ def index(request):
     fund_list.sort(key=lambda x: x['pub_date'], reverse=True)
     recent_list = fund_list[:]
     print(recent_list[0])
+    #
     return render(request, 'index.html', {'popular_list': popular_list, 'recent_list':recent_list,'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]})
 
 
