@@ -10,6 +10,13 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
   <title>Register Fund</title>
   <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+  <style>
+    .ck-editor__editable 
+       {
+        min-height: 400px !important;
+        max-height: 400px;
+            }
+  </style>
   </head>
   <body>
   <!-- Form-->
@@ -76,7 +83,7 @@
   <br><br>
   <script>
     ClassicEditor
-      .create( document.querySelector( '#editor' ) )
+      .create( document.querySelector( '#editor' ))
       .catch( error => {
           console.error( error );
       } );
