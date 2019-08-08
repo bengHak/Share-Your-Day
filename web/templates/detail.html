@@ -18,7 +18,7 @@
       </div>
       <div class="container col-md-4 align-self-center">
         <div class="media-body grid-box align-items-center">
-          <div class="item1 mt-0 mb-4" style="font-weight:bold; font-size:2em;">{{ fund_detail.title }}</div>
+          <div class="item1 mt-0 mb-2 text-center" style="font-weight:bold; font-size:3em;">{{ fund_detail.title }}</div>
           <div class="box">기부 주최자 </div>
           <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}"> {{ fund_detail.organizer.nickname }}</a></div>
           <div class="box">목표 금액</div> <div>{{ fund_detail.goal }}원 </div> 
@@ -27,8 +27,8 @@
           <div class="box">기부 진행 기간</div>
           <div>{{ fund_detail.start_day }} ~ {{ fund_detail.end_day }}</div>
         </div>
-          <div class="row">
-            <div class="col-md-8 pr-1">
+          <div class="wrapper">
+            <div class="wrap1 pr-1">
               {% comment %}
               <form action="{% url 'post_like' fund_detail.fund_id%}" method="POST" style="display:inline;">
                 {% endcomment %} {% comment %} {% csrf_token %} {% endcomment %}
@@ -40,22 +40,22 @@
               </form>
               {% endcomment %}
             </div>
-            <div class="col-md-2 px-1">
+            <div class="wrap2 px-1">
               <button type="button" id="kakao-link-btn" class="btn btn-primary btn-sm btn-share mx-1" href="javascript:;">
                 카톡<br>공유
               </button>
             </div>
-            <div class="col-md-2 pl-0">
+            <div class="wrap3 pl-0 mr-1">
               <button id="copy-link"type="button" class="btn btn-primary btn-sm btn-share mx-1" onclick="copyLink()">
                 링크<br>복사
               </button>
             </div>
           </div>
-          <div class="row justify-content-start mt-2 align-items-center">
-            <div class="col-md-11 mx-0 pr-0">
+          <div class="wrapper-price justify-content-start mt-2 align-items-center">
+            <div class="wrap-p1 mx-0 pr-0">
               <input id="fund_amount" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="height:37px;" placeholder="기부하고 싶은 만큼 입력하세요~"/>
             </div>
-            <div class="col-md-1 mt-3 mx-0 px-1 text-left" style="font-size: 1.1em; font-weight: bold;">
+            <div class="wrap-p2 mt-3 mx-0 px-1 text-left" style="font-size: 1.1em; font-weight: bold;">
               <p>원</p>
             </div>
           </div>
