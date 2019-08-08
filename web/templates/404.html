@@ -13,6 +13,7 @@
     <!-- <link type="text/css" rel="stylesheet" href="static/css/404.css" /> -->
 
     <style type="text/css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       * {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -49,13 +50,13 @@
         left: 0;
         top: 0;
         display: inline-block;
-        width: 140px;
-        height: 140px;
+        width: 300px;
+        height: 300px;
         background-image: url("static/img/SYD_404.png");
         background-size: cover;
       }
 
-      .notfound .notfound-404:before {
+      /* .notfound .notfound-404:before {
         content: "";
         position: absolute;
         width: 100%;
@@ -66,7 +67,7 @@
         border-radius: 50%;
         background-color: #f2f5f8;
         z-index: -1;
-      }
+      } */
 
       .notfound h1 {
         font-family: "Nunito", sans-serif;
@@ -101,6 +102,23 @@
         text-decoration: none;
         color: #388dbc;
       }
+      .notfound button {
+        text-decoration: none;
+        border: 2px solid #ff6f61;
+        border-radius: 20px;
+        color: white;
+        background-color: #ff6f61;
+        width: 180px;
+        height: 45px;
+        transition: all 0.2s;
+        font-size: 1.3rem;
+        padding: 3px 5px;
+      }
+      .notfound button:hover {
+        background-color: rgba(255, 110, 97, 0.26);
+        color: #ff6f61;
+        border-color: rgba(255, 110, 97, 0.26);
+      }
 
       @media only screen and (max-width: 767px) {
         .notfound .notfound-404 {
@@ -120,11 +138,20 @@
       <div class="notfound">
         <div class="notfound-404"></div>
         <h1>404</h1>
-        <h2>Oops! Page Not Be Found</h2>
-        <p>
-          "Sorry but the page you are looking for does not exist, have been
-          removed. name changed or is temporarily unvailable"
-        </p>
+        <h2>앗! 지금이 투표할 순간!</h2>
+        <h3>
+          "1등 기부 플랫폼, Share Your Day에 투표하세요!"
+        </h3>
+        {% comment %}
+        <h3>"Share Your Day 투표하러 가기"</h3>
+        {% endcomment %}
+        <button
+          onclick="location.href = 'https://event.likelion.org/hackathon/projects/194'"
+        >
+          Share Your Day
+        </button>
+        <br />
+        <br />
         <a href="{% url 'index' %}">Back to homepage</a>
       </div>
     </div>
