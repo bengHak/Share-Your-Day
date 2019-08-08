@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
   <title>Register Fund</title>
-  <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/decoupled-document/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
   </head>
   <body>
   <!-- Form-->
@@ -55,12 +55,7 @@
           <div style="float:right; width:600px;">
             <div class="form-group required" style="width:570px;">
               <label for="content">스토리</label>
-              <div id="toolbar-container"></div>
-
-              <!-- This container will become the editable. -->
-              <div id="editor">
-                  <p>This is the initial editor content.</p>
-              </div>
+              <textarea name="content" id="editor">sdfsdf</textarea>
               <!-- <textarea cols=100 rows=13 id="content" name="content" required="required"></textarea> -->
             </div>
           </div><div style="clear:both;"></div>
@@ -80,17 +75,12 @@
   </div>
   <br><br>
   <script>
-    DecoupledEditor
+    ClassicEditor
       .create( document.querySelector( '#editor' ) )
-      .then( editor => {
-        const toolbarContainer = document.querySelector( '#toolbar-container' );
-
-        toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-      } )
       .catch( error => {
-        console.error( error );
+          console.error( error );
       } );
-</script>
+  </script>
   {% endblock contents %}
   </body>
 </html>
