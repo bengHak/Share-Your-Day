@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.utils import timezone
 from .models import Profile
+from web.models import Register
+
+from datetime import date
 
 
 def signup(request):
@@ -65,7 +69,34 @@ def logout(request):
 def profile(request, profile_id):
     profileInfo = get_object_or_404(
         Profile, user=get_object_or_404(User, pk=profile_id))
-    return render(request, 'profile.html', {'profileInfo': profileInfo})
+
+    fund = Register.objects.all().filter(organizer=profileInfo)
+    fund_list = []
+
+    for fund in fund:
+        end_at = fund.expireDate
+        today = date.today()
+        fund_detail = {
+            'title': fund.title,
+            'content': fund.content,
+            'current_date': fund.pub_date,
+            'current_fund': fund.currentAmount,
+            'organizer': fund.organizer,
+            # 'current_fund': 57,
+            'start_day': fund.pub_date,
+            'end_day': fund.expireDate,
+            'goal': fund.targetAmount,
+            'max_fund': fund.maxValue,
+            'min_fund': fund.minValue,
+            'image_url': fund.contentImage,
+            'fund_id': fund.id,
+            'hit': fund.update_counter,
+            'like': fund.like_count,
+            'd_day': (today - end_at).days,
+            'pub_date': fund.pub_date,
+        }
+        fund_list.append(fund_detail)
+    return render(request, 'profile.html', {'fund_list': fund_list, 'profileInfo': profileInfo})
 
 
 def updateProfile(request, profile_id):

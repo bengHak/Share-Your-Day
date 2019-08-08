@@ -28,8 +28,8 @@ def index(request):
             'title': fund.title,
             'content': fund.content,
             'current_fund': fund.currentAmount,
-            'fund_ratio' : fund.currentAmount/fund.targetAmount * 100,
-            'organizer' : fund.organizer,
+            'fund_ratio': fund.currentAmount/fund.targetAmount * 100,
+            'organizer': fund.organizer,
             'goal': fund.targetAmount,
             'max_fund': fund.maxValue,
             'min_fund': fund.minValue,
@@ -38,7 +38,7 @@ def index(request):
             'hit': fund.hit,
             'like': fund.like_count,
             'd_day': (today - end_at).days,
-            'pub_date' : fund.pub_date,
+            'pub_date': fund.pub_date,
         }
         fund_list.append(fund_objects)
 
@@ -55,12 +55,8 @@ def index(request):
     if len(fund_list) == 0:
         return render(request, 'index.html', {})
 
-    return render(request, 'index.html', {'popular_list': popular_list, 'recent_list':recent_list})
-#'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]
-
-
-def mypage(request):
-    return render(request, 'mypage.html')
+    return render(request, 'index.html', {'popular_list': popular_list, 'recent_list': recent_list})
+# 'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]
 
 
 def faq(request):
@@ -107,7 +103,8 @@ def pay(request):
         profile = get_object_or_404(Profile, user=request.user)
         fund_id = request.POST.get('pk', None)
         fund = get_object_or_404(Register, pk=fund_id)
-        fund_pay, fund_pay_created = fund.donation_set.get_or_create(user=profile)
+        fund_pay, fund_pay_created = fund.donation_set.get_or_create(
+            user=profile)
 
         fund.currentAmount += int(request.POST.get('amount'))
         fund_pay.amount += int(request.POST.get('amount'))
