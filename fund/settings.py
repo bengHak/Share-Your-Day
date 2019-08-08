@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'vi7-)2t-76#s*c$=c5%0!z)q!x@821xog20@=!$x*sbf#gfem*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'fund.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -154,21 +154,21 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
-LOGGING = { 
+LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'handlers': { 
-        'file': { 
+    'handlers': {
+        'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'debug.log', 
-            },
+            'filename': 'debug.log',
         },
+    },
     'loggers': {
         'django': {
             'handlers': ['file'],
             'level': 'INFO',
             'propagate': True,
         },
-    }, 
+    },
 }
