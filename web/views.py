@@ -95,8 +95,8 @@ def detail(request, fund_id):
 def payment(request):
     return render(request, 'payment.html')
 
-def Privacy(request):
-    return render(request, 'Privacy.html')
+def privacy(request):
+    return render(request, 'privacy.html')
 
 @login_required
 @require_POST
