@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% load static %}{% block contents %}
 <head>
 <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <br />
 <br />
@@ -18,7 +19,7 @@
       <div class="container col-md-4 align-self-center">
         <div class="media-body grid-box align-items-center">
           <div class="item1 mt-0 mb-4" style="font-weight:bold; font-size:2em;">{{ fund_detail.title }}</div>
-          <div class="box">기부 주체자 </div>
+          <div class="box">기부 주최자 </div>
           <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}"> {{ fund_detail.organizer.nickname }}</a></div>
           <div class="box">목표 금액</div> <div>{{ fund_detail.goal }}원 </div> 
           <div class="box">현재 모금액</div> <div>{{ fund_detail.current_fund }}원</div>
@@ -26,34 +27,41 @@
           <div class="box">기부 진행 기간</div>
           <div>{{ fund_detail.start_day }} ~ {{ fund_detail.end_day }}</div>
         </div>
-          <div class="row justify-content-start">
-            <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-8 pr-1">
               {% comment %}
               <form action="{% url 'post_like' fund_detail.fund_id%}" method="POST" style="display:inline;">
                 {% endcomment %} {% comment %} {% csrf_token %} {% endcomment %}
-                <button id="like" type="submit" value="like" class="btn btn-primary btn-sm"
+                <button id="like" type="submit" value="like" class="btn btn-primary btn-sm btn-like mx-1"
                   name="{{ fund_detail.fund_id }}">
-                  {{ fund_detail.like }} 좋아요
+                  좋아요 {{ fund_detail.like }}개
                 </button>
                 {% comment %}
               </form>
               {% endcomment %}
-              <button type="button" id="kakao-link-btn" class="btn btn-primary btn-sm" href="javascript:;">
-                카톡 공유
+            </div>
+            <div class="col-md-2 px-1">
+              <button type="button" id="kakao-link-btn" class="btn btn-primary btn-sm btn-share mx-1" href="javascript:;">
+                카톡<br>공유
               </button>
-              <button id="copy-link"type="button" class="btn btn-primary btn-sm" onclick="copyLink()">
-                링크 복사
+            </div>
+            <div class="col-md-2 pl-0">
+              <button id="copy-link"type="button" class="btn btn-primary btn-sm btn-share mx-1" onclick="copyLink()">
+                링크<br>복사
               </button>
             </div>
           </div>
-          <div class="row justify-content-start mt-2">
-            <div class="col-md-12">
-              <input id="fund_amount" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="height:30px;" placeholder="기부하고 싶은 만큼 입력하세요~"/>
+          <div class="row justify-content-start mt-2 align-items-center">
+            <div class="col-md-11 mx-0 pr-0">
+              <input id="fund_amount" class="form-control" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="height:37px;" placeholder="기부하고 싶은 만큼 입력하세요~"/>
+            </div>
+            <div class="col-md-1 mt-3 mx-0 px-1 text-left" style="font-size: 1.1em; font-weight: bold;">
+              <p>원</p>
             </div>
           </div>
           <div class="row justify-content-start mt-1">
             <div class="col-md-12">
-              <button type="button" class="btn btn-warning" style="width:100% !important;"
+              <button type="button" class="btn btn-warning fund-btn" style="width:100% !important;"
                 onclick="pay()">
                 {% comment %} "location.href='{% url 'payment' %} {% endcomment %}
                 기부하기
@@ -254,7 +262,7 @@ document.body.removeChild(dummy);
           $("#count" + pk).html("count : " + response.likes_count);
           //alert(response.message);
           //alert("좋아요수 :" + response.likes_count);
-          $("#like").text(response.likes_count + " 좋아요");
+          $("#like").text("좋아요 " + response.likes_count + "개");
         },
         error: function (request, status, error) {
           //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
