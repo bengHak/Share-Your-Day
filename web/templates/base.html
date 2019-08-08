@@ -139,7 +139,7 @@
         width: 90%;
       }
 
-      button{
+      .registerFund{
           text-decoration: none;
           border: 2px solid #FF6F61;
           border-radius: 20px;
@@ -148,12 +148,13 @@
           width: 180px;
           height: 45px;
           transition: all 0.2s;
-          font-size: 15px;
+          font-size: 1.3rem;
           padding: 3px 5px;
       }
-      button:hover{
+      .registerFund:hover{
           background-color: rgba(255, 110, 97, 0.26);
           color: #FF6F61;
+          border-color: rgba(255, 110, 97, 0.26);
       }
 
       @media screen and (max-width: 990px) {
@@ -262,7 +263,7 @@
           <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
           <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
           {% if user.is_authenticated %}
-          <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
+          <li><a href="{% url 'profile' user.id %}" class="p-2">My Page</a></li>
           <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
 
           <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
@@ -280,7 +281,7 @@
     </header>
 
     <div class="container nav-scroller mb-4">
-      <nav class="nav d-flex justify-content-center mt-2">
+      <nav class="nav d-flex justify-content-center mt-1">
         {% comment %} {% if user.is_authenticated %} {% endcomment %}
         <button type="button" class="registerFund" onclick="location.href='{% url 'register' %}' ">기부 등록하기</button>
         {% comment %} {% endif %} {% endcomment %}
