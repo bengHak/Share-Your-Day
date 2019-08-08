@@ -1,0 +1,41 @@
+a:link {
+    color: black;
+    text-decoration: none;
+  }
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  a:active {
+    color: black;
+    text-decoration: none;
+  }
+
+.box{
+    border:1px solid rgb(109, 108, 108);
+    border-radius: 7px;
+    padding: 3px;
+    background-color: rgb(109, 108, 108);
+    color:white;
+    text-align: center;
+    margin: 3px;
+    margin-right: 10px;
+}
+.box-name{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.grid-box{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.item1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
