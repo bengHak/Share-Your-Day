@@ -14,6 +14,7 @@ urlpatterns = [
     path('payment/', views.payment, name='payment'),
     path('pay/', views.pay, name='pay'),
     path('test-like', views.like, name='like'),
+    path('Privacy/', views.Privacy, name='Privacy'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
