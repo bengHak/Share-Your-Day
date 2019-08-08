@@ -1,3 +1,19 @@
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+a:active {
+  color: black;
+  text-decoration: none;
+}
 .overlay, .form-panel.one:before {
   position: absolute;
   top: 0;
