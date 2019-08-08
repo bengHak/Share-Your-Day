@@ -95,7 +95,7 @@
                 {% widthratio fund.current_fund fund.goal 100 %}%
               </div>
             </div>
-            <p class="card-text">{{fund.content}}</p>
+            <p class="card-text has_content" content="{{fund.content}}"></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary"
@@ -140,7 +140,7 @@
                 {% widthratio fund.current_fund fund.goal 100 %}%
               </div>
             </div>
-            <p class="card-text">{{fund.content}}</p>
+            <p class="card-text has_content" content="{{fund.content}}"></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary"
@@ -156,5 +156,21 @@
 
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+  console.log(document.getElementsByClassName('has_content'))
+
+  var content_list = document.getElementsByClassName('has_content')
+  for(var i=0; i<content_list.length; i++){
+    console.log(content_list[i])
+    if (content_list[i].getAttribute('content').length > 70)
+        content_list[i].innerHTML = content_list[i].getAttribute('content').substring(0, 70) + '…';
+    else
+      content_list[i].innerHTML = content_list[i].getAttribute('content');
+  }
+
+  
+</script>
 
 {% endblock contents %}

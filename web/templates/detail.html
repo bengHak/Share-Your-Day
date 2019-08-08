@@ -77,8 +77,7 @@
         </div>
       </div>
       <div class="col-md-6 mt-4">
-        <div class="jumbotron">
-          {{ fund_detail.content }}
+        <div id="has_content" class="jumbotron" content="{{ fund_detail.content }}">
         </div>
       </div>
 
@@ -152,6 +151,9 @@
     //]]>
   </script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+   $('#has_content').html($('#has_content').attr('content'))
+  </script>
 
 <script src="http://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
