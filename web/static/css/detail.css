@@ -106,3 +106,9 @@ a:link {
     display: grid;
     grid-template-columns: 10fr 1fr;
 }
+
+.donator_list, .has_content{
+    background-color: rgba(224, 224, 224, 0.329);
+    padding: 10px;
+    border-radius: 2px;
+}

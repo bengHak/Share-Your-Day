@@ -3,8 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}" />
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
-<br />
-<br />
 {% comment %} rgba(248, 131, 121, 0.15) {% endcomment %}
 <div class="jumbotron" style="background: rgba(0,0,0,0)">
   {% comment %} style="background: linear-gradient(#ffffff, rgba(248, 131, 121,
@@ -79,22 +77,25 @@
             style="width: {% widthratio fund_detail.current_fund fund_detail.goal 100 %}%; color: black;"
             aria-valuenow="{% widthratio fund_detail.current_fund fund_detail.goal 100 %}" aria-valuemin="0"
             aria-valuemax="100">
+            &nbsp;&nbsp;
             {% widthratio fund_detail.current_fund fund_detail.goal 100 %} %
             ({{fund_detail.current_fund}}원)
           </div>
         </div>
       </div>
-      <div class="col-md-6 mt-4">
-        <div id="has_content" class="jumbotron" content="{{ fund_detail.content }}">
+      <div class="col-md-6 mt-4 pr-2">
+        <div id="has_content" class="has_content">
+            <h4 class="text-center" style="font-family:'NIXGONB-Vb';">기부 내용</h4><br>
+            {{ fund_detail.content }}
         </div>
       </div>
 
-      <div class="col-md-6 mt-4">
-        <div class="jumbotron">
-          <h4>기부자 목록</h4>
+      <div class="col-md-6 mt-4 pl-2">
+        <div class="donator_list">
+          <h4 class="text-center" style="font-family:'NIXGONB-Vb';">기부자 목록</h4><br>
           {% for donation in fund_detail.donations %}
           <div class="row">
-            <div class="col-md-3 col-sm-12">
+            <div class="col-md-3 col-sm-12 pl-3">
               {{ donation.user.nickname }}
             </div>
             <div class="col-md-9 col-sm-12">
