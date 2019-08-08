@@ -18,7 +18,7 @@
       </div>
       <div class="container col-md-4 align-self-center">
         <div class="media-body grid-box align-items-center">
-          <div class="item1 mt-0 mb-4" style="font-weight:bold; font-size:2em;">{{ fund_detail.title }}</div>
+          <div class="item1 mt-0 mb-2 text-center" style="font-weight:bold; font-size:3em;">{{ fund_detail.title }}</div>
           <div class="box">기부 주최자 </div>
           <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}"> {{ fund_detail.organizer.nickname }}</a></div>
           <div class="box">목표 금액</div> <div>{{ fund_detail.goal }}원 </div> 
@@ -27,8 +27,8 @@
           <div class="box">기부 진행 기간</div>
           <div>{{ fund_detail.start_day }} ~ {{ fund_detail.end_day }}</div>
         </div>
-          <div class="row">
-            <div class="col-md-8 pr-1">
+          <div class="wrapper">
+            <div class="wrap1 pr-1">
               {% comment %}
               <form action="{% url 'post_like' fund_detail.fund_id%}" method="POST" style="display:inline;">
                 {% endcomment %} {% comment %} {% csrf_token %} {% endcomment %}
@@ -40,12 +40,12 @@
               </form>
               {% endcomment %}
             </div>
-            <div class="col-md-2 px-1">
+            <div class="wrap2 px-1">
               <button type="button" id="kakao-link-btn" class="btn btn-primary btn-sm btn-share mx-1" href="javascript:;">
                 카톡<br>공유
               </button>
             </div>
-            <div class="col-md-2 pl-0">
+            <div class="wrap3 pl-0 mr-1">
               <button id="copy-link"type="button" class="btn btn-primary btn-sm btn-share mx-1" onclick="copyLink()">
                 링크<br>복사
               </button>
