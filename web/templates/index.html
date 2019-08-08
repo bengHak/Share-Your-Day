@@ -12,7 +12,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="{% url 'detail' 1 %}">
+        <a href="{% url 'detail' main_1.fund_id %}">
           <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="First slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
@@ -21,13 +21,13 @@
             color: white;
             padding-left: 20px;
             padding-right: 20px;">
-            기부 타이틀 1
+            {{main_1.title}}
             </div>
         </a>
       </div>
       <div class="carousel-item">
-        <a href="{% url 'detail' 1 %}">
-          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Second slide" style="border-radius: 10px !important;">
+        <a href="{% url 'detail' main_2.fund_id %}">
+          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="First slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -35,13 +35,13 @@
             color: white;
             padding-left: 20px;
             padding-right: 20px;">
-            기부 타이틀 2
+            {{main_2.title}}
             </div>
         </a>
       </div>
       <div class="carousel-item">
-        <a href="{% url 'detail' 1 %}">
-          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Third slide" style="border-radius: 10px !important;">
+        <a href="{% url 'detail' main_3.fund_id %}">
+          <img class="d-block w-100" src="{{main_3.image_url.url}}" width=1110px height=333px alt="First slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -49,7 +49,7 @@
             color: white;
             padding-left: 20px;
             padding-right: 20px;">
-            기부 타이틀 3
+            {{main_3.title}}
             </div>
         </a>
       </div>
