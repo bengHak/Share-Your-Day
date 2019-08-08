@@ -25,15 +25,22 @@
           style="border-radius:15px;"
         />
       </div>
-      <div class="grid2 px-3 my-3">
+      <div class="grid2 px-3 my-3" style="display:inline;">
         <p>
-          <span style="font-size: 2rem; font-weight:bold;"
-            >{{ profileInfo.nickname }} </span
-          >님의 프로필
+          <span style="font-size: 2rem; font-weight:bold;">
+            {{ profileInfo.nickname }} </span>님의 프로필 &nbsp;&nbsp;&nbsp;
+            {% if profileInfo.user == user %}
+          <button
+            type="button"
+            class="updateButton"
+            onclick="location.href='{% url 'updateProfile' user.id %}' ">
+            개인 정보 수정
+          </button>
+          {% endif %}
         </p>
-        <h4>총 기부금 :</h4>
-        <h4>기부횟수 :</h4>
-        <a href="{% url 'updateProfile' user.id %}">개인 정보 수정</a>
+        <h4 class="mt-4">총 기부금 :</h4>
+        <h4 class="my-4">기부횟수 :</h4>
+        <br />
       </div>
     </div>
     <br />
