@@ -38,7 +38,7 @@ def index(request):
         }
         fund_list.append(fund_objects)
     fund_list.reverse()
-    return render(request, 'index.html', {'fund_list': fund_list})
+    return render(request, 'index.html', {'fund_list': fund_list, 'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]})
 
 
 def mypage(request):
