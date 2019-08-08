@@ -69,10 +69,10 @@
 {% comment %} 기부 리스트 {% endcomment %}
 <div class="container">
   <hr align="left" style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;"/>
-  <h2 style="display: inline;">인기 기부</h2> 
+  <h2 style="display: inline;">최신 기부</h2> 
   {% comment %} <a href="">&nbsp; 더보기</a> {% endcomment %}
   <div class="row mt-3">
-  {% for fund in fund_list %}
+  {% for fund in recent_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
@@ -113,10 +113,11 @@
   </div>
 
   <hr align="left" style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;"/>
-  <h2 style="display: inline;">인기 기부</h2> <a href="">&nbsp; 더보기</a>
+  <h2 style="display: inline;">인기 기부</h2> 
+  {% comment %} <a href="">&nbsp; 더보기</a> {% endcomment %}
   <br>
   <div class="row mt-3">
-  {% for fund in fund_list %}
+  {% for fund in popular_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
