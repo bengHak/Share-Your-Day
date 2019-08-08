@@ -50,25 +50,6 @@
     <div class="container grid3">
       <h2>주최한 기부</h2>
       <br />
-      {% comment %} <a href="{% url 'detail' 1%}" style="margin-right: 5px;">
-        <div class="card" style="width: 18rem; margin-right: 5px;">
-          <img
-            src="{% static 'img/SYD_test.png' %}"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </a>
-      <hr width="100%" />
-      <br />
-      <br /> {% endcomment %}
-
       {% for fund in fund_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
@@ -113,7 +94,7 @@
     <div class="container">
       <h2>참가한 기부</h2>
       <br />
-      <a href="{% url 'detail' 1 %}" style="margin-right: 5px;">
+      {% comment %} <a href="{% url 'detail' 1 %}" style="margin-right: 5px;">
         <div class="card" style="width: 18rem; margin-right: 5px;">
           <img
             src="{% static 'img/SYD_test.png' %}"
@@ -130,7 +111,45 @@
       </a>
       <hr width="100%" />
       <br />
-      <br />
+      <br /> {% endcomment %}
+      {% for fund in donation_list %}
+    <div class="col-md-4">
+      <a href="{% url 'detail' fund.fund_id %}">
+        <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
+          <img src="{{ fund.image_url.url }}" alt="" width="100%" height="225" style="border-radius: 15px; padding:5px;">
+          <div class="card-body">
+            <h4 class="card-title"> {{fund.title}}
+
+              <!-- 날짜에 따른 D-day 설정 표기 -->
+            {% if fund.d_day == 0 %}
+            <button type="button" class="btn btn-sm btn-light">D-DAY</button></h4>
+            {% elif fund.d_day < 0 %}
+            <button type="button" class="btn btn-sm btn-light">D{{fund.d_day}}</button></h4>
+            {% else %}
+            <button type="button" class="btn btn-sm btn-light">D+{{fund.d_day}}</button></h4>
+            {% endif %}
+            <h6>by {{fund.organizer.nickname}}</h6>
+            <div class="progress" style="height: 20px; width: 95%">
+              <div class="progress-bar bg-warning" role="progressbar" style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
+                aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
+                {% widthratio fund.current_fund fund.goal 100 %}%
+              </div>
+            </div>
+            <p class="card-text has_content" content="{{fund.content}}"></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                  onclick="location.href='{% url 'detail' fund.fund_id %}'">View</button>
+                {% comment %} <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                {% endcomment %}
+              </div>
+              <small class="text-muted">{{fund.hit}} Views &nbsp;&nbsp;&nbsp; {{fund.like}} Likes</small>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
     </div>
 
     <!-- 누적 기부 금액 들어가는 곳 -->
