@@ -1,6 +1,8 @@
 {% extends "base.html" %} 
 {% load static %}
 {% block contents %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 
 {% comment %} 슬라이드 메뉴 {% endcomment %}
 <div class="container">
@@ -10,11 +12,16 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
+  <div class="container">
+      <h2 class="align-middle text-center">오늘의 총 모금액!</h2>
+      <h1 class="num align-middle text-center" style="font-weight:900;">
+        1231241</h1>
+  </div>
     <!-- 1번째 slide -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a href="https://event.likelion.org/hackathon/projects/194">
-          <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="First slide" style="border-radius: 10px !important;">
+        <a href="https://event.likelion.org/hackathon/projects/194" width="100%">
+        <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="First slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -25,10 +32,14 @@
             </div>
         </a>
       </div>
+
+<script type="text/javascript">
+  $(".num").counterUp({delay:10, time:1000})
+</script>
       <!-- 2번째 slide -->
       <div class="carousel-item">
         <a href="">
-          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Second slide" style="border-radius: 10px !important;">
+          <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="Second slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -42,7 +53,7 @@
       <!-- 3번째 slide -->
       <div class="carousel-item">
         <a href="">
-          <img class="d-block w-100" src="https://picsum.photos/1000/300" width=1110px height=333px alt="Third slide" style="border-radius: 10px !important;">
+          <img class="d-block w-100" src="https://picsum.photos/1000/300" alt="Third slide" style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -50,6 +61,7 @@
             color: white;
             padding-left: 20px;
             padding-right: 20px;">
+            
             </div>
         </a>
       </div>
