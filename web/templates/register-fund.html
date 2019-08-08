@@ -19,7 +19,7 @@
         <h1>기부 등록하기</h1>
       </div>
       <div class="form-content">
-        <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data" onsubmit="postForm()">
           {% csrf_token %}
           <div style="float:left;"> 
             <div class="form-group required" style="width:110px;">
@@ -55,7 +55,7 @@
           <div style="float:right; width:600px;">
             <div class="form-group required" style="width:570px;">
               <label for="content">스토리</label>
-              <textarea name="content" id="editor">sdfsdf</textarea>
+              <textarea name="content" id="editor"></textarea>
               <!-- <textarea cols=100 rows=13 id="content" name="content" required="required"></textarea> -->
             </div>
           </div><div style="clear:both;"></div>
