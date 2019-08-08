@@ -210,7 +210,7 @@
             <li>
               <a href="#">{{ user.username }}</a>
             </li>
-            <li><a href="{% url 'mypage' %}" class="p-2">My Page</a></li>
+            <li><a href="{% url 'profile' user.id %}" class="p-2">My Page</a></li>
             <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
 
             <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
