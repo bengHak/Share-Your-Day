@@ -200,6 +200,10 @@
           width: 100%;
         }
       }
+      .a_button:hover {
+        color: #FF6F61;
+      }
+
     </style>
 
     <!-- Favicon 위치 -->
@@ -215,9 +219,9 @@
       <div class="band align-items-center mt-2">
         <div class="pt-1">
           <ul id="nav">
-            <li><a class="p-2" href="#">인기 기부</a></li>
-            <li><a class="p-2" href="#">최신 기부</a></li>
-            <li><a class="p-2" href="{% url 'faq' %}">FAQ</a></li>
+            <li><a class="p-2 a_button" href="#">인기 기부</a></li>
+            <li><a class="p-2 a_button" href="#">최신 기부</a></li>
+            <li><a class="p-2 a_button" href="{% url 'faq' %}">FAQ</a></li>
           </ul>
         </div>
         <div class="text-center syd">
@@ -241,19 +245,19 @@
             <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
             {% if user.is_authenticated %}
             
-            <li><a href="{% url 'profile' user.id %}" class="p-2" style="font-family:'NIXGONB-Vb';">{{ user.username }}</a></li>
-            <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
+            <li><a href="{% url 'profile' user.id %}" class="p-2 a_button" style="font-family:'NIXGONB-Vb';">{{ user.username }}</a></li>
+            <li><a href="{% url 'logout' %}" class="p-2 a_button">Logout</a></li>
 
             <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
             {% else %}
-            <li><a href="{% url 'login' %}" class="p-2">Login</a></li>
-            <li><a href="{% url 'signup' %}" class="p-2">Sign Up</a></li>
+            <li><a href="{% url 'login' %}" class="p-2 a_button">Login</a></li>
+            <li><a href="{% url 'signup' %}" class="p-2 a_button">Sign Up</a></li>
 
             <!-- {% comment %} 로그인 후 {% endcomment %}
           <a href="">My Page &nbsp</a>
           <a href="">Logout &nbsp</a> -->
             {% endif %}
-            <li><a href="{% url 'about' %}" class="p-2">About</a></li>
+            <li><a href="{% url 'about' %}" class="p-2 a_button">About</a></li>
           </ul>
         </div>
       </div>
@@ -307,21 +311,21 @@
           </div>
           <div class="row footer-link">
             <div class="col-md-9" style="padding-bottom: 15px;">
-              <a href="#!" style="font-size:12px;">인기 기부</a>&nbsp;&nbsp;
-              <a href="#!" style="font-size:12px;">최근 기부</a>&nbsp;&nbsp;
-              <a href="{% url 'faq' %}" style="font-size:12px;">FAQ</a
+              <a class="a_button" href="#!" style="font-size:12px;">인기 기부</a>&nbsp;&nbsp;
+              <a class="a_button" href="#!" style="font-size:12px;">최근 기부</a>&nbsp;&nbsp;
+              <a class="a_button" href="{% url 'faq' %}" style="font-size:12px;">FAQ</a
               >&nbsp;&nbsp;
-              <a href="{% url 'about' %}" style="font-size:12px;">About</a
+              <a class="a_button" href="{% url 'about' %}" style="font-size:12px;">About</a
               >&nbsp;&nbsp;
-              <a href="#!" style="font-size:12px;">약관</a>&nbsp;&nbsp;
-              <a href="#!" style="font-size:12px;">개인정보처리방침</a
+              <a class="a_button" href="#!" style="font-size:12px;">약관</a>&nbsp;&nbsp;
+              <a class="a_button" href="#!" style="font-size:12px;">개인정보처리방침</a
               >&nbsp;&nbsp;
             </div>
             <div
               class="col-md-3 text-right"
               style="text-align: center; padding-bottom: 15px;"
             >
-              Made by <a href="{% url 'about' %}"> 1등기부팀 </a>
+              Made by <a class="a_button" href="{% url 'about' %}"> 1등기부 플랫폼 </a>
             </div>
           </div>
         </div>
