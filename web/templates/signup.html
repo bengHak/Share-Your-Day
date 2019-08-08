@@ -7,6 +7,13 @@
   <!-- css파일 -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}" />
   <title>Sign Up</title>
+  <style>
+    .doublecheck:hover{
+      background-color: rgba(255, 110, 97, 0.26);
+      color: #FF6F61;
+      border-color: rgba(255, 110, 97, 0.26);
+    }
+  </style>
   <!-- js파일 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="{% static 'js/signup.js' %}"></script>
@@ -37,8 +44,8 @@
             <label for="email" style="width:100%;">E-mail(이메일)</label>
             <input type="text" id="email" name="email" required="required" style="width:244px; height:35px;"
               placeholder="XXX@XXX.com" />
-            <input type="button" id="checkemail" value="중복확인"
-              style="float:left; width:28%; border: 2px solid #FF6F61; background-color:white;">
+            <input type="button" id="checkemail" value="중복확인" class="doublecheck"
+              style="float:left; width:23%; border: 2px solid #FF6F61; background-color: #FF6F61; color:white; font-weight: bold; margin: auto; padding-left:10px; border-radius: 10px;" >
           </div>
           <div class="form-group required">
             <label for="password">Password(비밀번호)</label>
@@ -53,8 +60,8 @@
           <div class="form-group required">
             <label for="nickname" style="width:100%;">Nickname(닉네임)</label>
             <input type="text" id="nickname" name="nickname" required="required" style="width:244px; height:35px;">
-            <input type="button" id="checknickname" value="중복확인"
-              style="float:left; width:28%; border: 2px solid #FF6F61; background-color:white;">
+            <input type="button" id="checknickname" value="중복확인" class="doublecheck"
+            style="float:left; width:23%; border: 2px solid #FF6F61; background-color: #FF6F61; color:white; font-weight: bold; margin: auto; padding-left:10px; border-radius: 10px;">
           </div>
 
           <div class="form-group required">
@@ -75,7 +82,7 @@
 
           <br>
           <div class="form-group" style="font-size:1.3em;" style="width:244px; height:35px;">
-            <button type="submit" id="join-submit" id_check_result="fail">가입하기</button>
+            <button type="submit" id="join-submit" id_check_result="fail" style="background-color:#FF6F61; font-weight:bold;">가입하기</button>
           </div>
         </form>
         <br>
