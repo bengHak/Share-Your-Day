@@ -1,0 +1,16 @@
+.grid h2{
+    font-weight: bold;
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+
+.grid2{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+

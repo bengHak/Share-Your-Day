@@ -58,3 +58,8 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('index')
+
+
+def profile(request, profile_id):
+    profileInfo = get_object_or_404(Profile, pk=profile_id)
+    return render(request, 'profile.html',{'profileInfo':profileInfo})
