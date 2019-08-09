@@ -90,10 +90,10 @@ def profile(request, profile_id):
         Profile, user=get_object_or_404(User, pk=profile_id))
 
     # 주최기부
-    fund = Register.objects.all().filter(organizer=profileInfo)
+    funds = Register.objects.all().filter(organizer=profileInfo)
     fund_list = []
 
-    for fund in fund:
+    for fund in funds:
         end_at = fund.expireDate
         today = date.today()
         fund_detail = {
@@ -128,6 +128,7 @@ def profile(request, profile_id):
     do_user_list = []
     for i in range(1, Register.objects.count()+1):
         donation_list = []
+        # 기부 삭제하면 에러남
         fund2 = get_object_or_404(Register, pk=i)  # register title
         for donation in fund2.donation_set.all():
             donation_list.append(donation)
@@ -135,6 +136,7 @@ def profile(request, profile_id):
             if dona.user.user.id == profile_id:
                 total_fund += dona.amount
                 total_fund_count += 1
+                today = date.today()
                 fund_detail2 = {
                     'title': fund2.title,
                     'content': fund2.content,
