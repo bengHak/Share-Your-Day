@@ -55,14 +55,9 @@
         color: black;
         text-decoration: none;
       }
-
-      @font-face {
-        font-family: "NIXGONM-Vb";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff")
-          format("woff");
-        font-weight: normal;
-        font-style: normal;
-      }
+      @font-face { font-family: 'Godo'; font-style: normal; font-weight: 400; src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff'); } @font-face { font-family: 'Godo'; font-style: normal; font-weight: 700; src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoB.woff') format('woff'); } .godo * { font-family: 'Godo', sans-serif; }
+      
+     
 
       @font-face { 
         font-family: 'NIXGONB-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONB-Vb.woff') format('woff'); 
@@ -78,8 +73,9 @@
       h6,
       a,
       p,
-      span {
-        font-family: "NIXGONM-Vb";
+      span,
+      button {
+        font-family: 'Godo';
       }
 
       .page-footer {
@@ -267,7 +263,7 @@
         <ul id="nav3" style="width:100%;">
           <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
           {% if user.is_authenticated %}
-          <li><a href="{% url 'profile' user.id %}" class="p-2" style="font-family:'NIXGONB-Vb';">{{ user.username }}</a></li>
+          <li><a href="{% url 'profile' user.id %}" class="p-2" style="font-family:'Godo';">{{ user.username }}</a></li>
           <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
 
           <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
