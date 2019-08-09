@@ -50,6 +50,7 @@
     <div class="container grid3">
       <h2>주최한 기부</h2>
       <br />
+      <div class="row mt-3">
       {% for fund in fund_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
@@ -88,13 +89,15 @@
       </a>
     </div>
   {% endfor %}
+</div>
     </div>
 
     <!-- 참가 기부 목록 -->
     <div class="container">
       <h2>참가한 기부</h2>
       <br />
-      {% for fund in donation_list %}
+      <div class="row mt-3">
+      {% for fund in do_user_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
@@ -132,6 +135,7 @@
       </a>
     </div>
   {% endfor %}
+</div>
     </div>
 
     <!-- 누적 기부 금액 들어가는 곳 -->
