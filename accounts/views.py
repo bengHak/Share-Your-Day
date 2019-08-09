@@ -190,8 +190,6 @@ def check_nickname(request):
         profiles = Profile.objects.all()
         
         for profile in profiles:
-            print(profile.nickname)
-            print(request.POST.get('nickname'))
             if profile.nickname == request.POST.get('nickname'):
                 context = {'isExist': 1}
                 return HttpResponse(json.dumps(context), content_type='application/json')
@@ -206,8 +204,6 @@ def check_email(request):
         profiles = Profile.objects.all()
         
         for profile in profiles:
-            print(profile.email)
-            print(request.POST.get('email'))
             if profile.email == request.POST.get('email'):
                 context = {'isExist': 1}
                 return HttpResponse(json.dumps(context), content_type='application/json')
