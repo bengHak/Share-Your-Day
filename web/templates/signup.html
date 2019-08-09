@@ -20,6 +20,67 @@
 </head>
 
 <body>
+  <!--
+    <script>
+      $(function(){
+        console.log("dddddd")
+        /* username 수정했을 때 */
+        $('#email').change(function () {
+            $('#img-email').hide();
+        });
+        
+        $('#btn-email').click(function(){
+          var email = $('#email').val()
+          console.log(email)
+          $.ajax({
+            url:'/checkemail?email='+email,
+            type:'get',
+            dataType:'json',
+            success:function(response){
+                if(response.result != 'success'){
+                    console.error(response.data)
+                    return;
+                }
+                if(response.data == 'exist'){
+                    alert("존재하는 이메일입니다!");
+                    return;
+                }else{
+                  $('#img-email').show();
+                  $("#join-submit").attr("email_check_result", "success");
+                  return;
+                }
+                // console.log(response)
+            },
+            error : function(xhr, error){
+                alert("서버와의 통신에서 문제가 발생했습니다.");
+                console.error("error : " + error);
+            }
+        })
+        $("#email").on("propertychange change keyup paste input", function(){
+                    $('#img-email').hide();
+                    $('#btn-email').show();
+                    $("#join-submit").attr("email_check_result", "fail");
+                });
+                
+    });
+    </script>
+-->
+  {% if error_code == 1 %}
+    <script>
+      $(function(){
+        alert("이메일이 중복됩니다.")
+        return;
+      });
+      </script>
+    {% endif %}
+    {% if error_code == 2 %}
+    <script>
+      $(function(){
+        alert("비밀번호가 다릅니다. CONFIRM PASSWORD를 확인해 주세요.")
+        return;
+      });
+      </script>
+    {% endif %}
   <br>
   <br>
   <!-- form 시작-->
@@ -44,9 +105,12 @@
             <label for="email" style="width:100%;">E-mail(이메일)</label>
             <input type="text" id="email" name="email" required="required" style="width:244px; height:35px;"
               placeholder="XXX@XXX.com" />
-            <input type="button" id="checkemail" value="중복확인" class="doublecheck"
+              
+            <input type="button" id="btn-email" value="중복확인" class="doublecheck"
               style="float:left; width:23%; border: 2px solid #FF6F61; background-color: #FF6F61; color:white; font-weight: bold; margin: auto; padding-left:10px; border-radius: 10px;" >
-          </div>
+              
+              <p id="img-username" style="display:none;">사용할 수 있는 이메일입니다.</p>
+              </div>
           <div class="form-group required">
             <label for="password">Password(비밀번호)</label>
             <input type="password" id="password" name="password1" required="required"
@@ -82,7 +146,7 @@
 
           <br>
           <div class="form-group" style="font-size:1.3em;" style="width:244px; height:35px;">
-            <button type="submit" id="join-submit" id_check_result="fail" style="background-color:#FF6F61; font-weight:bold;">가입하기</button>
+            <button type="submit" id="join-submit" email_check_result="fail" style="background-color:#FF6F61; font-weight:bold;">가입하기</button>
           </div>
         </form>
         <br>
