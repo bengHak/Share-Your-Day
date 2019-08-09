@@ -70,7 +70,6 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -79,6 +78,7 @@ INSTALLED_APPS = [
     'fund',
     'web',
     # 'phonenumber_field'
+<<<<<<< HEAD
 
     # allauth
     'allauth',
@@ -90,6 +90,8 @@ INSTALLED_APPS = [
 
     # FaceBook
     'social_django',
+=======
+>>>>>>> ece4c94e3750cfe30eaf32774f7260a41a10f8b1
 ]
 
 MIDDLEWARE = [
@@ -183,6 +185,7 @@ MEDIA_URL = '/media/'
 
 # PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
+<<<<<<< HEAD
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of 'allauth'
     'django.contrib.auth.backends.ModelBackend',
@@ -198,6 +201,8 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+=======
+>>>>>>> ece4c94e3750cfe30eaf32774f7260a41a10f8b1
 
 # LOGGING = {
 #     'version': 1,

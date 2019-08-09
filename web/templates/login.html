@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contents %}
-{% load socialaccount %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -141,8 +141,8 @@
 <body>
   {% if error %}
   <script>
-    $(function(){
-      alert('비밀번호가 틀렸습니다.')
+    $(function(response){
+      alert('{{error}}')
       return;
     });
     </script>
@@ -184,6 +184,7 @@
         {% comment %} <a href="{% provider_login_url 'google' %}" style="float: right; margin-top: 10px; margin-bottom: 10px;"><div id="my-signin2"></div></a> {% endcomment %}
         <a href="{% url "social:begin" "google-oauth2" %}"><button class="btn btn-danger" style="width: 40%">G+ Login</button></a>
         <a href="{% url "social:begin" "facebook" %}"><button class="btn btn-primary" style="width: 40%">FB Login</button></a>
+
         <br>
         <br>
         <br>
@@ -193,7 +194,6 @@
     </div>
   </div>
 
-  <a href="{% provider_login_url 'google' %}"><div id="my-signin2"></div></a>
 
   <script src="{% static 'js/login.js' %}"></script>
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>

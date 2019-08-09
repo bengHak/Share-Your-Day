@@ -106,7 +106,7 @@
             <input type="text" id="email" name="email" required="required" style="width:244px; height:35px;"
               placeholder="XXX@XXX.com" />
               
-            <input type="button" id="btn-email" value="중복확인" class="doublecheck"
+            <input type="button" id="checkEmail" value="중복확인" class="doublecheck"
               style="float:left; width:23%; border: 2px solid #FF6F61; background-color: #FF6F61; color:white; font-weight: bold; margin: auto; padding-left:10px; border-radius: 10px;" >
               
               <p id="img-username" style="display:none;">사용할 수 있는 이메일입니다.</p>
@@ -157,6 +157,79 @@
   <!-- form end  -->
   <br>
   <br>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    // 좋아요 버튼 처리
+    // 버튼 클릭 > ajax통신 (like url로 전달) > views의 like 메소드에서 리턴하는 값 전달받기 > 성공시 콜백 호출
+    $("#checkEmail").click(function () {
+      var email = document.getElementById("email").value; // 클릭한 요소의 attribute 중 name의 값을 가져온다.
+      if(email == ''){
+        alert('이메일을 입력하세요.')
+        return;
+      }
+      $.ajax({
+        type: "POST", // 데이터를 전송하는 방법을 지정한다.
+        url: "{% url 'check_email' %}", // 통신할 url을 지정한다.
+        data: {
+          email: email,
+          csrfmiddlewaretoken: "{{ csrf_token }}"
+        }, // 서버로 데이터를 전송할 때 이 옵션을 사용한다.
+        dataType: "json", // 서버측에서 전송한 데이터를 어떤 형식의 데이터로서 해석할 것인가를 지정한다. 없으면 알아서 판단한다.
+        // 서버측에서 전송한 데이터 views.py like 메소드
+        // context = {'likes_count' : memo.total_likes, 'message' : message}
+        // json.dump(context)를 통해서 json 형식으로 전달된다.
+
+        success: function (response) {
+          // 성공했을 때 호출할 콜백을 지정한다.
+          //$("#count" + pk).html("count : " + response.likes_count);
+          if(response.isExist == 1){
+            alert("중복된 이메일 입니다.")
+          } else {
+            alert("사용해도 되는 이메일 입니다.")
+          }
+        },
+        error: function (request, status, error) {
+          //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    // 좋아요 버튼 처리
+    // 버튼 클릭 > ajax통신 (like url로 전달) > views의 like 메소드에서 리턴하는 값 전달받기 > 성공시 콜백 호출
+    $("#checknickname").click(function () {
+      var nickname = document.getElementById("nickname").value; // 클릭한 요소의 attribute 중 name의 값을 가져온다.
+      if(nickname == ''){
+        alert('닉네임을 입력하세요.')
+        return;
+      }
+      $.ajax({
+        type: "POST", // 데이터를 전송하는 방법을 지정한다.
+        url: "{% url 'check_nickname' %}", // 통신할 url을 지정한다.
+        data: {
+          nickname: nickname,
+          csrfmiddlewaretoken: "{{ csrf_token }}"
+        }, // 서버로 데이터를 전송할 때 이 옵션을 사용한다.
+        dataType: "json", // 서버측에서 전송한 데이터를 어떤 형식의 데이터로서 해석할 것인가를 지정한다. 없으면 알아서 판단한다.
+        // 서버측에서 전송한 데이터 views.py like 메소드
+        // context = {'likes_count' : memo.total_likes, 'message' : message}
+        // json.dump(context)를 통해서 json 형식으로 전달된다.
+
+        success: function (response) {
+          // 성공했을 때 호출할 콜백을 지정한다.
+          //$("#count" + pk).html("count : " + response.likes_count);
+          if(response.isExist == 1){
+            alert("중복된 닉네임 입니다.")
+          } else {
+            alert("사용해도 되는 닉네임 입니다.")
+          }
+        },
+        error: function (request, status, error) {
+          //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

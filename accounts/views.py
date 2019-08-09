@@ -5,7 +5,10 @@ from django.utils import timezone
 from .models import Profile
 from web.models import Register
 from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse
+from django.views.decorators.http import require_POST
 
+import json
 from datetime import date
 
 
@@ -44,8 +47,8 @@ def login(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        profile = get_object_or_404(Profile, email=email)
-
+        # profile = get_object_or_404(Profile, email=email)
+        profile = Profile.objects.filter(email=email).first()
         if profile is not None:
             user = auth.authenticate(
                 request, username=profile.user.username, password=password)
@@ -55,9 +58,8 @@ def login(request):
                 return redirect('index')
             else:
                 return render(request, 'login.html', {'error': 'username or password is incorrect.'})
-
         else:
-            return render(request, 'login.html')
+            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'login.html')
 
@@ -78,7 +80,6 @@ def checkemail(request):
         'data': "not exist" if email is None else "exist",
         # 'user_data' : username
     }
-    print(result)
     return JsonResponse(result)
 
 # user_id = profile_id
@@ -181,3 +182,35 @@ def editProfile(request, profile_id):
     edit.save()
 
     return redirect('index')
+
+@require_POST
+def check_nickname(request):
+    if request.method == 'POST':
+        # user = request.user # 로그인한 유저를 가져온다.
+        profiles = Profile.objects.all()
+        
+        for profile in profiles:
+            print(profile.nickname)
+            print(request.POST.get('nickname'))
+            if profile.nickname == request.POST.get('nickname'):
+                context = {'isExist': 1}
+                return HttpResponse(json.dumps(context), content_type='application/json')
+        
+        context = {'isExist': 0}
+        return HttpResponse(json.dumps(context), content_type='application/json')
+
+@require_POST
+def check_email(request):
+    if request.method == 'POST':
+        # user = request.user # 로그인한 유저를 가져온다.
+        profiles = Profile.objects.all()
+        
+        for profile in profiles:
+            print(profile.email)
+            print(request.POST.get('email'))
+            if profile.email == request.POST.get('email'):
+                context = {'isExist': 1}
+                return HttpResponse(json.dumps(context), content_type='application/json')
+        
+        context = {'isExist': 0}
+        return HttpResponse(json.dumps(context), content_type='application/json')
