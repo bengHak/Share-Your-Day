@@ -33,9 +33,9 @@ def signup(request):
             except Exception as error:
                 user.delete()
                 print(error)
-                return render(request, 'signup.html', {'error': error, 'error_code':1})
+                return render(request, 'signup.html', {'error': error, 'error_code': 1})
         else:
-            return render(request, 'signup.html', {'error': 'Passwords must match', 'error_code':2})
+            return render(request, 'signup.html', {'error': 'Passwords must match', 'error_code': 2})
     else:
         return render(request, 'signup.html')
 
@@ -66,21 +66,24 @@ def logout(request):
     auth.logout(request)
     return redirect('index')
 
+
 def checkemail(request):
     try:
         email = Profile.objects.get(email=request.GET['email'])
     except Exception as e:
         email = None
     result = {
-        'result':'success',
-        #'data' : model_to_dict(username)  # console에서 확인
-        'data' : "not exist" if email is None else "exist",
-        #'user_data' : username
+        'result': 'success',
+        # 'data' : model_to_dict(username)  # console에서 확인
+        'data': "not exist" if email is None else "exist",
+        # 'user_data' : username
     }
     print(result)
     return JsonResponse(result)
 
 # user_id = profile_id
+
+
 def profile(request, profile_id):
     profileInfo = get_object_or_404(
         Profile, user=get_object_or_404(User, pk=profile_id))
@@ -159,7 +162,7 @@ def profile(request, profile_id):
     elif len(do_user_list) == 0:
         return render(request, 'profile.html', {'profileInfo': profileInfo, 'fund_list': fund_list})
 
-    return render(request, 'profile.html', {'fund_list': fund_list, 'do_user_list': do_user_list, 'profileInfo': profileInfo, 'total_fund':total_fund, 'total_fund_count':total_fund_count})
+    return render(request, 'profile.html', {'fund_list': fund_list, 'do_user_list': do_user_list, 'profileInfo': profileInfo, 'total_fund': total_fund, 'total_fund_count': total_fund_count})
 
 
 def updateProfile(request, profile_id):
