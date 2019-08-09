@@ -136,7 +136,7 @@ def profile(request, profile_id):
             if dona.user.user.id == profile_id:
                 total_fund += dona.amount
                 total_fund_count += 1
-                end_at = fund.expireDate
+                end_at = fund2.expireDate
                 today = date.today()
                 fund_detail2 = {
                     'title': fund2.title,
