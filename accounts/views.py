@@ -70,6 +70,7 @@ def profile(request, profile_id):
     profileInfo = get_object_or_404(
         Profile, user=get_object_or_404(User, pk=profile_id))
 
+    # 주최기부
     fund = Register.objects.all().filter(organizer=profileInfo)
     fund_list = []
 
@@ -97,31 +98,48 @@ def profile(request, profile_id):
         }
         fund_list.append(fund_detail)
 
-    fund_do = Register.objects.all()
-    donation_list = []
+ # 참가기부
+ # fund1_list=[]
+ # for fund1 in range(1,Register.objects.count()+1):
+ #    fund1_list.append(fund1)
 
-    for fund in fund_do.donation.all().filter(user=profileInfo):
-        fund_detail = {
-            'title': fund.title,
-            'content': fund.content,
-            'current_date': fund.pub_date,
-            'current_fund': fund.currentAmount,
-            'organizer': fund.organizer,
-            # 'current_fund': 57,
-            'start_day': fund.pub_date,
-            'end_day': fund.expireDate,
-            'goal': fund.targetAmount,
-            'max_fund': fund.maxValue,
-            'min_fund': fund.minValue,
-            'image_url': fund.contentImage,
-            'fund_id': fund.id,
-            'hit': fund.update_counter,
-            'like': fund.like_count,
-            'd_day': (today - end_at).days,
-            'pub_date': fund.pub_date,
-        }
-        donation_list.append(fund_detail)
-    return render(request, 'profile.html', {'fund_list': fund_list, 'donation_list': donation_list, 'profileInfo': profileInfo})
+   do_user_list = []
+    for i in range(1, Register.objects.count()+1):
+        donation_list = []
+        fund2 = get_object_or_404(Register, pk=i)  # register title
+        for donation in fund2.donation_set.all():
+            donation_list.append(donation)
+        for dona in donation_list:
+            if dona.user.user.id == profile_id:
+                fund_detail2 = {
+                    'title': fund2.title,
+                    'content': fund2.content,
+                    'current_date': fund2.pub_date,
+                    'current_fund': fund2.currentAmount,
+                    'organizer': fund2.organizer,
+                    # 'current_fund': 57,
+                    'start_day': fund2.pub_date,
+                    'end_day': fund2.expireDate,
+                    'goal': fund2.targetAmount,
+                    'max_fund': fund2.maxValue,
+                    'min_fund': fund2.minValue,
+                    'image_url': fund2.contentImage,
+                    'fund_id': fund2.id,
+                    'hit': fund2.update_counter,
+                    'like': fund2.like_count,
+                    'd_day': (today - end_at).days,
+                    'pub_date': fund2.pub_date,
+                }
+                do_user_list.append(fund_detail2)
+
+    if len(fund_list) == 0 and len(do_user_list) == 0:
+        return render(request, 'profile.html', {'profileInfo': profileInfo})
+    elif len(fund_list) == 0:
+        return render(request, 'profile.html', {'profileInfo': profileInfo, 'do_user_list': do_user_list})
+    elif len(do_user_list) == 0:
+        return render(request, 'profile.html', {'profileInfo': profileInfo, 'fund_list': fund_list})
+
+    return render(request, 'profile.html', {'fund_list': fund_list, 'do_user_list': do_user_list, 'profileInfo': profileInfo})
 
 
 def updateProfile(request, profile_id):
