@@ -139,7 +139,12 @@
 </head>
 <body>
   {% if error %}
-  {{ error }}
+  <script>
+    $(function(){
+      alert('비밀번호가 틀렸습니다.')
+      return;
+    });
+    </script>
   {% endif %}
   <br>
   <br>
@@ -164,12 +169,12 @@
 
           <div class="form-group required">
             <div style="font-size:20px;">Password</div>
-            <input type="password" name="password" required="required" style="width:244px; height:35px;"/>
+            <input type="password" id="password" name="password" required="required" style="width:244px; height:35px;"/>
           </div>
 
           <br>
           <div class="form-group" style="font-size:1.3em;" style="width:244px; height:35px;">
-            <button type="submit" style="background-color:#FF6F61; font-weight:bold;">Login</button>
+            <button type="submit" id="btn-login" style="background-color:#FF6F61; font-weight:bold;">Login</button>
           </div>
         </form>
         <!-- form end  -->
