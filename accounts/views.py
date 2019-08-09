@@ -154,7 +154,7 @@ def editProfile(request, profile_id):
     # edit.user = request.POST['user']
     edit.nickname = request.POST['nickname']
     edit.phoneNumber = request.POST['phoneNumber']
-    # edit.profileImage = request.POST['profileImage']
+    edit.profileImage = request.FILES['profileImage']
     edit.save()
 
     return redirect('index')

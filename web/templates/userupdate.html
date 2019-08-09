@@ -67,13 +67,10 @@
 
             <div class="form-group required">
               <label for="profileImage">Profile Image(프로필 사진)</label>
-              <input
-                type="image"
-                name="profileImage"
-                value="{{ updateProfile.profileImage }}"
-                id="profileImage"
-                style="width:244px; height:35px;"
-              />
+              <img
+                id="main_image"
+                src="{{ updateProfile.profileImage.url }}" alt="My profileImage"
+                width="244px" height="244px"/>
               <input
                 type="file"
                 name="profileImage"
