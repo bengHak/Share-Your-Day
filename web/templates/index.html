@@ -184,10 +184,13 @@
   var content_list = document.getElementsByClassName('has_content')
   for (var i = 0; i < content_list.length; i++) {
     console.log(content_list[i])
-    if (content_list[i].getAttribute('content').length > 70)
-      content_list[i].innerHTML = content_list[i].getAttribute('content').substring(0, 70) + '…';
+    if (content_list[i].getAttribute('content').length > 90){
+      content_list[i].innerHTML = content_list[i].getAttribute('content').substring(0, 90) + '…';
+      content_list[i].innerHTML = content_list[i].innerHTML.replace(/<[^>]*>/g, '');
+      }
     else
       content_list[i].innerHTML = content_list[i].getAttribute('content');
+      content_list[i].innerHTML = content_list[i].innerHTML.replace(/<[^>]*>/g, '');
   }
 </script>
 
