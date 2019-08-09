@@ -70,7 +70,7 @@ def profile(request, profile_id):
     profileInfo = get_object_or_404(
         Profile, user=get_object_or_404(User, pk=profile_id))
 
-    #주최기부
+    # 주최기부
     fund = Register.objects.all().filter(organizer=profileInfo)
     fund_list = []
 
@@ -97,20 +97,20 @@ def profile(request, profile_id):
             'pub_date': fund.pub_date,
         }
         fund_list.append(fund_detail)
-    
-    #참가기부
-    #fund1_list=[]
-    #for fund1 in range(1,Register.objects.count()+1):
-    #    fund1_list.append(fund1)
 
-    do_user_list=[] 
-    for i in range(1,Register.objects.count()+1):
+ # 참가기부
+ # fund1_list=[]
+ # for fund1 in range(1,Register.objects.count()+1):
+ #    fund1_list.append(fund1)
+
+    do_user_list = []
+    for i in range(1, Register.objects.count()+1):
         donation_list = []
-        fund2 = get_object_or_404(Register, pk=i) #register title
+        fund2 = get_object_or_404(Register, pk=i)  # register title
         for donation in fund2.donation_set.all():
             donation_list.append(donation)
         for dona in donation_list:
-            if dona.user.user.id==profile_id:
+            if dona.user.user.id == profile_id:
                 fund_detail2 = {
                     'title': fund2.title,
                     'content': fund2.content,
