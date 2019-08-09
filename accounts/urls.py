@@ -14,4 +14,5 @@ urlpatterns = [
          views.updateProfile, name='updateProfile'),
     path('profile/edit/<int:profile_id>',
          views.editProfile, name='editProfile'),
+     path('checkemail', views.checkemail),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
