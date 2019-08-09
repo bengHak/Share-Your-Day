@@ -104,6 +104,9 @@ def profile(request, profile_id):
  # fund1_list=[]
  # for fund1 in range(1,Register.objects.count()+1):
  #    fund1_list.append(fund1)
+    # 프로필 주인의 총 기부금액과 기부 횟수
+    total_fund = 0
+    total_fund_count = 0
 
     do_user_list = []
     for i in range(1, Register.objects.count()+1):
@@ -113,6 +116,8 @@ def profile(request, profile_id):
             donation_list.append(donation)
         for dona in donation_list:
             if dona.user.user.id == profile_id:
+                total_fund += dona.amount
+                total_fund_count += 1
                 fund_detail2 = {
                     'title': fund2.title,
                     'content': fund2.content,
@@ -141,7 +146,7 @@ def profile(request, profile_id):
     elif len(do_user_list) == 0:
         return render(request, 'profile.html', {'profileInfo': profileInfo, 'fund_list': fund_list})
 
-    return render(request, 'profile.html', {'fund_list': fund_list, 'do_user_list': do_user_list, 'profileInfo': profileInfo})
+    return render(request, 'profile.html', {'fund_list': fund_list, 'do_user_list': do_user_list, 'profileInfo': profileInfo, 'total_fund':total_fund, 'total_fund_count':total_fund_count})
 
 
 def updateProfile(request, profile_id):
