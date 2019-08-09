@@ -78,8 +78,6 @@ INSTALLED_APPS = [
     'fund',
     'web',
     # 'phonenumber_field'
-<<<<<<< HEAD
-
     # allauth
     'allauth',
     'allauth.account',
@@ -90,8 +88,7 @@ INSTALLED_APPS = [
 
     # FaceBook
     'social_django',
-=======
->>>>>>> ece4c94e3750cfe30eaf32774f7260a41a10f8b1
+
 ]
 
 MIDDLEWARE = [
