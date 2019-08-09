@@ -78,7 +78,6 @@ def checkemail(request):
         'data': "not exist" if email is None else "exist",
         # 'user_data' : username
     }
-    print(result)
     return JsonResponse(result)
 
 # user_id = profile_id
