@@ -1,10 +1,10 @@
 *.sqlite3
 *.pyc
 *.log
-uwsgi_params
-fund.sock
-fund_nginx.conf
-fund_uwsgi.ini
+# uwsgi_params
+# fund.sock
+# fund_nginx.conf
+# fund_uwsgi.ini
 
 **/__pycache__/
 media
