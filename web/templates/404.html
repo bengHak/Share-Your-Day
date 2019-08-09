@@ -10,10 +10,15 @@
       rel="stylesheet"
       href="http://fonts.googleapis.com/css?family=Nunito:400,700"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <!-- <link type="text/css" rel="stylesheet" href="static/css/404.css" /> -->
 
     <style type="text/css">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       * {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -52,7 +57,7 @@
         display: inline-block;
         width: 170px;
         height: 170px;
-        background-image: url("static/img/SYD_404.png");
+        background-image: url("/static/img/SYD_404.png");
         background-size: cover;
       }
 
@@ -139,9 +144,12 @@
         <div class="notfound-404"></div>
         <h1>404</h1>
         <h2>앗! 지금이 투표할 순간!</h2>
-        <h3>
-          "1등 기부 플랫폼, Share Your Day에 투표하세요!"
-        </h3>
+        <br />
+        <h2>
+          "1등 기부 플랫폼,
+        </h2>
+        <h2>Share Your Day에 투표하세요!"</h2>
+        <br />
         {% comment %}
         <h3>"Share Your Day 투표하러 가기"</h3>
         {% endcomment %}
@@ -152,7 +160,7 @@
         </button>
         <br />
         <br />
-        <a href="{% url 'index' %}">Back to homepage</a>
+        <a href="{% url 'index' %}">&nbsp;Back to homepage</a>
       </div>
     </div>
   </body>
