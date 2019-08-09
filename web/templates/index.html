@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 {% block contents %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
@@ -12,34 +12,36 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-  <div class="container">
-      <h2 class="align-middle text-center">오늘의 총 모금액!</h2>
-      <h1 class="num align-middle text-center" style="font-weight:900;">
-        1231241</h1>
-  </div>
     <!-- 1번째 slide -->
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="https://event.likelion.org/hackathon/projects/194" width="100%">
-        <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="First slide" style="border-radius: 10px !important;">
+          <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="First slide"
+            style="border-radius: 10px !important;">
           <div style="position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(248, 131, 121, 0.7);
-            color: white;
-            padding-left: 20px;
-            padding-right: 20px;">
-            </div>
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);">
+            <p class="align-middle text-center" style="font-size: 3vw;">오늘의 총 모금액!</p>
+            <p class="num align-middle text-center" style="font-size: 5vw; font-weight:990; display:inline;">
+              1231241
+            </p>
+            <p class="align-middle" style="font-weight:700; font-size: 3vw; display:inline; margin-bottom:0;">원</p>
+          </div>
         </a>
       </div>
 
-<script type="text/javascript">
-  $(".num").counterUp({delay:10, time:1000})
-</script>
+      <script type="text/javascript">
+        $(".num").counterUp({
+          delay: 10,
+          time: 1000
+        })
+      </script>
       <!-- 2번째 slide -->
       <div class="carousel-item">
         <a href="">
-          <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="Second slide" style="border-radius: 10px !important;">
+          <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="Second slide"
+            style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -47,13 +49,14 @@
             color: white;
             padding-left: 20px;
             padding-right: 20px;">
-            </div>
+          </div>
         </a>
       </div>
       <!-- 3번째 slide -->
       <div class="carousel-item">
         <a href="">
-          <img class="d-block w-100" src="{% static 'img/CardThree.png' %}" alt="Third slide" style="border-radius: 10px !important;">
+          <img class="d-block w-100" src="{% static 'img/CardThree.png' %}" alt="Third slide"
+            style="border-radius: 10px !important;">
           <div style="position: absolute;
             bottom: 20px;
             right: 20px;
@@ -61,8 +64,8 @@
             color: white;
             padding-left: 20px;
             padding-right: 20px;">
-            
-            </div>
+
+          </div>
         </a>
       </div>
     </div>
@@ -80,21 +83,23 @@
 
 {% comment %} 기부 리스트 {% endcomment %}
 <div class="container">
-  <hr id="popular_funds" align="left" style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;"/>
-  <h2  style="display: inline;">인기 기부</h2> 
+  <hr id="popular_funds" align="left"
+    style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;" />
+  <h2 style="display: inline;">인기 기부</h2>
   {% comment %} <a href="">&nbsp; 더보기</a> {% endcomment %}
   <div class="row mt-3">
-  {% for fund in popular_list %}
+    {% for fund in popular_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
-          <img src="{{ fund.image_url.url }}" alt="" width="100%" height="225" style="border-radius: 15px; padding:5px;">
+          <img src="{{ fund.image_url.url }}" alt="" width="100%" height="225"
+            style="border-radius: 15px; padding:5px;">
           <div class="card-body">
             <h4 class="card-title"> {{fund.title}}
 
               <!-- 날짜에 따른 D-day 설정 표기 -->
-            {% if fund.d_day == 0 %}
-            <button type="button" class="btn btn-sm btn-light">D-DAY</button></h4>
+              {% if fund.d_day == 0 %}
+              <button type="button" class="btn btn-sm btn-light">D-DAY</button></h4>
             {% elif fund.d_day < 0 %}
             <button type="button" class="btn btn-sm btn-light">D{{fund.d_day}}</button></h4>
             {% else %}
@@ -102,7 +107,8 @@
             {% endif %}
             <h6>by {{fund.organizer.nickname}}</h6>
             <div class="progress mb-3" style="height: 20px; width: 95%">
-              <div class="progress-bar bg-warning" role="progressbar" style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
+              <div class="progress-bar bg-warning" role="progressbar"
+                style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
                 aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
                 {% widthratio fund.current_fund fund.goal 100 %}%
               </div>
@@ -121,24 +127,25 @@
         </div>
       </a>
     </div>
-  {% endfor %}
+    {% endfor %}
   </div>
 
-  <hr id="recent_funds" align="left" style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;"/>
-  <h2 style="display: inline;">종료 임박</h2> 
+  <hr id="recent_funds" align="left"
+    style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;" />
+  <h2 style="display: inline;">종료 임박</h2>
   {% comment %} <a href="">&nbsp; 더보기</a> {% endcomment %}
   <br>
   <div class="row mt-3">
-  {% for fund in recent_list %}
+    {% for fund in recent_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
         <div class="card mb-4 shadow-sm" style="border-radius: 15px;">
           <img src="{{fund.image_url.url}}" alt="" width="100%" height="225" style="border-radius: 15px; padding:5px;">
           <div class="card-body">
             <h4 class="card-title"> {{fund.title}}
-                          <!-- 날짜에 따른 D-day 설정 표기 -->
-            {% if fund.d_day == 0 %}
-            <button type="button" class="btn btn-sm btn-light">D-DAY</button></h4>
+              <!-- 날짜에 따른 D-day 설정 표기 -->
+              {% if fund.d_day == 0 %}
+              <button type="button" class="btn btn-sm btn-light">D-DAY</button></h4>
             {% elif fund.d_day < 0 %}
             <button type="button" class="btn btn-sm btn-light">D{{fund.d_day}}</button></h4>
             {% else %}
@@ -147,7 +154,8 @@
 
             <h6>by {{fund.organizer.nickname}}</h6>
             <div class="progress mb-3" style="height: 20px; width: 95%">
-              <div class="progress-bar bg-warning" role="progressbar" style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
+              <div class="progress-bar bg-warning" role="progressbar"
+                style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
                 aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
                 {% widthratio fund.current_fund fund.goal 100 %}%
               </div>
@@ -164,7 +172,7 @@
         </div>
       </a>
     </div>
-  {% endfor %}
+    {% endfor %}
 
   </div>
 </div>
@@ -174,15 +182,16 @@
   console.log(document.getElementsByClassName('has_content'))
 
   var content_list = document.getElementsByClassName('has_content')
-  for(var i=0; i<content_list.length; i++){
+  for (var i = 0; i < content_list.length; i++) {
     console.log(content_list[i])
-    if (content_list[i].getAttribute('content').length > 70)
-        content_list[i].innerHTML = content_list[i].getAttribute('content').substring(0, 70) + '…';
+    if (content_list[i].getAttribute('content').length > 90){
+      content_list[i].innerHTML = content_list[i].getAttribute('content').substring(0, 90) + '…';
+      content_list[i].innerHTML = content_list[i].innerHTML.replace(/<[^>]*>/g, '');
+      }
     else
       content_list[i].innerHTML = content_list[i].getAttribute('content');
+      content_list[i].innerHTML = content_list[i].innerHTML.replace(/<[^>]*>/g, '');
   }
-
-  
 </script>
 
 {% endblock contents %}

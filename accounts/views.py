@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.utils import timezone
 from .models import Profile
 from web.models import Register
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, JsonResponse
 
 from datetime import date
 
@@ -55,6 +55,7 @@ def login(request):
                 return redirect('index')
             else:
                 return render(request, 'login.html', {'error': 'username or password is incorrect.'})
+
         else:
             return render(request, 'login.html')
     else:

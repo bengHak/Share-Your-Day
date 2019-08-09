@@ -10,7 +10,7 @@ import json
 import copy
 
 from datetime import date
-from .models import Register
+from .models import Register, Donation
 from accounts.models import Profile
 
 
@@ -20,6 +20,12 @@ def about(request):
 
 def index(request):
     register_objects = Register.objects.all()
+    donation_objects = Donation.objects.all()
+
+    for donation in donation_objects:
+        pass
+
+
     fund_list = []
     for fund in register_objects:
         end_at = fund.expireDate  # date 객체1
@@ -55,7 +61,7 @@ def index(request):
     if len(fund_list) == 0:
         return render(request, 'index.html', {})
 
-    return render(request, 'index.html', {'popular_list': popular_list, 'recent_list': recent_list})
+    return render(request, 'index.html', {'popular_list': popular_list, 'recent_list': recent_list, 'today_total':1})
 # 'main_1':fund_list[0], 'main_2':fund_list[1], 'main_3':fund_list[2]
 
 
