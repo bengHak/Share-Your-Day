@@ -3,6 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 # from django.contrib.auth.models import User
 from accounts.models import Profile
+from pytz import timezone
 
 
 class Register(models.Model):
@@ -48,11 +49,17 @@ class Like(models.Model):
     class Meta:
         unique_together = (('user', 'register'))
 
+
 class Donation(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='do_user')
     amount = models.IntegerField(default=0)
     register = models.ForeignKey(Register, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         unique_together = (('user', 'register'))
+
+    @property
+    def created_at_korean_time(self):
+        korean_timezone = timezone(settings.TIME_ZONE)
+        return self.created_at.astimezone(korean_timezone)
