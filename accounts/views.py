@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.utils import timezone
 from .models import Profile
 from web.models import Register
+from django.http import HttpResponse
 
 from datetime import date
 
