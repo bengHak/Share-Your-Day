@@ -11,9 +11,45 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Env for dev / deploy
+
+
+def get_env(setting, envs):
+    try:
+        return envs[setting]
+    except KeyError:
+        error_msg = "You SHOULD set {} environ".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+
+DEV_ENVS = os.path.join(BASE_DIR, "envs_dev.json")
+DEPLOY_ENVS = os.path.join(BASE_DIR, "envs.json")
+
+if os.path.exists(DEV_ENVS):  # Develop Env
+    env_file = open(DEV_ENVS)
+elif os.path.exists(DEPLOY_ENVS):  # Deploy Env
+    env_file = open(DEPLOY_ENVS)
+else:
+    env_file = None
+
+if env_file is None:  # System environ
+    try:
+        FACEBOOK_KEY = os.environ['FACEBOOK_KEY']
+        FACEBOOK_SECRET = os.environ['FACEBOOK_SECRET']
+        GOOGLE_KEY = os.environ['GOOGLE_KEY']
+        GOOGLE_SECRET = os.environ['GOOGLE_SECRET']
+    except KeyError as error_msg:
+        raise ImproperlyConfigured(error_msg)
+else:  # JSON env
+    envs = json.loads(env_file.read())
+    FACEBOOK_KEY = get_env('FACEBOOK_KEY', envs)
+    FACEBOOK_SECRET = get_env('FACEBOOK_SECRET', envs)
+    GOOGLE_KEY = get_env('GOOGLE_KEY', envs)
+    GOOGLE_SECRET = get_env('GOOGLE_SECRET', envs)
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,6 +78,20 @@ INSTALLED_APPS = [
     'fund',
     'web',
     # 'phonenumber_field'
+<<<<<<< HEAD
+
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # provider 구글
+    'allauth.socialaccount.providers.google',
+
+    # FaceBook
+    'social_django',
+=======
+>>>>>>> ece4c94e3750cfe30eaf32774f7260a41a10f8b1
 ]
 
 MIDDLEWARE = [
@@ -135,6 +185,24 @@ MEDIA_URL = '/media/'
 
 # PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
+<<<<<<< HEAD
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of 'allauth'
+    'django.contrib.auth.backends.ModelBackend',
+
+    # 'allauth' specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+    'social_core.backends.google.GoogleOAuth2',  # Google
+    'social_core.backends.facebook.FacebookOAuth2',  # Facebook
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+=======
+>>>>>>> ece4c94e3750cfe30eaf32774f7260a41a10f8b1
 
 # LOGGING = {
 #     'version': 1,

@@ -181,6 +181,10 @@
         <!-- form end  -->
 
         <!-- 구글 로그인 버튼 -->
+        {% comment %} <a href="{% provider_login_url 'google' %}" style="float: right; margin-top: 10px; margin-bottom: 10px;"><div id="my-signin2"></div></a> {% endcomment %}
+        <a href="{% url "social:begin" "google-oauth2" %}"><button class="btn btn-danger" style="width: 40%">G+ Login</button></a>
+        <a href="{% url "social:begin" "facebook" %}"><button class="btn btn-primary" style="width: 40%">FB Login</button></a>
+
         <br>
         <br>
         <br>
