@@ -26,8 +26,7 @@ def index(request):
     for donation in donation_objects:
         if donation.created_at.date() == date.today():
             today_total_fund += donation.amount
-    
-    print(today_total_fund)
+
 
     fund_list = []
     for fund in register_objects:
@@ -98,7 +97,6 @@ def detail(request, fund_id):
         'like': fund.like_count,
         'donations': donation_list,
     }
-    print(fund_detail)
     return render(request, 'detail.html', {'fund_detail': fund_detail})
 
 
@@ -121,9 +119,6 @@ def pay(request):
         fund.currentAmount += int(request.POST.get('amount'))
         fund_pay.amount += int(request.POST.get('amount'))
 
-        print(profile)
-        print(fund)
-        print(fund.currentAmount)
         fund.save()
         fund_pay.save()
 
