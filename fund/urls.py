@@ -24,7 +24,7 @@ import web.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', web.views.index, name='index'),
-    path('', include('social_django.urls', namespace='social')),
     path('accounts/', include('accounts.urls')),
+    path('accounts/', include('allauth.urls')),  # allauth
     path('index/', include('web.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

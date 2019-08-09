@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contents %}
-
-
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,12 +139,7 @@
 </head>
 <body>
   {% if error %}
-  <script>
-    $(function(response){
-      alert('{{error}}')
-      return;
-    });
-    </script>
+  {{ error }}
   {% endif %}
   <br>
   <br>
@@ -170,21 +164,18 @@
 
           <div class="form-group required">
             <div style="font-size:20px;">Password</div>
-            <input type="password" id="password" name="password" required="required" style="width:244px; height:35px;"/>
+            <input type="password" name="password" required="required" style="width:244px; height:35px;"/>
           </div>
 
           <br>
           <div class="form-group" style="font-size:1.3em;" style="width:244px; height:35px;">
-            <button type="submit" id="btn-login" style="background-color:#FF6F61; font-weight:bold;">Login</button>
+            <button type="submit" style="background-color:#FF6F61; font-weight:bold;">Login</button>
           </div>
         </form>
         <!-- form end  -->
 
         <!-- 구글 로그인 버튼 -->
-        {% comment %} <a href="{% provider_login_url 'google' %}" style="float: right; margin-top: 10px; margin-bottom: 10px;"><div id="my-signin2"></div></a> {% endcomment %}
-        <a href="{% url "social:begin" "google-oauth2" %}"><button class="btn btn-danger" style="width: 40%">G+ Login</button></a>
-        <a href="{% url "social:begin" "facebook" %}"><button class="btn btn-primary" style="width: 40%">FB Login</button></a>
-
+        <a href="{% provider_login_url 'google' %}" style="float: right; margin-top: 10px; margin-bottom: 10px;"><div id="my-signin2"></div></a>
         <br>
         <br>
         <br>
@@ -194,6 +185,7 @@
     </div>
   </div>
 
+  <a href="{% provider_login_url 'google' %}"><div id="my-signin2"></div></a>
 
   <script src="{% static 'js/login.js' %}"></script>
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
