@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
     <title>Profile</title>
   </head>
-  <body class="container">
+  <body>
     <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-4 px-5 mb-3 text-center">
@@ -48,10 +48,11 @@
     <br />
     <br />
     <br />
-    <hr align="left"
-    style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;" />
     <!-- 주최 기부 목록 -->
     <div class="container grid3">
+
+    <hr align="left"
+    style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;" />
       <h2>주최한 기부</h2>
       <br />
       <div class="row mt-3">
@@ -75,7 +76,7 @@
             <div class="progress mb-3" style="height: 20px; width: 95%">
               <div class="progress-bar bg-warning" role="progressbar" style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
                 aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
-                {% widthratio fund.current_fund fund.goal 100 %}%
+                &nbsp;&nbsp;{% widthratio fund.current_fund fund.goal 100 %}%
               </div>
             </div>
             <p class="card-text has_content" style="line-height: 150%;" content="{{fund.content}}"></p>
@@ -96,10 +97,11 @@
 </div>
     </div>
 
-<hr align="left"
-    style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;" />
+
     <!-- 참가 기부 목록 -->
     <div class="container">
+        <hr align="left"
+        style="border:0; height:8px; background: #ff8d46; width:30%; border-radius: 6px;" />
       <h2>참가한 기부</h2>
       <br />
       <div class="row mt-3">
@@ -123,7 +125,7 @@
             <div class="progress mb-3" style="height: 20px; width: 95%">
               <div class="progress-bar bg-warning" role="progressbar" style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
                 aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
-                {% widthratio fund.current_fund fund.goal 100 %}%
+                &nbsp;&nbsp;{% widthratio fund.current_fund fund.goal 100 %}%
               </div>
             </div>
             <p class="card-text has_content" style="line-height: 150%;" content="{{fund.content}}"></p>
