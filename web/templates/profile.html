@@ -94,24 +94,6 @@
     <div class="container">
       <h2>참가한 기부</h2>
       <br />
-      {% comment %} <a href="{% url 'detail' 1 %}" style="margin-right: 5px;">
-        <div class="card" style="width: 18rem; margin-right: 5px;">
-          <img
-            src="{% static 'img/SYD_test.png' %}"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </a>
-      <hr width="100%" />
-      <br />
-      <br /> {% endcomment %}
       {% for fund in donation_list %}
     <div class="col-md-4">
       <a href="{% url 'detail' fund.fund_id %}">
