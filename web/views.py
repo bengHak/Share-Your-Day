@@ -21,12 +21,8 @@ def about(request):
 def index(request):
     register_objects = Register.objects.all()
     donation_objects = Donation.objects.all()
-    print(register_objects)
-    print(donation_objects)
     today_total_fund = 0
     for donation in donation_objects:
-        print(donation)
-        print(donation.created_at.date() , date.today())
         if donation.created_at.date() == date.today():
             today_total_fund += donation.amount
 
@@ -115,13 +111,9 @@ def pay(request):
     if request.method == 'POST':
         profile = get_object_or_404(Profile, user=request.user)
         fund_id = request.POST.get('pk', None)
-        print('id',fund_id)
         fund = get_object_or_404(Register, pk=fund_id)
         fund_pay, fund_pay_created = fund.donation_set.get_or_create(
             user=profile)
-        print('pay',fund_pay)
-        print('cre',fund_pay_created)
-        print('ddd',fund.donation_set.get_or_create(user=profile))
 
         fund.currentAmount += int(request.POST.get('amount'))
         fund_pay.amount += int(request.POST.get('amount'))
