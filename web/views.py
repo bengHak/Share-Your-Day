@@ -76,6 +76,7 @@ def detail(request, fund_id):
         'current_date': fund.pub_date,
         'current_fund': fund.currentAmount,
         'organizer': fund.organizer,
+        'organization': fund.organization,
         # 'current_fund': 57,
         'start_day': fund.pub_date,
         'end_day': fund.expireDate,

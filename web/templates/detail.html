@@ -10,20 +10,21 @@
   <div class="container">
     <div class="row">
       <div class="container col-md-8">
-        <img id="main_image" src="{{ fund_detail.image_url.url }}" alt="{{ title }}" width="100%"
+        <img id="main_image" src="{{ fund_detail.image_url.url }}" alt="{{ title }}" width="100%" height="100%"
           style="border-radius: 20px !important;" />
         <br />
       </div>
-      <div class="container col-md-4 align-self-center">
+      <div class="container col-md-4 align-self-center pl-0">
         <div class="media-body grid-box align-items-center">
           <div class="item1 mt-0 mb-2 text-center" style="font-weight:bold; font-size:3em;">{{ fund_detail.title }}</div>
           <div class="box">기부 주최자 </div>
-          <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}" style="font-family: 'NIXGONB-Vb';"> {{ fund_detail.organizer.nickname }}</a></div>
+          <div class="box-name"><a href="{% url 'profile' fund_detail.organizer.user.id %}" style=" font-size:1.3em; font-family: 'NIXGONB-Vb';"> {{ fund_detail.organizer.nickname }}</a></div>
+          <div class="box">기부할 기관</div> <div style="font-size:1.3em; font-family: 'NIXGONB-Vb';">{{ fund_detail.organization }} </div> 
           <div class="box">목표 금액</div> <div>{{ fund_detail.goal }}원 </div> 
           <div class="box">현재 모금액</div> <div>{{ fund_detail.current_fund }}원</div>
           <div class="box">조회수</div> <div>{{ fund_detail.hit }}</div>
           <div class="box">기부 진행 기간</div>
-          <div>{{ fund_detail.start_day }} ~ {{ fund_detail.end_day }}</div>
+          <div>{{ fund_detail.start_day }}~{{ fund_detail.end_day }}</div>
         </div>
           <div class="wrapper">
             <div class="wrap1 pr-1">
