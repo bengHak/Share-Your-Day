@@ -103,7 +103,7 @@ def profile(request, profile_id):
  # for fund1 in range(1,Register.objects.count()+1):
  #    fund1_list.append(fund1)
 
-   do_user_list = []
+    do_user_list = []
     for i in range(1, Register.objects.count()+1):
         donation_list = []
         fund2 = get_object_or_404(Register, pk=i)  # register title
