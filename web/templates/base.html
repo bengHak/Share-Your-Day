@@ -99,13 +99,16 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        font-size: 1.2em;
       }
       #nav1 {
         display: inline;
         list-style: none;
         padding: 0;
         margin: 0;
+        font-size: 1.2em;
       }
+
       .syd {
         font-size: 30px;
       }
@@ -119,10 +122,13 @@
       }
       #nav li {
         display: inline;
+        
       }
 
       #nav1 li {
         display: inline;
+        
+
       }
 
       #nav3 {
@@ -136,41 +142,43 @@
         display: grid;
         width: 100%;
         grid-template-columns: 1fr 1fr 1fr;
+        
+        /* background-color: rgba(255, 110, 97, 0.068); */
       }
       .band img {
         width: 90%;
       }
 
       .wrap {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-.registerFund {
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: white;
-  background-color: #ff6f61;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(219, 219, 219, 0.123);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  }
+      .registerFund {
+        width: 180px;
+        height: 45px;
+        font-size: 1.3em;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+        color: white;
+        background-color: #ff6f61;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgba(219, 219, 219, 0.123);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+        }
 
-.registerFund:hover {
-  background-color: #FF6F61;
-  box-shadow: 0px 10px 10px rgba(83, 83, 83, 0.233);
-  color: #fff;
-  transform: translateY(-7px);
-}
+      .registerFund:hover {
+        background-color: #FF6F61;
+        box-shadow: 0px 10px 10px rgba(83, 83, 83, 0.233);
+        color: #fff;
+        transform: translateY(-7px);
+      }
 
 
       @media screen and (max-width: 990px) {
@@ -225,9 +233,10 @@
   <body
     style="background: linear-gradient(#ffffff, rgba(248, 131, 121, 0.15), #ffffff) !important;"
   >
-    <header class="container blog-header py-3">
-      <div class="band align-items-center mt-2">
-        <div class="pt-1">
+  <div class="container mt-3" style="background-color:rgba(128, 128, 128, 0.048);">
+    <header class="container blog-header py-1 mb-3" style="border-bottom: 1px dotted rgba(128, 128, 128, 0.144);">
+      <div class="band align-items-center mt-2 mb-3">
+        <div class="pt-1 link1">
           <ul id="nav">
             <li><a class="p-2 a_button" href="{% url 'index'%}#recent_funds">종료 임박</a></li>
             <li><a class="p-2 a_button" href="{% url 'index'%}#popular_funds">인기 기부</a></li>
@@ -243,7 +252,7 @@
             <img src="{% static 'img/ShareYourDay_line.png' %}" />
           </a>
         </div>
-        <div class="pt-1 d-flex justify-content-end align-items-center">
+        <div class="pt-1 d-flex justify-content-end align-items-center link2">
           <label
             for="toggle"
             id="toggle-label"
@@ -255,7 +264,7 @@
             <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
             {% if user.is_authenticated %}
             
-            <li><a href="{% url 'profile' user.id %}" class="p-2 a_button" style="font-family:'NIXGONB-Vb';">{{ user.username }}</a></li>
+            <li><a href="{% url 'profile' user.id %}" class="p-2 a_button" style="font-family:'NIXGONB-Vb'; font-size: 1.1em;">{{ user.username }}</a></li>
             <li><a href="{% url 'logout' %}" class="p-2 a_button">Logout</a></li>
 
             <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
@@ -277,7 +286,7 @@
         <ul id="nav3" style="width:100%;">
           <!-- 로그인이 되어있을 시 My Page, Logout btn 표시 -->
           {% if user.is_authenticated %}
-          <li><a href="{% url 'profile' user.id %}" class="p-2" style="font-family:'Godo';">{{ user.username }}</a></li>
+          <li><a href="{% url 'profile' user.id %}" class="p-2" style="font-family:'Godo'; font-size: 1.1em;">{{ user.username }}</a></li>
           <li><a href="{% url 'logout' %}" class="p-2">Logout</a></li>
 
           <!-- 로그인이 되어있지 않을 시 Login, Sign Up btn 표시 -->
@@ -297,19 +306,19 @@
 
         </ul>
       </div>
-    </header>
+    
 
-    <div class="container nav-scroller mb-4">
+    <div class="container nav-scroller mb-2">
       <nav class="nav d-flex justify-content-center mt-1">
         {% comment %} {% if user.is_authenticated %} {% endcomment %}
       
         <div class="wrap">
-        <button type="button" class="registerFund fancy-button" onclick="location.href='{% url 'register' %}' ">기부 등록하기</button>
+        <button type="button" style="font-family: 'Godo'; font-weight: bold;" class="registerFund fancy-button" onclick="location.href='{% url 'register' %}' ">기부 등록하기</button>
         </div>
         {% comment %} {% endif %} {% endcomment %}
       </nav>
     </div>
-
+  </header>
     {% block contents %} {% endblock contents %}
     <div class="container">
       <footer class="page-footer font-small " style="padding-top:12px;">
@@ -344,6 +353,7 @@
         </div>
       </footer>
     </div>
+  </div>
   </body>
 </html>
 <!-- test -->
