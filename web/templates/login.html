@@ -139,7 +139,12 @@
 </head>
 <body>
   {% if error %}
-  {{ error }}
+  <script>
+    $(function(response){
+      alert('{{error}}')
+      return;	
+    });
+  </script>
   {% endif %}
   <br>
   <br>
