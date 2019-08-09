@@ -178,7 +178,7 @@ def create(request):
     register.minValue = request.POST['minValue']
     register.maxValue = request.POST['maxValue']
     register.targetAmount = request.POST['targetAmount']
-    register.content = request.POST['content']
+    register.content = request.POST['content'].encode("utf-8")
     register.contentImage = request.FILES['contentImage']
 
     register.save()

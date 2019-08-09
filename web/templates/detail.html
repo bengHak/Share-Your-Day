@@ -202,7 +202,7 @@ document.body.removeChild(dummy);
             buyer_tel: '010-1234-5678',
             buyer_addr: '서울특별시 강남구 삼성동',
             buyer_postcode: '123-456',
-            m_redirect_url: "$(location).attr('href')"
+            m_redirect_url: "http://http://share-your-day.ml"
         }, function (rsp) {
             if (rsp.success) {
                 var msg = '결제가 완료되었습니다.';
@@ -239,7 +239,7 @@ document.body.removeChild(dummy);
     }
     {% else %}
     function pay () {
-      window.open("http://127.0.0.1:8000/accounts/login/","_self")
+      window.open("http://http://share-your-day.ml/accounts/login/","_self")
     }
     {% endif %}
 
