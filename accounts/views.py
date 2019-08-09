@@ -96,7 +96,7 @@ def profile(request, profile_id):
             'pub_date': fund.pub_date,
         }
         fund_list.append(fund_detail)
-    
+
     fund_do = Register.objects.all()
     donation_list = []
 
