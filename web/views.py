@@ -74,9 +74,10 @@ def faq(request):
 def detail(request, fund_id):
     fund = get_object_or_404(Register, pk=fund_id)
     donation_list = []
-    for donation in fund.donation_set.all():
-        donation_list.append(donation)
-    donation_list.sort(key=lambda x: x.amount, reverse=True)
+    if fund.currentAmount != 0:
+        for donation in fund.donation_set.all():
+            donation_list.append(donation)
+        donation_list.sort(key=lambda x: x.amount, reverse=True)
 
     fund_detail = {
         'title': fund.title,
