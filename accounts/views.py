@@ -47,8 +47,8 @@ def login(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        profile = get_object_or_404(Profile, email=email)
-
+        # profile = get_object_or_404(Profile, email=email)
+        profile = Profile.objects.filter(email=email).first()
         if profile is not None:
             user = auth.authenticate(
                 request, username=profile.user.username, password=password)
@@ -58,9 +58,8 @@ def login(request):
                 return redirect('index')
             else:
                 return render(request, 'login.html', {'error': 'username or password is incorrect.'})
-
         else:
-            return render(request, 'login.html')
+            return render(request, 'login.html', {'error': 'username or password is incorrect.'})
     else:
         return render(request, 'login.html')
 
