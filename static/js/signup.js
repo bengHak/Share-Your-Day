@@ -5,6 +5,3 @@ function maxLengthCheck(object){
     }
 }
 
-// 생년월일을 오늘로 설정하기 위한 함수
-document.getElementById('birthday').value = new Date().toISOString().substring(0, 10);
-
