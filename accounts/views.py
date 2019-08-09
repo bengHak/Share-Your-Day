@@ -96,10 +96,11 @@ def profile(request, profile_id):
             'pub_date': fund.pub_date,
         }
         fund_list.append(fund_detail)
-
+    
+    fund_do = Register.objects.all()
     donation_list = []
 
-    for fund1 in fund.donation_set.all().filter(user=profileInfo):
+    for fund in fund_do.donation.all().filter(user=profileInfo):
         fund_detail = {
             'title': fund.title,
             'content': fund.content,
