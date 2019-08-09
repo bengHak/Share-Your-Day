@@ -37,7 +37,6 @@ def index(request):
             'title': fund.title,
             'content': fund.content,
             'current_fund': fund.currentAmount,
-            'fund_ratio': fund.currentAmount/fund.targetAmount * 100,
             'organizer': fund.organizer,
             'goal': fund.targetAmount,
             'max_fund': fund.maxValue,
@@ -52,7 +51,7 @@ def index(request):
         fund_list.append(fund_objects)
 
     fund_list.reverse()
-    fund_list.sort(key=lambda x: x['fund_ratio'], reverse=True)
+    fund_list.sort(key=lambda x: x['current_fund'], reverse=True)
     popular_list = fund_list[:]
     fund_list.sort(key=lambda x: x['d_day'], reverse=True)
     recent_list = fund_list[:]

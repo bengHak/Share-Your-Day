@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contents %}
+<style>@import url(//fonts.googleapis.com/earlyaccess/hanna.css); .hanna * { font-family: 'Hanna', fantasy; }</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-
 {% comment %} 슬라이드 메뉴 {% endcomment %}
 <div class="container">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -16,18 +16,19 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a href="https://event.likelion.org/hackathon/projects/194" width="100%">
-          <img class="d-block w-100" src="{% static 'img/CardOne.png' %}" alt="First slide"
-            style="border-radius: 10px !important;">
+          <img class="d-block w-100" src="{% static 'img/CardTwo.png' %}" alt="First slide"
+            style="border-radius: 10px !important; opacity:0.2;">
           <div style="position: absolute;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%);
-              text-align: center;">
-            <p class="align-middle text-center" style="font-size: 3vw;">오늘의 총 모금액!</p>
-            <p class="num align-middle text-center" style="font-size: 5vw; font-weight:990; display:inline;">
+              text-align: center;
+              ">
+            <p class="align-middle text-center" style="font-size: calc(24px + 1.5vw); color: #FA7268; font-family:'Hanna';">오늘의 총 모금액!</p>
+            <p class="num align-middle text-center" style="font-size: calc(27px + 3vw); font-weight:990; display:inline; color: #FA7268;  font-family:'Hanna';">
               {{today_total_fund}}
             </p>
-            <p class="align-middle" style="font-weight:700; font-size: 3vw; display:inline; margin-bottom:0;">원</p>
+            <p class="align-middle" style="font-weight:700; font-size: calc(27px + 1.5vw);; display:inline; margin-bottom:0; color: #FA7268; font-family:'Hanna'; ">원</p>
           </div>
         </a>
       </div>
@@ -111,7 +112,7 @@
               <div class="progress-bar bg-warning" role="progressbar"
                 style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
                 aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
-                {% widthratio fund.current_fund fund.goal 100 %}%
+                {{fund.current_fund}}원 ({% widthratio fund.current_fund fund.goal 100 %}%)
               </div>
             </div>
             <p class="card-text has_content" style="line-height: 100%;" content="{{fund.content}}"></p>
@@ -158,7 +159,7 @@
               <div class="progress-bar bg-warning" role="progressbar"
                 style="width: {% widthratio fund.current_fund fund.goal 100 %}%; color: black;"
                 aria-valuenow="{% widthratio current_fund goal 100 %}" aria-valuemin="0" aria-valuemax="100">
-                {% widthratio fund.current_fund fund.goal 100 %}%
+                {{fund.current_fund}}원 ({% widthratio fund.current_fund fund.goal 100 %}%)
               </div>
             </div>
             <p class="card-text has_content" style="line-height: 100%;" content="{{fund.content}}"></p>
