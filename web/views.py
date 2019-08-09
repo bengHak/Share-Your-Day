@@ -9,7 +9,7 @@ from django.http import HttpResponse
 import json
 import copy
 
-from datetime import date
+from datetime import datetime, date
 from .models import Register, Donation
 from accounts.models import Profile
 
@@ -21,9 +21,10 @@ def about(request):
 def index(request):
     register_objects = Register.objects.all()
     donation_objects = Donation.objects.all()
-
+    
     today_total_fund = 0
     for donation in donation_objects:
+        print(donation.created_at.date())
         if donation.created_at.date() == date.today():
             today_total_fund += donation.amount
 
