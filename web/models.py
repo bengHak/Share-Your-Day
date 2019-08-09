@@ -49,7 +49,7 @@ class Like(models.Model):
         unique_together = (('user', 'register'))
 
 class Donation(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='do_user')
     amount = models.IntegerField(default=0)
     register = models.ForeignKey(Register, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
